@@ -1,6 +1,22 @@
 <resources>
     <string name="app_name">CineRec</string>
 
+    <!--main activity-->
     <string name="Btn_login">Login</string>
     <string name="Btn_registro">Registro</string>
+
+    <!--registro activity-->
+
+    <string name="CrearCuenta">Crear una cuenta</string>
+    <string name="Nombre">Nombres</string>
+    <string name="Correo">Correo electrónico</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="ConfirmarContraseña">Confirmar contraseña</string>
+    <string name="RegistrarUsuario">Registrar</string>
+    <string name="Tengounacuenta">Tengo una cuenta</string>
+
+
+
+
+
 </resources>

@@ -7,54 +7,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="top"
     android:background="@drawable/fondologin7"
-
     tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/director"
+        android:layout_gravity="center"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="120dp"
         android:contentDescription="imagen para main activity"
-        android:layout_gravity="center" />
+        android:src="@drawable/directoricono" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:layout_margin="40dp"
         app:cardCornerRadius="30dp"
-        app:cardElevation="20dp">
+        app:cardElevation="40dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center_horizontal"
-        android:padding="44dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="30dp">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:id="@+id/btn_login"
-            android:text="Login"
-            android:textSize="18sp"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="@color/greyblue"
-            app:cornerRadius="20dp"/>
+                        <Button
+                            android:id="@+id/btn_login"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="30dp"
+                            android:backgroundTint="@color/greyblue"
+                            android:text="Login"
+                            android:textSize="18sp"
+                            app:cornerRadius="20dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:id="@+id/btn_registro"
-            android:text="Registro"
-            android:textSize="18sp"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="@color/greyblue"
-            app:cornerRadius="20dp"/>
+                        <Button
+                            android:id="@+id/btn_registro"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="30dp"
+                            android:backgroundTint="@color/greyblue"
+                            android:text="Registro"
+                            android:textSize="18sp"
+                            app:cornerRadius="20dp" />
 
-    </LinearLayout>
+                </LinearLayout>
 
 </androidx.cardview.widget.CardView>
 
