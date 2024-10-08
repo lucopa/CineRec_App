@@ -20,11 +20,8 @@ public class Registro extends AppCompatActivity {
 
         setContentView(R.layout.activity_registro);
 
-       ImageView gifRegistro = findViewById(R.id.gifRegistro);
 
-        Glide.with(this)
-                .load(R.drawable.unirse)
-                .into(gifRegistro);
+
 
     }
 }
