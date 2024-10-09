@@ -8,17 +8,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top"
-    android:background="@drawable/fondologin7"
+    android:background="@drawable/fondo9"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="120dp"
-        android:contentDescription="imagen para main activity"
-        android:src="@drawable/directoricono" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="270dp"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

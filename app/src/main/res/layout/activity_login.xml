@@ -8,8 +8,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/fondologin7"
+    android:background="@drawable/fondo9"
     tools:context=".MainActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -69,6 +73,7 @@
                 android:id="@+id/loginButton"
                 android:text="Login"
                 android:textSize="18sp"
+                android:textColor="@color/white"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/greyblue"
                 app:cornerRadius = "20dp"/>
@@ -81,10 +86,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="Not yet registered? SignUp Now"
+        android:text="No estas registrado aún? Registrate"
         android:textSize="14sp"
         android:textAlignment="center"
-        android:id="@+id/signupText"
+        android:id="@+id/textoRegistro"
         android:textColor="@color/greyblue"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"/>

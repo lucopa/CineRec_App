@@ -8,12 +8,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/fondologin7"
+    android:background="@drawable/fondo10"
     tools:context=".MainActivity">
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="80dp"/>
+        android:layout_height="170dp"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                 android:textColor="@color/greyblue"/>
 
             <EditText
-                android:id="@+id/Nombre"
+                android:id="@+id/nombre"
                 android:hint="@string/Nombre"
                 android:textColorHint="@color/greyblue"
                 android:inputType="textPersonName|textCapWords"
@@ -56,7 +56,7 @@
                 android:layout_marginTop="20dp"/>
 
             <EditText
-                android:id="@+id/Correo"
+                android:id="@+id/correo"
                 android:hint="@string/Correo"
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/greyblue"
@@ -80,7 +80,7 @@
 
 
                 <EditText
-                    android:id="@+id/Contraseña"
+                    android:id="@+id/contraseña"
                     android:hint="@string/Contraseña"
                     app:passwordToggleEnabled="true"
                     app:hintEnabled="false"
@@ -108,7 +108,7 @@
 
 
                 <EditText
-                    android:id="@+id/ConfirmarContraseña"
+                    android:id="@+id/confirmarContraseña"
                     android:hint="@string/ConfirmarContraseña"
                     app:passwordToggleEnabled="true"
                     app:hintEnabled="false"
@@ -127,15 +127,18 @@
 
 
             </com.google.android.material.textfield.TextInputLayout>
+
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/loginButton"
-                android:text="Login"
+                android:id="@+id/registroBoton"
+                android:text="Registro"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/greyblue"
-                app:cornerRadius = "20dp"/>
+                android:backgroundTint="@color/greyblue"/>
+
 
         </LinearLayout>
 
@@ -148,7 +151,7 @@
         android:padding="8dp"
         android:textSize="18sp"
         android:textAlignment="center"
-        android:id="@+id/TengoUnaCuenta"
+        android:id="@+id/tengoUnaCuenta"
         android:text="@string/Tengounacuenta"
         android:textColor="@color/greyblue"
         android:textStyle="bold"
