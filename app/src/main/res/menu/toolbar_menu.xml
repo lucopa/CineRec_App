@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Camara"
+        android:id="@+id/camara"
+        android:icon="@drawable/outline_camera_alt_24"
+        app:showAsAction="ifRoom"
+    />
+    <item
+        android:title="Perfil"
+        android:id="@+id/perfil"
+        android:icon="@drawable/baseline_person_24"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:title="Nuevo Grupo"
+        android:id="@+id/grupo"
+        />
+    <item
+        android:title="Informacion"
+        android:id="@+id/informacion"
+        />
+</menu>
