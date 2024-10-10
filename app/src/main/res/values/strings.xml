@@ -15,5 +15,8 @@
     <string name="RegistrarUsuario">Registrar</string>
     <string name="Tengounacuenta">Tengo una cuenta</string>
 
+    <!--menu activity-->
+    <string name="CerrarSesin">Salir</string>
+
 
 </resources>
