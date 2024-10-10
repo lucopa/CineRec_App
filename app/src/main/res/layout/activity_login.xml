@@ -43,29 +43,43 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/username"
+                android:id="@+id/correoLogin"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:background="@drawable/custom_text"
                 android:drawablePadding="8dp"
-                android:hint="Username"
+                android:hint="Correo electrónico"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="40dp"/>
 
-            <EditText
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/password"
-                android:background="@drawable/custom_text"
-                android:drawableLeft="@drawable/baseline_lock_24"
-                android:drawablePadding="8dp"
-                android:hint="Password"
-                android:padding="8dp"
-                android:inputType="textPassword"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="20dp"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/contraseñaLogin"
+                    android:hint="@string/Contraseña"
+                    app:passwordToggleEnabled="true"
+                    app:hintEnabled="false"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/greyblue"
+                    android:padding="12dp"
+                    android:drawablePadding="18dp"
+                    android:drawableStart="@drawable/baseline_lock_24"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_text"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
 
             <Button
                 android:layout_width="match_parent"
