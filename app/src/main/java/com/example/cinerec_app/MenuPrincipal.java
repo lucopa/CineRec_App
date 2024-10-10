@@ -49,7 +49,7 @@ public class MenuPrincipal extends AppCompatActivity {
     private void initListener() {
         btnBack.setOnClickListener(v -> finish());
 
-        menuGallery.setOnClickListener(v -> Snackbar.make(v, "Opening Gallery...", Snackbar.LENGTH_SHORT).show());
+        menuGallery.setOnClickListener(v -> Snackbar.make(v, "Abriendo el perfil...", Snackbar.LENGTH_SHORT).show());
 
         CerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
