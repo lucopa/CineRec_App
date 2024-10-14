@@ -16,12 +16,23 @@
     <string name="Tengounacuenta">Tengo una cuenta</string>
 
     <!--menu activity-->
-    <string name="CerrarSesin">Salir</string>
+
 
     <!--menu principal-->
     <string name="BienvenidoPrincipal">Bienvenido(a)</string>
     <string name="NombresPrincipal"> -- </string>
     <string name="CorreoPrincipal"> -- </string>
+
+
+    <string name="AgregarPeli"> Añadir </string>
+    <string name="Archivados">Archivados</string>
+    <string name="Perfil">Perfil</string>
+    <string name="AcercaDe">Acerca de</string>
+
+
+    <string name="ListarPeli">Mis películas</string>
+    <string name="CerrarSesin">Salir</string>
+
 
 
 

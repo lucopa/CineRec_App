@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/white"
+        android:background="#FAF3E0"
         app:titleTextColor="@color/white"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
@@ -30,11 +30,11 @@
             <ImageView
                 android:id="@+id/tv_title_toolbar"
                 android:layout_marginTop="8dp"
-                android:layout_height="350dp"
+                android:layout_height="360dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Logo"
-                android:src="@drawable/logosinfondo"
+                android:src="@drawable/logonuevo"
                 android:layout_width="20dp"/>
 
             <ImageView
