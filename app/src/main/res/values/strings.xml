@@ -18,5 +18,12 @@
     <!--menu activity-->
     <string name="CerrarSesin">Salir</string>
 
+    <!--menu principal-->
+    <string name="BienvenidoPrincipal">Bienvenido(a)</string>
+    <string name="NombresPrincipal"> -- </string>
+    <string name="CorreoPrincipal"> -- </string>
+
+
+
 
 </resources>

@@ -1,58 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@drawable/fondo9"
+    android:background="#FAF3E0"
     tools:context=".MainActivity">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="80dp"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/fondonuevo3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"
-        app:cardElevation="20dp">
+        app:cardBackgroundColor="#FAF3E0"
+        app:cardElevation="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center_horizontal"
             android:padding="24dp">
 
-
             <TextView
+                android:id="@+id/loginText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Login"
-                android:id="@+id/loginText"
-                android:textSize="36sp"
                 android:textAlignment="center"
-                android:textStyle="bold"
-                android:textColor="@color/greyblue"/>
+                android:textColor="#6D4C41"
+                android:textSize="36sp"
+                android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/correoLogin"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/correoLogin"
-                android:drawableLeft="@drawable/baseline_person_24"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/custom_text"
-                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/baseline_person_24"
+                android:drawablePadding="18dp"
                 android:hint="Correo electrónico"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
-
+                android:padding="12dp"
+                android:textColorHint="#6D4C41" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -63,49 +69,47 @@
 
                 <EditText
                     android:id="@+id/contraseñaLogin"
-                    android:hint="@string/Contraseña"
-                    app:passwordToggleEnabled="true"
-                    app:hintEnabled="false"
-                    android:inputType="textPassword"
-                    android:textColorHint="@color/greyblue"
-                    android:padding="12dp"
-                    android:drawablePadding="18dp"
-                    android:drawableStart="@drawable/baseline_lock_24"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/custom_text"
-                    android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
-
+                    android:drawableStart="@drawable/baseline_lock_24"
+                    android:drawablePadding="18dp"
+                    android:hint="@string/Contraseña"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:textColorHint="#6D4C41"
+                    app:hintEnabled="false"
+                    app:passwordToggleEnabled="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
-
             <Button
+                android:id="@+id/loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/loginButton"
-                android:text="Login"
-                android:textSize="18sp"
-                android:textColor="@color/white"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/greyblue"
-                app:cornerRadius = "20dp"/>
-
+                android:backgroundTint="#FF9800"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/textoRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:padding="8dp"
-        android:text="No estas registrado aún? Registrate"
-        android:textSize="14sp"
+        android:text="No estás registrado aún? Regístrate"
         android:textAlignment="center"
-        android:id="@+id/textoRegistro"
-        android:textColor="@color/greyblue"
+        android:textColor="#6D4C41"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.536" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

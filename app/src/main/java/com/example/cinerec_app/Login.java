@@ -49,6 +49,7 @@ public class Login extends AppCompatActivity {
         textoRegistro = findViewById(R.id.textoRegistro);
         firebaseAuth = FirebaseAuth.getInstance();
 
+
         progressDialog = new ProgressDialog(Login.this);
         progressDialog.setTitle("Espere por favor");
         progressDialog.setCanceledOnTouchOutside(false);
