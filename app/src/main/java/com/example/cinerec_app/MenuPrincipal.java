@@ -44,7 +44,7 @@ public class MenuPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_menu_principal);
 
         //ActionBar actionBar = getSupportActionBar();
-       // actionBar.setTitle("Cine Rec");
+        // actionBar.setTitle("Cine Rec");
         NombresPrincipal = findViewById(R.id.NombresPrincipal);
         CorreoPrincipal = findViewById(R.id.CorreoPrincipal);
         progressBar = findViewById(R.id.progressBar);
@@ -67,8 +67,8 @@ public class MenuPrincipal extends AppCompatActivity {
         super.onStart();
     }
 
-    private void ComprobarInicioSesion(){
-        if(user!=null){
+    private void ComprobarInicioSesion() {
+        if (user != null) {
             //El usuario ha iniciado sesión
             CargarDatos();
         } else {
@@ -78,12 +78,12 @@ public class MenuPrincipal extends AppCompatActivity {
         }
     }
 
-    private void CargarDatos(){
+    private void CargarDatos() {
         Usuarios.child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //Si el usuario existe
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     //El progress bar se oculta
                     progressBar.setVisibility(View.GONE);
                     //Los TextView se muestran
@@ -91,8 +91,8 @@ public class MenuPrincipal extends AppCompatActivity {
                     CorreoPrincipal.setVisibility(View.VISIBLE);
 
                     //Obtenemos los datos
-                    String nombre = ""+snapshot.child("nombre").getValue();
-                    String correo = ""+snapshot.child("correo").getValue();
+                    String nombre = "" + snapshot.child("nombre").getValue();
+                    String correo = "" + snapshot.child("correo").getValue();
 
                     //Seteamos los datos en los respectivos TextView
                     NombresPrincipal.setText(nombre);
@@ -111,7 +111,7 @@ public class MenuPrincipal extends AppCompatActivity {
         btnBack = findViewById(R.id.btn_back);
         tvTitleToolbar = findViewById(R.id.tv_title_toolbar);
         menuGallery = findViewById(R.id.menu_gallery_toolbar);
-        CerrarSesion = findViewById(R.id.CerrarSesion);
+        //CerrarSesion = findViewById(R.id.CerrarSesion);
     }
 
     private void initListener() {
@@ -119,7 +119,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
         menuGallery.setOnClickListener(v -> Snackbar.make(v, "Abriendo el perfil...", Snackbar.LENGTH_SHORT).show());
 
-        CerrarSesion.setOnClickListener(new View.OnClickListener() {
+       /* CerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SalirAplicacion();
@@ -132,5 +132,8 @@ public class MenuPrincipal extends AppCompatActivity {
         firebaseAuth.signOut();
         startActivity(new Intent(MenuPrincipal.this, MainActivity.class));
         Toast.makeText(this, "Cerraste sesión", Toast.LENGTH_SHORT).show();
+    }
+    */
+
     }
 }
