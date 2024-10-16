@@ -1,59 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="top"
-    android:background="@drawable/fondo9"
     tools:context=".MainActivity">
 
-
-
-    <View
+    <ImageView
+        android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
-        android:layout_height="270dp"/>
+        android:layout_height="match_parent"
+        android:src="@drawable/cinefondo"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/circularImageView"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/circular_image"
+        android:src="@drawable/logoabajo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:alpha="0.9"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_margin="40dp"
+        android:layout_margin="30dp"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="30dp"
-        app:cardElevation="40dp">
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toTopOf="@id/social_icons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circularImageView"
+        app:layout_constraintVertical_bias="0.549">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:orientation="vertical"
-                    android:padding="30dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/btn_login"
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:layout_marginTop="30dp"
-                            android:backgroundTint="@color/greyblue"
-                            android:text="Login"
-                            android:textSize="18sp"
-                            app:cornerRadius="20dp" />
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#FF9800"
+                android:elevation="5dp"
+                android:text="Login"
+                android:textColor="#403f3f"
+                android:textSize="20sp"
+                app:cornerRadius="20dp" />
 
-                        <Button
-                            android:id="@+id/btn_registro"
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:layout_marginTop="30dp"
-                            android:backgroundTint="@color/greyblue"
-                            android:text="Registro"
-                            android:textSize="18sp"
-                            app:cornerRadius="20dp" />
+            <View
+                android:layout_width="300dp"
+                android:layout_height="3dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="10dp"/>
 
-                </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+            <Button
+                android:id="@+id/btn_registro"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="#FF9800"
+                android:elevation="5dp"
+                android:text="Registro"
+                android:textColor="#403f3f"
+                android:textSize="20sp"
+                app:cornerRadius="20dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/social_icons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="142dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/icon_instagram"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:contentDescription="Instagram"
+            android:src="@drawable/instagram" />
+
+        <ImageView
+            android:id="@+id/icon_facebook"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:contentDescription="Facebook"
+            android:src="@drawable/facebook" />
+
+        <ImageView
+            android:id="@+id/icon_twitter"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:contentDescription="Twitter"
+            android:src="@drawable/twitter" />
 
     </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

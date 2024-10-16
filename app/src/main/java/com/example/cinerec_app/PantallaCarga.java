@@ -34,12 +34,12 @@ public class PantallaCarga extends AppCompatActivity {
             }
         }, TIEMPO);
 
-        ImageView imageView = findViewById(R.id.imageGif);
+       /* ImageView imageView = findViewById(R.id.imageGif);
 
         Glide.with(this)
                 .load(R.drawable.cine)
                 .into(imageView);
-
+        */
     }
 
     private void verificarUsuario(){
