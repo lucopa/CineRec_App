@@ -50,6 +50,7 @@
 
             <TextView
                 android:id="@+id/loginText"
+                android:fontFamily="@font/quicksand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Login"
@@ -60,6 +61,8 @@
 
             <EditText
                 android:id="@+id/correoLogin"
+                android:fontFamily="@font/quicksand"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
@@ -81,6 +84,8 @@
                     android:id="@+id/contraseñaLogin"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:fontFamily="@font/quicksand"
+                    android:textStyle="bold"
                     android:background="@drawable/custom_text"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:drawablePadding="18dp"
@@ -99,6 +104,8 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="#FF9800"
                 android:text="Login"
+                android:fontFamily="@font/quicksand"
+                android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
@@ -113,6 +120,7 @@
         android:padding="8dp"
         android:background="@color/white"
         android:alpha="0.9"
+        android:fontFamily="@font/quicksand"
         android:text="No estás registrado aún? Regístrate"
         android:textAlignment="center"
         android:textColor="#6D4C41"

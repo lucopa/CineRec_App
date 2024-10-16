@@ -35,6 +35,8 @@
 
             <TextView
                 android:text="@string/BienvenidoPrincipal"
+                android:textStyle="bold"
+                android:fontFamily="@font/quicksand"
                 android:textSize="20dp"
                 android:layout_marginBottom="30dp"
                 android:layout_width="wrap_content"
@@ -50,6 +52,8 @@
 
             <TextView
                 android:id="@+id/NombresPrincipal"
+                android:textStyle="bold"
+                android:fontFamily="@font/quicksand"
                 android:text="@string/NombresPrincipal"
                 android:visibility="gone"
                 android:textSize="20dp"
@@ -58,6 +62,8 @@
             <TextView
                 android:id="@+id/CorreoPrincipal"
                 android:text="@string/CorreoPrincipal"
+                android:textStyle="bold"
+                android:fontFamily="@font/quicksand"
                 android:textSize="20dp"
                 android:visibility="gone"
                 android:layout_width="wrap_content"
@@ -82,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_margin="10dp"
+
                 android:weightSum="2">
                 <!--OPCION 1-->
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -102,10 +109,12 @@
                     <TextView
                         android:id="@+id/AgregarPeli"
                         android:text="@string/AgregarPeli"
+                        android:fontFamily="@font/quicksand"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="45dp"
+                        android:layout_marginLeft="40dp"
                         android:textStyle="bold"
+
                         android:backgroundTint="#FF9800"
                         android:textColor="@color/black"
                         android:layout_width="match_parent"
@@ -135,6 +144,7 @@
                     <TextView
                         android:id="@+id/ListarPeli"
                         android:backgroundTint="#FF9800"
+                        android:fontFamily="@font/quicksand"
                         android:textColor="@color/black"
                         android:text="@string/ListarPeli"
                         android:layout_width="match_parent"
@@ -188,6 +198,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="35dp"
                         android:textStyle="bold"
+                        android:fontFamily="@font/quicksand"
                         android:text="@string/Archivados"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -219,6 +230,7 @@
                         android:backgroundTint="#FF9800"
                         android:textColor="@color/black"
                         android:text="@string/Perfil"
+                        android:fontFamily="@font/quicksand"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"

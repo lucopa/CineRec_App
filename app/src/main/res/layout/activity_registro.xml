@@ -46,6 +46,7 @@
 
             <TextView
                 android:id="@+id/loginText"
+                android:fontFamily="@font/quicksand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Registro"
@@ -56,7 +57,9 @@
 
             <EditText
                 android:id="@+id/nombre"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/quicksand"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_text"
@@ -70,7 +73,9 @@
 
             <EditText
                 android:id="@+id/correo"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/quicksand"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_text"
@@ -93,10 +98,12 @@
                     android:id="@+id/contraseña"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:textStyle="bold"
                     android:background="@drawable/custom_text"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:drawablePadding="18dp"
                     android:hint="@string/Contraseña"
+                    android:fontFamily="@font/quicksand"
                     android:inputType="textPassword"
                     android:padding="12dp"
                     android:textColor="@color/black"
@@ -114,12 +121,14 @@
                     android:id="@+id/confirmarContraseña"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:textStyle="bold"
                     android:background="@drawable/custom_text"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:drawablePadding="18dp"
                     android:hint="@string/ConfirmarContraseña"
                     android:inputType="textPassword"
                     android:padding="12dp"
+                    android:fontFamily="@font/quicksand"
                     android:textColor="@color/black"
                     android:textColorHint="@color/marron" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -131,6 +140,8 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="#FF9800"
                 android:text="Registro"
+                android:fontFamily="@font/quicksand"
+                android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -142,6 +153,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="@string/Tengounacuenta"
+        android:fontFamily="@font/quicksand"
         android:textAlignment="center"
         android:background="@color/white"
         android:alpha="0.9"
