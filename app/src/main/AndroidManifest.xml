@@ -15,6 +15,21 @@
         android:theme="@style/Theme.CineRec_App"
         tools:targetApi="31">
         <activity
+            android:name=".Perfil.Perfil_Usuario"
+            android:exported="false" />
+        <activity
+            android:name=".Archivadas.Pelis_Archivadas"
+            android:exported="false" />
+        <activity
+            android:name=".ListarPeli.Listar_Peli"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarPeli.Agregar_Peli"
+            android:exported="false" />
+        <activity
+            android:name=".MenuPrincipal2"
+            android:exported="false" />
+        <activity
             android:name=".MenuPrincipal"
             android:exported="false" />
         <activity

@@ -10,6 +10,8 @@
     tools:context=".MenuPrincipal">
 
 
+
+
     <androidx.appcompat.widget.LinearLayoutCompat
 
         android:layout_width="match_parent"
@@ -31,7 +33,10 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/iconos_background"
             android:gravity="center"
+            android:alpha="0.9"
             android:padding="10dp">
+
+
 
             <TextView
                 android:text="@string/BienvenidoPrincipal"
@@ -49,6 +54,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             </ProgressBar>
+
+            <TextView
+                android:id="@+id/UidPrincipal"
+                android:textStyle="bold"
+                android:fontFamily="@font/quicksand"
+                android:text="@string/UidPrincipal"
+                android:visibility="gone"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/NombresPrincipal"
@@ -80,7 +95,6 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -106,21 +120,20 @@
                         android:layout_height="78dp"
                         android:src="@drawable/agregar"/>
 
-                    <TextView
+                    <Button
                         android:id="@+id/AgregarPeli"
                         android:text="@string/AgregarPeli"
+                        android:enabled="false"
                         android:fontFamily="@font/quicksand"
+                        android:backgroundTint="#87afaf"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="40dp"
                         android:textStyle="bold"
-
-                        android:backgroundTint="#FF9800"
                         android:textColor="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         >
-                    </TextView>
+                    </Button>
 
 
 
@@ -141,19 +154,19 @@
                         android:layout_height="78dp"
                         android:src="@drawable/lista"/>
 
-                    <TextView
+                    <Button
                         android:id="@+id/ListarPeli"
-                        android:backgroundTint="#FF9800"
+                        android:backgroundTint="#87afaf"
                         android:fontFamily="@font/quicksand"
                         android:textColor="@color/black"
                         android:text="@string/ListarPeli"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="30dp"
                         android:textStyle="bold">
-                    </TextView>
+                    </Button>
 
 
 
@@ -165,7 +178,6 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -191,19 +203,19 @@
                         android:layout_marginTop="20dp"
                         android:src="@drawable/archivados"/>
 
-                    <TextView
+                    <Button
                         android:id="@+id/Archivados"
-                        android:backgroundTint="#FF9800"
                         android:textColor="@color/black"
                         android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="35dp"
+                        android:backgroundTint="#87afaf"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksand"
                         android:text="@string/Archivados"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp">
-                    </TextView>
+                    </Button>
 
 
 
@@ -225,9 +237,10 @@
                         android:layout_height="78dp"
                         android:src="@drawable/perfil"/>
 
-                    <TextView
+                    <Button
                         android:id="@+id/Perfil"
-                        android:backgroundTint="#FF9800"
+                        android:backgroundTint="#87afaf"
+                        android:enabled="false"
                         android:textColor="@color/black"
                         android:text="@string/Perfil"
                         android:fontFamily="@font/quicksand"
@@ -235,9 +248,92 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="50dp"
                         android:textStyle="bold">
-                    </TextView>
+                    </Button>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--3 y 4-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_margin="10dp"
+                android:weightSum="2">
+                <!--OPCION 5-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/iconos_background"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="78dp"
+                        android:layout_height="78dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/salir"/>
+
+                    <Button
+                        android:id="@+id/cerrar"
+                        android:backgroundTint="#87afaf"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="bold"
+                        android:enabled="false"
+                        android:fontFamily="@font/quicksand"
+                        android:text="@string/CerrarSesin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                    </Button>
+
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--OPCION 6-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/iconos_background"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="78dp"
+                        android:layout_height="78dp"
+                        android:src="@drawable/acerca_de"/>
+
+                    <Button
+                        android:id="@+id/acercaDe"
+                        android:backgroundTint="#87afaf"
+                        android:textColor="@color/black"
+                        android:text="@string/AcercaDe"
+                        android:fontFamily="@font/quicksand"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:enabled="false"
+                        android:textStyle="bold">
+                    </Button>
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -253,7 +349,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
-            android:background="#FAF3E0"
+            android:background="@color/white"
             app:itemIconSize="30dp"
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/bottom_menu" />

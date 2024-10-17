@@ -3,24 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/home"
-        android:title="Home"
-        android:icon="@drawable/baseline_menu_24"
-        />
-
-    <item
-        android:id="@+id/shorts"
-        android:title="Shorts"
-        android:icon="@drawable/outline_camera_alt_24"
-        />
-
-    <item
-        android:id="@+id/subscriptions"
-        android:title="Subscriptions"
-        android:icon="@drawable/baseline_arrow_back_24" />
-    <item
-        android:id="@+id/library"
+        android:id="@+id/info"
         android:title="Library"
-        android:icon="@drawable/baseline_person_24" />
+        android:icon="@drawable/outline_info_24" />
+
+
+    <item
+        android:id="@+id/cerrar"
+        android:title="Cerrar"
+        android:icon="@drawable/baseline_close_24" />
+
+    <item
+        android:id="@+id/perfil"
+        android:title="Perfil"
+        android:icon="@drawable/baseline_person_24_2" />
+
 
 </menu>
