@@ -9,8 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/white"
-        app:titleTextColor="@color/white"
+        android:background="@color/amarillo"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <LinearLayout
@@ -23,7 +22,7 @@
                 android:id="@+id/btn_back"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:src="@drawable/baseline_arrow_back_24"
+                android:src="@drawable/baseline_arrow_back_24_2"
                 android:contentDescription="Flecha para ir atrás"
                 />
 
@@ -41,7 +40,7 @@
                 android:id="@+id/menu_gallery_toolbar"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
-                android:src="@drawable/baseline_person_24_2"
+                android:src="@drawable/baseline_person_24"
                 android:padding="8dp"/>
 
 

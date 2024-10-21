@@ -1,180 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".AgregarPeli.Agregar_Peli">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <!-- Imagen de fondo -->
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="match_parent"
+        android:src="@drawable/fondopalomitas"
+        android:scaleType="centerCrop" />
 
-        <!-- Toolbar personalizada -->
-        <include layout="@layout/custom_toolbar2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Añadir película"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:fontFamily="@font/quicksand"
-            android:textColor="@color/rojo"
-            android:textStyle="bold"/>
+    <ScrollView
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/iconos_background2"
-            android:gravity="center"
-            app:cardElevation="0dp"
-            android:padding="10dp">
+            android:padding="0dp">
 
-            <TextView
-                android:id="@+id/Uid_Usuario"
-                android:hint="@string/Uid_Usuario"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                android:fontFamily="@font/quicksand"
-                android:layout_width="wrap_content"
+            <!-- Toolbar personalizada -->
+            <include layout="@layout/custom_toolbar2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/Correo_Usuario"
-                android:hint="@string/Correo_Usuario"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:textSize="18sp"
-                android:fontFamily="@font/quicksand"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/fecha_hora"
-                android:hint="@string/fecha_hora"
+                android:layout_height="wrap_content"
+                android:text="Añadir película"
+                android:layout_marginTop="90dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:textSize="18sp"
+                android:textSize="20dp"
                 android:fontFamily="@font/quicksand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:elevation="4dp"
-            app:cardBackgroundColor="#FFE0B2"
-            app:cardCornerRadius="30dp"
-            app:cardElevation="4dp">
+                android:textColor="@color/rojo"
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/iconos_background2"
+                android:layout_gravity="center"
 
-                <EditText
-                    android:id="@+id/Titulo"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/custom_text2"
-                    android:drawableStart="@drawable/baseline_title_24"
-                    android:drawablePadding="18dp"
-                    android:fontFamily="@font/quicksand"
-                    android:hint="@string/Titulo"
-                    android:padding="12dp"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/Descripcion"
-                    android:layout_marginTop="10dp"
-                    android:minHeight="150dp"
-                    android:background="@drawable/custom_text2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/Descripcion"
-                    android:fontFamily="@font/quicksand"
-                    android:drawableStart="@drawable/baseline_description_24"
-                    android:drawablePadding="18dp"
-                    android:padding="12dp"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                     />
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical">
-
-                    <!-- Abrir calendario -->
-                    <Button
-                        android:id="@+id/Btn_Calendario"
-                        android:text="@string/btn_calendario"
-                        android:fontFamily="@font/quicksand"
-                        android:backgroundTint="@color/amarillo"
-                        app:icon="@drawable/baseline_calendar_today_24"
-                        android:layout_width="150dp"
-                        android:layout_marginEnd="15dp"
-                        android:textColor="@color/black"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp" />
-
-                    <!-- Visualizar calendario -->
-                    <TextView
-                        android:id="@+id/Fecha"
-                        android:fontFamily="@font/quicksand"
-                        android:textStyle="bold"
-                        android:background="@drawable/custom_text2"
-                        android:textSize="20sp"
-                        android:layout_marginStart="15dp"
-                        android:layout_width="170dp"
-                        android:layout_height="50dp"
-                        android:gravity="center"
-                        android:hint="@string/Fecha" />
-
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                app:cardElevation="0dp"
+                android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/Estado"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:text="@string/Estado"
-                    android:layout_marginTop="30dp"
+                    android:id="@+id/Uid_Usuario"
+                    android:hint="@string/Uid_Usuario"
+                    android:textSize="18sp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/quicksand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/btn_añadir"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:layout_marginTop="80dp"
-            android:backgroundTint="@color/amarillo"
-            android:fontFamily="@font/quicksand"
-            app:icon="@drawable/baseline_save_as_24"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            android:text="Guardar Película"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
-</ScrollView>
+                <TextView
+                    android:id="@+id/Correo_Usuario"
+                    android:hint="@string/Correo_Usuario"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/quicksand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/fecha_hora"
+                    android:hint="@string/fecha_hora"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/quicksand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:elevation="4dp"
+                app:cardBackgroundColor="#FFE0B2"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="4dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <EditText
+                        android:id="@+id/Titulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/custom_text2"
+                        android:drawableStart="@drawable/baseline_title_24"
+                        android:drawablePadding="18dp"
+                        android:fontFamily="@font/quicksand"
+                        android:hint="@string/Titulo"
+                        android:padding="12dp"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/Descripcion"
+                        android:layout_marginTop="10dp"
+                        android:minHeight="150dp"
+                        android:background="@drawable/custom_text2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/Descripcion"
+                        android:fontFamily="@font/quicksand"
+                        android:drawableStart="@drawable/baseline_description_24"
+                        android:drawablePadding="18dp"
+                        android:padding="12dp"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Abrir calendario -->
+                        <Button
+                            android:id="@+id/Btn_Calendario"
+                            android:text="@string/btn_calendario"
+                            android:fontFamily="@font/quicksand"
+                            android:backgroundTint="@color/amarillo"
+                            app:icon="@drawable/baseline_calendar_today_24"
+                            android:layout_width="150dp"
+                            android:layout_marginEnd="15dp"
+                            android:textColor="@color/black"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp" />
+
+                        <!-- Visualizar calendario -->
+                        <TextView
+                            android:id="@+id/Fecha"
+                            android:fontFamily="@font/quicksand"
+                            android:textStyle="bold"
+                            android:background="@drawable/custom_text2"
+                            android:textSize="20sp"
+                            android:layout_marginStart="5dp"
+                            android:layout_width="170dp"
+                            android:layout_height="50dp"
+                            android:gravity="center"
+                            android:hint="@string/Fecha" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:id="@+id/Estado"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:text="@string/Estado"
+                        android:layout_marginTop="30dp"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_añadir"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/amarillo"
+                android:fontFamily="@font/quicksand"
+                app:icon="@drawable/baseline_save_as_24"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:text="Guardar Película"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+</FrameLayout>
