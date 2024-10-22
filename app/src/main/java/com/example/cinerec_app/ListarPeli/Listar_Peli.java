@@ -1,10 +1,14 @@
 package com.example.cinerec_app.ListarPeli;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -25,8 +29,12 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import com.example.cinerec_app.R;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Listar_Peli extends AppCompatActivity {
 
@@ -40,6 +48,8 @@ public class Listar_Peli extends AppCompatActivity {
     FirebaseRecyclerAdapter<Pelicula, ViewHolder_Peli> firebaseRecyclerAdapter;
     FirebaseRecyclerOptions<Pelicula> options;
 
+    Dialog dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +61,7 @@ public class Listar_Peli extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         BASE_DE_DATOS = firebaseDatabase.getReference("Peliculas_Publicadas");
+        dialog = new Dialog(Listar_Peli.this);
         ListarPelisUsuarios();
         initListener();
 
@@ -97,9 +108,41 @@ public class Listar_Peli extends AppCompatActivity {
 
                     @Override
                     public void onItemLongClick(View view, int position) {
-                        Toast.makeText(Listar_Peli.this, "on item long click", Toast.LENGTH_SHORT).show();
+
+                        String id_peli = getItem(position).getId_peli();
+
+                        //Declaramos las vistas
+                        Button cd_eliminar, cd_actualizar;
+
+                        //conexion con el diseño
+                        dialog.setContentView(R.layout.dialogo_opciones);
+
+                        //incializamos las vistas
+                        cd_eliminar = dialog.findViewById(R.id.cd_eliminar);
+                        cd_actualizar = dialog.findViewById(R.id.cd_actualizar);
+
+                        cd_eliminar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                EliminarPeli(id_peli);
+                                dialog.dismiss();
+
+                            }
+                        });
+
+                        cd_actualizar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(Listar_Peli.this, "Pelicula actualizada", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+
+                            }
+                        });
+                                dialog.show();
+                       // Toast.makeText(Listar_Peli.this, "on item long click", Toast.LENGTH_SHORT).show();
                     }
                 });
+
                 return viewHolder_peli;
             }
         };
@@ -110,6 +153,43 @@ public class Listar_Peli extends AppCompatActivity {
 
         recyclerviewPelis.setLayoutManager(linearLayoutManager);
         recyclerviewPelis.setAdapter(firebaseRecyclerAdapter);
+    }
+
+    private void EliminarPeli(String idPeli) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Peli.this);
+        builder.setTitle("Eliminar pelicula");
+        builder.setMessage("¿Deseas eliminar la pelicula?");
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //Eliminar nota en bd
+                Query query = BASE_DE_DATOS.orderByChild("id_peli").equalTo(idPeli);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()){
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(Listar_Peli.this, "Pelicula Eliminada", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(Listar_Peli.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(Listar_Peli.this, "Has cancelado la acción", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.create().show();
     }
 
     @Override
