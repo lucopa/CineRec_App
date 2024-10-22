@@ -11,13 +11,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/fondopalomitas"
+        android:src="@drawable/palomitasfondo"
         android:scaleType="centerCrop" />
 
-    <ScrollView
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -189,5 +185,5 @@
                 android:layout_gravity="center"
                 android:text="Guardar Película"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </ScrollView>
+
 </FrameLayout>
