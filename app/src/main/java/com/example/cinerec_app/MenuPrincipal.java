@@ -157,7 +157,7 @@ public class MenuPrincipal extends AppCompatActivity {
                     //El progress bar se oculta
                     progressBar.setVisibility(View.GONE);
                     //Los TextView se muestran
-                    UidPrincipal.setVisibility(View.VISIBLE);
+                    //UidPrincipal.setVisibility(View.VISIBLE);
                     NombresPrincipal.setVisibility(View.VISIBLE);
                     CorreoPrincipal.setVisibility(View.VISIBLE);
 

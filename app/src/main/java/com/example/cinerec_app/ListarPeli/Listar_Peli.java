@@ -85,8 +85,6 @@ public class Listar_Peli extends AppCompatActivity {
 
         btnBack.setOnClickListener(v -> finish());
 
-
-
     }
 
     private void ListarPelisUsuarios(){
@@ -158,7 +156,7 @@ public class Listar_Peli extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 //Toast.makeText(Listar_Peli.this, "Pelicula actualizada", Toast.LENGTH_SHORT).show();
-                              // startActivity(new Intent(Listar_Peli.this, Actualizar_Peli.class));
+                               //startActivity(new Intent(Listar_Peli.this, Actualizar_Peli.class));
                                 Intent intent = new Intent(Listar_Peli.this, Actualizar_Peli.class);
                                 intent.putExtra("id_peli", id_peli);
                                 intent.putExtra("uid_usuario", uid_usuario);

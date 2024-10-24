@@ -29,58 +29,80 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="vertical"
+                android:layout_height="150dp"
+                android:orientation="horizontal"
+                android:background="@drawable/iconos_background"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
+                android:alpha="0.9"
                 android:padding="10dp">
 
-                <TextView
-                    android:text="@string/BienvenidoPrincipal"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/quicksand"
-                    android:textSize="20sp"
-                    android:layout_marginTop="45dp"
-                    android:layout_marginBottom="30dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/cineperfil" />
 
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/UidPrincipal"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/quicksand"
-                    android:text="@string/UidPrincipal"
-                    android:visibility="gone"
-                    android:textSize="15sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="@string/BienvenidoPrincipal"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/quicksand"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-                <TextView
-                    android:id="@+id/NombresPrincipal"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/quicksand"
-                    android:text="@string/NombresPrincipal"
-                    android:visibility="gone"
-                    android:textSize="20sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content" />
 
-                <TextView
-                    android:id="@+id/CorreoPrincipal"
-                    android:text="@string/CorreoPrincipal"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/quicksand"
-                    android:textSize="20sp"
-                    android:visibility="gone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/UidPrincipal"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/quicksand"
+                        android:text="@string/UidPrincipal"
+
+                        android:visibility="gone"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:id="@+id/NombresPrincipal"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/quicksand"
+                        android:text="@string/NombresPrincipal"
+                        android:layout_marginLeft="22dp"
+                        android:visibility="gone"
+                        android:textSize="20sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:id="@+id/CorreoPrincipal"
+                        android:text="@string/CorreoPrincipal"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/quicksand"
+                        android:layout_marginLeft="22dp"
+                        android:textSize="20sp"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
 
             </LinearLayout>
 
@@ -95,9 +117,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:alpha="0.9"
-
-                    android:layout_margin="10dp"
-                    android:weightSum="2">
+                    android:layout_margin="10dp">
 
                     <!-- OPCIÓN 1 -->
                     <LinearLayout
@@ -172,8 +192,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_margin="10dp"
-                    android:alpha="0.9"
-                    android:weightSum="2">
+                    android:alpha="0.9">
 
                     <!-- OPCIÓN 3 -->
                     <LinearLayout
@@ -248,8 +267,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:alpha="0.9"
-                    android:layout_margin="10dp"
-                    android:weightSum="2">
+                    android:layout_margin="10dp">
 
                     <!-- OPCIÓN 5 -->
                     <LinearLayout
@@ -285,8 +303,8 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:background="@drawable/iconos_background"
+                        android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:orientation="vertical"
                         android:gravity="center">
@@ -312,17 +330,6 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
-         <!--   <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_nav"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="120dp"
-                android:background="@color/white"
-                app:itemIconSize="30dp"
-                app:labelVisibilityMode="unlabeled"
-                app:menu="@menu/bottom_menu" /> -->
-
         </LinearLayout>
     </FrameLayout>
 </ScrollView>
