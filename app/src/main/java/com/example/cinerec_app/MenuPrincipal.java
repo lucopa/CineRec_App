@@ -33,7 +33,7 @@ public class MenuPrincipal extends AppCompatActivity {
     ImageView btnBack;
     ImageView tvTitleToolbar;
     ImageView menuGallery;
-    BottomNavigationView bottom_nav;
+   // BottomNavigationView bottom_nav;
     FirebaseAuth firebaseAuth;
     Button AgregarPeli, ListarPeli, Archivados, Perfil, cerrar, acercaDe;
 
@@ -52,7 +52,7 @@ public class MenuPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_menu_principal);
 
         //ActionBar actionBar = getSupportActionBar();
-        // actionBar.setTitle("Cine Rec");
+        //actionBar.setTitle("Cine Rec");
         AgregarPeli = findViewById(R.id.AgregarPeli);
         ListarPeli = findViewById(R.id.ListarPeli);
         Archivados = findViewById(R.id.Archivados);
@@ -63,7 +63,7 @@ public class MenuPrincipal extends AppCompatActivity {
         NombresPrincipal = findViewById(R.id.NombresPrincipal);
         CorreoPrincipal = findViewById(R.id.CorreoPrincipal);
         progressBar = findViewById(R.id.progressBar);
-        bottom_nav = findViewById(R.id.bottom_nav);
+       // bottom_nav = findViewById(R.id.bottom_nav);
 
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
 
@@ -127,8 +127,6 @@ public class MenuPrincipal extends AppCompatActivity {
                 SalirAplicacion();
             }
         });
-
-
 
     }
 

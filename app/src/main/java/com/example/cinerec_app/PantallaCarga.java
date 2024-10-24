@@ -23,7 +23,7 @@ public class PantallaCarga extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-       final int TIEMPO = 5000;
+       final int TIEMPO = 7000;
 
         new Handler().postDelayed(new Runnable() {
             @Override

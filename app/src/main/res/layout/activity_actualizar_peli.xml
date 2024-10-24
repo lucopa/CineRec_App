@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActualizarPeli.Actualizar_Peli">
+
+    <!-- Imagen de fondo -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/palomitasfondo"
+        android:scaleType="centerCrop" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+        <!-- Toolbar personalizada -->
+        <include layout="@layout/custom_toolbar4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Actualizar película"
+            android:layout_marginTop="90dp"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:fontFamily="@font/quicksand"
+            android:textColor="@color/rojo"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="110dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/Id_peli_A"
+                android:visibility="gone"
+                android:hint="@string/Id_peli_A"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/quicksand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/Uid_Usuario_A"
+                android:visibility="gone"
+                android:hint="@string/Uid_Usuario_A"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/quicksand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/Correo_Usuario_A"
+                android:visibility="gone"
+                android:hint="@string/Correo_Usuario_A"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:fontFamily="@font/quicksand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/Fecha_registro_A"
+                android:visibility="gone"
+                android:hint="@string/Fecha_registro_A"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:fontFamily="@font/quicksand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_height="40dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/peli_vista"
+                    android:layout_marginRight="7dp"
+                    android:layout_width="15dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    android:background="#16A085"
+                    android:layout_height="15dp"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/peli_pendiente"
+                    android:layout_width="15dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/rojo"
+                    android:layout_marginRight="7dp"
+                    android:layout_height="15dp"/>
+
+                <TextView
+                    android:id="@+id/Estado_A"
+                    android:textSize="20sp"
+                    android:text="Pendiente"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/quicksand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:elevation="4dp"
+            app:cardBackgroundColor="#FFE0B2"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="4dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <EditText
+                    android:id="@+id/Titulo_A"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/custom_text2"
+                    android:drawableStart="@drawable/baseline_title_24"
+                    android:drawablePadding="18dp"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Titulo_A"
+                    android:padding="12dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/Descripcion_A"
+                    android:layout_marginTop="10dp"
+                    android:minHeight="150dp"
+                    android:background="@drawable/custom_text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/Descripcion_A"
+                    android:fontFamily="@font/quicksand"
+                    android:drawableStart="@drawable/baseline_description_24"
+                    android:drawablePadding="18dp"
+                    android:padding="12dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Abrir calendario -->
+                    <Button
+                        android:id="@+id/Btn_Calendario_A"
+                        android:text="@string/btn_calendario_A"
+                        android:fontFamily="@font/quicksand"
+                        android:backgroundTint="@color/amarillo"
+                        app:icon="@drawable/baseline_calendar_today_24"
+                        android:layout_width="150dp"
+                        android:layout_marginEnd="15dp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp" />
+
+                    <!-- Visualizar calendario -->
+                    <TextView
+                        android:id="@+id/Fecha_A"
+                        android:fontFamily="@font/quicksand"
+                        android:textStyle="bold"
+                        android:background="@drawable/custom_text2"
+                        android:textSize="20sp"
+                        android:layout_marginStart="5dp"
+                        android:layout_width="170dp"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:hint="@string/Fecha_A" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spinner_estado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/estado_nuevo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.cardview.widget.CardView>
+
+        <!--Button
+            android:id="@+id/btn_actualizar"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/amarillo"
+            android:fontFamily="@font/quicksand"
+            app:icon="@drawable/baseline_save_as_24"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:text="Actualizar Película"/> -->
+
+
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</FrameLayout>

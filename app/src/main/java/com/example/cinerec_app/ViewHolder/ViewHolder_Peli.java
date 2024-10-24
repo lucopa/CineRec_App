@@ -2,6 +2,7 @@ package com.example.cinerec_app.ViewHolder;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -50,6 +51,9 @@ public class ViewHolder_Peli extends RecyclerView.ViewHolder {
 
         TextView id_peli_item,Uid_Usuario_item,Correo_Usuario_item,fecha_hora_registro_item,Titulo_item,Descripcion_item,Fecha_item,Estado_item;
 
+        ImageView peli_vista_item, peli_pendiente_item;
+
+
         //Establecer la conexion con el item
         id_peli_item= mView.findViewById(R.id.id_peli_item);
         Uid_Usuario_item= mView.findViewById(R.id.Uid_Usuario_item);
@@ -59,6 +63,9 @@ public class ViewHolder_Peli extends RecyclerView.ViewHolder {
         Descripcion_item= mView.findViewById(R.id.Descripcion_item);
         Fecha_item= mView.findViewById(R.id.Fecha_item);
         Estado_item= mView.findViewById(R.id.Estado_item);
+        peli_vista_item= mView.findViewById(R.id.peli_vista_item);
+        peli_pendiente_item= mView.findViewById(R.id.peli_pendiente_item);
+
 
         //Setear la informacion dentrod el item
         id_peli_item.setText(id_peli);
@@ -69,6 +76,12 @@ public class ViewHolder_Peli extends RecyclerView.ViewHolder {
         Descripcion_item.setText(descripcion);
         Fecha_item.setText(fecha_peli);
         Estado_item.setText(estado);
+
+        if (estado.equals("Visto")){
+            peli_vista_item.setVisibility(View.VISIBLE);
+        } else {
+            peli_pendiente_item.setVisibility(View.VISIBLE);
+        }
 
 
     }

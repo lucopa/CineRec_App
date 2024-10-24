@@ -3,6 +3,7 @@ package com.example.cinerec_app.ListarPeli;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cinerec_app.ActualizarPeli.Actualizar_Peli;
 import com.example.cinerec_app.Objetos.Pelicula;
 import com.example.cinerec_app.ViewHolder.ViewHolder_Peli;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -110,6 +112,15 @@ public class Listar_Peli extends AppCompatActivity {
                     public void onItemLongClick(View view, int position) {
 
                         String id_peli = getItem(position).getId_peli();
+                        String uid_usuario = getItem(position).getUid_usuario();
+                        String correo_usuario = getItem(position).getCorreo_usuario();
+                        String fecha_registro = getItem(position).getFecha_hora_actual();
+                        String titulo = getItem(position).getTitulo();
+                        String descripcion = getItem(position).getDescripcion();
+                        String fecha_peli = getItem(position).getFecha_peli();
+                        String estado = getItem(position).getEstado();
+
+
 
                         //Declaramos las vistas
                         Button cd_eliminar, cd_actualizar;
@@ -133,7 +144,19 @@ public class Listar_Peli extends AppCompatActivity {
                         cd_actualizar.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(Listar_Peli.this, "Pelicula actualizada", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Listar_Peli.this, "Pelicula actualizada", Toast.LENGTH_SHORT).show();
+                              // startActivity(new Intent(Listar_Peli.this, Actualizar_Peli.class));
+                                Intent intent = new Intent(Listar_Peli.this, Actualizar_Peli.class);
+                                intent.putExtra("id_peli", id_peli);
+                                intent.putExtra("uid_usuario", uid_usuario);
+                                intent.putExtra("correo_usuario", correo_usuario);
+                                intent.putExtra("fecha_registro", fecha_registro);
+                                intent.putExtra("titulo", titulo);
+                                intent.putExtra("descripcion", descripcion);
+                                intent.putExtra("fecha_peli", fecha_peli);
+                                intent.putExtra("estado", estado);
+                                startActivity(intent);
+
                                 dialog.dismiss();
 
                             }

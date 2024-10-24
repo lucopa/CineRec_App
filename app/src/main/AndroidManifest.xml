@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CineRec_App"
         tools:targetApi="31">
         <activity
+            android:name=".ActualizarPeli.Actualizar_Peli"
+            android:exported="false" />
+        <activity
             android:name=".Perfil.Perfil_Usuario"
             android:exported="false" />
         <activity
