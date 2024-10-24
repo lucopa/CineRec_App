@@ -31,6 +31,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import com.example.cinerec_app.R;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,6 +54,9 @@ public class Listar_Peli extends AppCompatActivity {
 
     Dialog dialog;
 
+    FirebaseAuth auth;
+    FirebaseUser user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +66,16 @@ public class Listar_Peli extends AppCompatActivity {
         recyclerviewPelis = findViewById(R.id.recyclerviewPelis);
         recyclerviewPelis.setHasFixedSize(true);
 
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         BASE_DE_DATOS = firebaseDatabase.getReference("Peliculas_Publicadas");
         dialog = new Dialog(Listar_Peli.this);
         ListarPelisUsuarios();
         initListener();
+
+
 
 
     }
@@ -80,7 +90,10 @@ public class Listar_Peli extends AppCompatActivity {
     }
 
     private void ListarPelisUsuarios(){
-        options = new FirebaseRecyclerOptions.Builder<Pelicula>().setQuery(BASE_DE_DATOS, Pelicula.class).build();
+        //consulta
+        Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
+
+        options = new FirebaseRecyclerOptions.Builder<Pelicula>().setQuery(query, Pelicula.class).build();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Pelicula, ViewHolder_Peli>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder_Peli viewHolder_peli, int position, @NonNull Pelicula pelicula) {
