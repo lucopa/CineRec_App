@@ -33,7 +33,7 @@ public class MenuPrincipal extends AppCompatActivity {
     ImageView btnBack;
     ImageView tvTitleToolbar;
     ImageView menuGallery;
-   // BottomNavigationView bottom_nav;
+   //BottomNavigationView bottom_nav;
     FirebaseAuth firebaseAuth;
     Button AgregarPeli, ListarPeli, Archivados, Perfil, cerrar, acercaDe;
 

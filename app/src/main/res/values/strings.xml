@@ -33,13 +33,12 @@
 
     <string name="ListarPeli">Mis películas</string>
     <string name="CerrarSesin">Salir</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--agregar nota-->
     <string name="Uid_Usuario">Uid del Usuario</string>
     <string name="Correo_Usuario">Correo de usuario </string>
     <string name="fecha_hora"> Fecha y hora actual </string>
+    <string name="fecha_hora_txt"> Fecha de registro </string>
     <string name="Titulo"> Titulo </string>
     <string name="Descripcion"> Descripcion </string>
     <string name="btn_calendario"> Calendario </string>
@@ -79,6 +78,35 @@
         <item>"Pendiente"</item>
         <item>"Visto"</item>
     </string-array>
+
+    <!---DETALLE NOTA-->
+    <string name="Id_peli_detalle_txt">Id de la pelicula:</string>
+    <string name="Id_peli_detalle">Id pelicula</string>
+
+    <string name="Uid_usuario_detalle_txt">Uid de usuario:</string>
+    <string name="Uid_usuario_detalle">Uid Usuario</string>
+
+    <string name="Correo_usuario_detalle_txt">Correo de usuario:</string>
+    <string name="Correo_usuario_detalle">Correo usuario</string>
+
+    <string name="Titulo_Detalle_txt"> Titulo: </string>
+    <string name="Titulo_Detalle"> Titulo </string>
+
+    <string name="Descripcion_Detalle_txt"> Descripcion: </string>
+    <string name="Descripcion_Detalle"> Descripcion </string>
+
+    <string name="Fecha_registro_Detalle_txt"> Fecha de registro: </string>
+    <string name="Fecha_registro_Detalle"> Fecha registro </string>
+
+    <string name="Fecha_peli_Detalle_txt"> Fecha pelicula: </string>
+    <string name="Fecha_peli_Detalle"> Fecha pelicula </string>
+
+    <string name="Estado_Detalle_txt"> Estado de la nota: </string>
+    <string name="Estado_Detalle"> Estado </string>
+
+
+
+
 
 
 

@@ -5,8 +5,8 @@
         <item name="colorPrimaryVariant">@color/azulOscuro</item>
 
 
-     </style>
+    </style>
 
-     <style name="Theme.CineRec_App" parent="Base.Theme.CineRec_App" />
+    <style name="Theme.CineRec_App" parent="Base.Theme.CineRec_App" />
 
- </resources>
+</resources>

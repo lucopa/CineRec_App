@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cinerec_app.ActualizarPeli.Actualizar_Peli;
+import com.example.cinerec_app.Detalle.Detalle_Peli;
 import com.example.cinerec_app.Objetos.Pelicula;
 import com.example.cinerec_app.ViewHolder.ViewHolder_Peli;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -116,7 +117,30 @@ public class Listar_Peli extends AppCompatActivity {
                 viewHolder_peli.setOnClickListener(new ViewHolder_Peli.ClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(Listar_Peli.this, "On item click", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Listar_Peli.this, "On item click", Toast.LENGTH_SHORT).show();
+                        //startActivity(new Intent(Listar_Peli.this, Detalle_Peli.class));
+
+                        String id_peli = getItem(position).getId_peli();
+                        String uid_usuario = getItem(position).getUid_usuario();
+                        String correo_usuario = getItem(position).getCorreo_usuario();
+                        String fecha_registro = getItem(position).getFecha_hora_actual();
+                        String titulo = getItem(position).getTitulo();
+                        String descripcion = getItem(position).getDescripcion();
+                        String fecha_peli = getItem(position).getFecha_peli();
+                        String estado = getItem(position).getEstado();
+
+                        Intent intent = new Intent(Listar_Peli.this, Detalle_Peli.class);
+                        intent.putExtra("id_peli", id_peli);
+                        intent.putExtra("uid_usuario", uid_usuario);
+                        intent.putExtra("correo_usuario", correo_usuario);
+                        intent.putExtra("fecha_registro", fecha_registro);
+                        intent.putExtra("titulo", titulo);
+                        intent.putExtra("descripcion", descripcion);
+                        intent.putExtra("fecha_peli", fecha_peli);
+                        intent.putExtra("estado", estado);
+                        startActivity(intent);
+
+
                     }
 
                     @Override
@@ -130,7 +154,6 @@ public class Listar_Peli extends AppCompatActivity {
                         String descripcion = getItem(position).getDescripcion();
                         String fecha_peli = getItem(position).getFecha_peli();
                         String estado = getItem(position).getEstado();
-
 
 
                         //Declaramos las vistas
