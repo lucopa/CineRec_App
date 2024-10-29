@@ -19,10 +19,12 @@
 
 
     <!--menu principal-->
-    <string name="BienvenidoPrincipal">Bienvenido(a)</string>
+    <string name="BienvenidoPrincipal">Bienvenido/a, </string>
     <string name="NombresPrincipal"> -- </string>
     <string name="UidPrincipal"> -- </string>
     <string name="CorreoPrincipal"> -- </string>
+    <string name="EstadoCuentaPrincipal"> No verificado </string>
+
 
 
     <string name="AgregarPeli"> Añadir </string>

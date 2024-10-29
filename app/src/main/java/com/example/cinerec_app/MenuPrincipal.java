@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.example.cinerec_app.AgregarPeli.Agregar_Peli;
 import com.example.cinerec_app.Archivadas.Pelis_Archivadas;
@@ -36,6 +37,8 @@ public class MenuPrincipal extends AppCompatActivity {
    //BottomNavigationView bottom_nav;
     FirebaseAuth firebaseAuth;
     Button AgregarPeli, ListarPeli, Archivados, Perfil, cerrar, acercaDe;
+
+    LinearLayoutCompat Linear_Verificado,Linear_Nombre,Linear_Correo;
 
     TextView UidPrincipal, NombresPrincipal, CorreoPrincipal;
     ProgressBar progressBar;
@@ -63,6 +66,11 @@ public class MenuPrincipal extends AppCompatActivity {
         NombresPrincipal = findViewById(R.id.NombresPrincipal);
         CorreoPrincipal = findViewById(R.id.CorreoPrincipal);
         progressBar = findViewById(R.id.progressBar);
+        Linear_Verificado = findViewById(R.id.Linear_Verificado);
+        Linear_Nombre = findViewById(R.id.Linear_Nombre);
+        Linear_Correo = findViewById(R.id.Linear_Correo);
+
+
        // bottom_nav = findViewById(R.id.bottom_nav);
 
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
@@ -158,8 +166,9 @@ public class MenuPrincipal extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
                     //Los TextView se muestran
                     //UidPrincipal.setVisibility(View.VISIBLE);
-                    NombresPrincipal.setVisibility(View.VISIBLE);
-                    CorreoPrincipal.setVisibility(View.VISIBLE);
+                    Linear_Nombre.setVisibility(View.VISIBLE);
+                    Linear_Correo.setVisibility(View.VISIBLE);
+                    Linear_Verificado.setVisibility(View.VISIBLE);
 
                     //Obtenemos los datos
                     String uid = "" + snapshot.child("uid").getValue();
