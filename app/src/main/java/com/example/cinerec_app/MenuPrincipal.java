@@ -14,20 +14,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.example.cinerec_app.AgregarPeli.Agregar_Peli;
-import com.example.cinerec_app.Archivadas.Pelis_Archivadas;
+import com.example.cinerec_app.Favoritas.Pelis_Favoritas;
 import com.example.cinerec_app.ListarPeli.Listar_Peli;
 import com.example.cinerec_app.Perfil.Perfil_Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
-import com.example.cinerec_app.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -137,7 +134,7 @@ public class MenuPrincipal extends AppCompatActivity {
         Archivados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuPrincipal.this, Pelis_Archivadas.class));
+                startActivity(new Intent(MenuPrincipal.this, Pelis_Favoritas.class));
                 Toast.makeText(MenuPrincipal.this, "Peliculas archivadas", Toast.LENGTH_SHORT).show();
             }
         });

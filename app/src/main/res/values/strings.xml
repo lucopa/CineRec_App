@@ -28,7 +28,7 @@
 
 
     <string name="AgregarPeli"> Añadir </string>
-    <string name="Archivados">Archivados</string>
+    <string name="Archivados">Favoritas</string>
     <string name="Perfil">Perfil</string>
     <string name="AcercaDe">Acerca de</string>
 
@@ -110,6 +110,9 @@
 
     <string name="Estado_Detalle_txt"> Estado de la nota: </string>
     <string name="Estado_Detalle"> Estado </string>
+
+    <string name="Boton_Importante"> FAVORITA </string>
+
 
 
 

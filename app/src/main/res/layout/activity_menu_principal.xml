@@ -41,9 +41,9 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/cineperfil" />
+                    android:src="@drawable/perfilmenu" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="0dp"
@@ -198,7 +198,7 @@
                             android:layout_width="78dp"
                             android:layout_marginTop="20dp"
                             android:layout_height="78dp"
-                            android:src="@drawable/agregar" />
+                            android:src="@drawable/video" />
 
                         <Button
                             android:id="@+id/AgregarPeli"
@@ -228,7 +228,7 @@
                             android:layout_width="78dp"
                             android:layout_marginTop="20dp"
                             android:layout_height="78dp"
-                            android:src="@drawable/lista" />
+                            android:src="@drawable/carpeta" />
 
                         <Button
                             android:id="@+id/ListarPeli"
@@ -273,7 +273,7 @@
                             android:layout_width="78dp"
                             android:layout_height="78dp"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/archivados" />
+                            android:src="@drawable/favoritas" />
 
                         <Button
                             android:id="@+id/Archivados"
@@ -303,7 +303,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_width="78dp"
                             android:layout_height="78dp"
-                            android:src="@drawable/perfil" />
+                            android:src="@drawable/reanudar" />
 
                         <Button
                             android:id="@+id/Perfil"
@@ -348,7 +348,7 @@
                             android:layout_width="78dp"
                             android:layout_height="78dp"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/apagado" />
+                            android:src="@drawable/energia" />
 
                         <Button
                             android:id="@+id/cerrar"
@@ -378,7 +378,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_width="78dp"
                             android:layout_height="78dp"
-                            android:src="@drawable/informacion2" />
+                            android:src="@drawable/informacionn" />
 
                         <Button
                             android:id="@+id/acercaDe"

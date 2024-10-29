@@ -25,7 +25,7 @@
             android:name=".Perfil.Perfil_Usuario"
             android:exported="false" />
         <activity
-            android:name=".Archivadas.Pelis_Archivadas"
+            android:name=".Favoritas.Pelis_Favoritas"
             android:exported="false" />
         <activity
             android:name=".ListarPeli.Listar_Peli"

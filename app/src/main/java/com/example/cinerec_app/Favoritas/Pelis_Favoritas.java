@@ -1,16 +1,12 @@
-package com.example.cinerec_app.Archivadas;
+package com.example.cinerec_app.Favoritas;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.cinerec_app.R;
 
-public class Pelis_Archivadas extends AppCompatActivity {
+public class Pelis_Favoritas extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
