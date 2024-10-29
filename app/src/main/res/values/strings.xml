@@ -63,6 +63,11 @@
     <string name="Eliminar">Eliminar</string>
     <string name="Actualizar">Actualizar</string>
 
+    <!--cuadro de dialogo cuenta verificada-->
+    <string name="CuentaVerificadaTxt">Cuenta Verificada</string>
+    <string name="EntendidoVerificado">Entendido</string>
+
+
     <!--actualizar nota-->
     <string name="Id_peli_A">Id peli</string>
     <string name="Uid_Usuario_A">Uid del Usuario</string>

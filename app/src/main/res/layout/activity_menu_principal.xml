@@ -29,7 +29,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="160dp"
                 android:orientation="horizontal"
                 android:background="@drawable/iconos_background"
                 android:layout_marginLeft="10dp"
@@ -149,10 +149,11 @@
                             android:layout_gravity="center"
                             android:src="@drawable/baseline_verified_user_24"/>
 
-                        <TextView
+                        <Button
                             android:id="@+id/EstadoCuentaPrincipal"
                             android:text="@string/EstadoCuentaPrincipal"
                             android:textStyle="bold"
+                            android:backgroundTint="@color/marron"
                             android:fontFamily="@font/quicksand"
                             android:layout_marginLeft="10dp"
                             android:textSize="15sp"

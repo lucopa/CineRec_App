@@ -1,6 +1,10 @@
 package com.example.cinerec_app;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
@@ -18,6 +23,8 @@ import com.example.cinerec_app.AgregarPeli.Agregar_Peli;
 import com.example.cinerec_app.Archivadas.Pelis_Archivadas;
 import com.example.cinerec_app.ListarPeli.Listar_Peli;
 import com.example.cinerec_app.Perfil.Perfil_Usuario;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.example.cinerec_app.R;
@@ -36,15 +43,17 @@ public class MenuPrincipal extends AppCompatActivity {
     ImageView menuGallery;
    //BottomNavigationView bottom_nav;
     FirebaseAuth firebaseAuth;
-    Button AgregarPeli, ListarPeli, Archivados, Perfil, cerrar, acercaDe;
+    Button AgregarPeli, ListarPeli, Archivados, Perfil, cerrar, acercaDe,EstadoCuentaPrincipal;
 
     LinearLayoutCompat Linear_Verificado,Linear_Nombre,Linear_Correo;
 
     TextView UidPrincipal, NombresPrincipal, CorreoPrincipal;
     ProgressBar progressBar;
+    ProgressDialog progressDialog;
 
     DatabaseReference Usuarios;
 
+    Dialog dialog_cuenta_verificada;
 
     FirebaseUser user;
 
@@ -69,7 +78,14 @@ public class MenuPrincipal extends AppCompatActivity {
         Linear_Verificado = findViewById(R.id.Linear_Verificado);
         Linear_Nombre = findViewById(R.id.Linear_Nombre);
         Linear_Correo = findViewById(R.id.Linear_Correo);
+        EstadoCuentaPrincipal = findViewById(R.id.EstadoCuentaPrincipal);
 
+
+        dialog_cuenta_verificada = new Dialog(this);
+
+        progressDialog =  new ProgressDialog(this);
+        progressDialog.setTitle("Espera un momento...");
+        progressDialog.setCanceledOnTouchOutside(false);
 
        // bottom_nav = findViewById(R.id.bottom_nav);
 
@@ -81,6 +97,18 @@ public class MenuPrincipal extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+
+        EstadoCuentaPrincipal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (user.isEmailVerified()){
+                    Toast.makeText(MenuPrincipal.this, "Cuenta ya verificada", Toast.LENGTH_SHORT).show();
+                    AnimacionCuentaVerificada();
+                } else {
+                    VerificarCuentaCorreo();
+                }
+            }
+        });
 
         AgregarPeli.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +166,81 @@ public class MenuPrincipal extends AppCompatActivity {
 
     }
 
+    private void VerificarCuentaCorreo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Verificar Cuenta")
+                .setMessage("¿Confirmas que quieres que las instrucciones de verificación se envíen a tu correo electrónico?"
+                +user.getEmail())
+                .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        EnviarCorreoVerificacion();
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MenuPrincipal.this, "Anulado por el usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
+    }
+
+    private void EnviarCorreoVerificacion() {
+        progressDialog.setMessage("Enviando las instrucciones de verificacion a su correo electronico" +user.getEmail());
+        progressDialog.show();
+
+        user.sendEmailVerification()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        //Si el envio ha sido realizado
+                        progressDialog.dismiss();
+                        Toast.makeText(MenuPrincipal.this, "Intruscciones enviadas, revise su bandeja", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //Si el envio no ha sido realizado
+                        Toast.makeText(MenuPrincipal.this, "Fallo debido a: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void VerificarEstadoCuenta(){
+        String Verificado = "Verificado";
+        String No_Verificado = "No Verificado";
+
+        if (user.isEmailVerified()){
+            EstadoCuentaPrincipal.setText(Verificado);
+            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(34, 153, 84));
+        } else {
+            EstadoCuentaPrincipal.setText(No_Verificado);
+            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(231, 76, 60));
+
+        }
+
+    }
+
+    private void AnimacionCuentaVerificada(){
+        Button EntendidoVerificado;
+
+        dialog_cuenta_verificada.setContentView(R.layout.dialog_cuenta_verificada);
+
+        EntendidoVerificado = dialog_cuenta_verificada.findViewById(R.id.EntendidoVerificado);
+
+        EntendidoVerificado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog_cuenta_verificada.dismiss();
+            }
+        });
+        dialog_cuenta_verificada.show();
+        dialog_cuenta_verificada.setCanceledOnTouchOutside(false); //en el momento en el que se ejcute para que no se cierre la animacion si pincha fuera del cuadro
+    }
+
+
+
 
     @Override
     protected void onStart() {
@@ -157,6 +260,12 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     private void CargarDatos() {
+
+
+        VerificarEstadoCuenta();
+
+
+
         Usuarios.child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
