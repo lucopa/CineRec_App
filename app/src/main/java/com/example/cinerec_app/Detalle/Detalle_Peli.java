@@ -1,23 +1,27 @@
 package com.example.cinerec_app.Detalle;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.cinerec_app.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
-import java.util.Set;
 
 public class Detalle_Peli extends AppCompatActivity {
 
@@ -32,18 +36,35 @@ public class Detalle_Peli extends AppCompatActivity {
 
     ImageView btnBack;
 
+    boolean ComprobarPeliFavorita = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_peli);
-        InicalizarVistas();
+
+
+        InicializarVistas();
         RecuperarDatos();
         SetearDatosRecuperados();
         initListener();
+        VerificarPeliFavorita();
+
+        Boton_Importante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ComprobarPeliFavorita){
+                    EliminarPeliFavorita();
+                } else {
+                    AgregarPeliFavorita();
+                }
+            }
+        });
+
 
     }
 
-    private void InicalizarVistas(){
+    private void InicializarVistas(){
         Id_Peli_Detalle = findViewById(R.id.Id_Peli_Detalle);
         Uid_usuario_detalle = findViewById(R.id.Uid_usuario_detalle);
         Correo_usuario_detalle = findViewById(R.id.Correo_usuario_detalle);
@@ -90,7 +111,7 @@ public class Detalle_Peli extends AppCompatActivity {
 
     }
 
-    private void AgregarPelisFavoritas(){
+    private void AgregarPeliFavorita(){
         if (user == null){
             //Si el user es nulo
             Toast.makeText(this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
@@ -109,10 +130,100 @@ public class Detalle_Peli extends AppCompatActivity {
 
             String identificador_peli_favorita = uid_usuario_R+titulo_R;
 
+            //hashmap para enviar los datos a la base de datos de firebase (clave, valor)
             HashMap<String, String> Peli_Favorita = new HashMap<>();
             Peli_Favorita.put("id_peli", id_peli_R);
+            Peli_Favorita.put("uid_usuario", uid_usuario_R);
+            Peli_Favorita.put("correo_usuario", correo_usuario_R);
+            Peli_Favorita.put("fecha_hora_actual", fecha_registro_R);
+            Peli_Favorita.put("titulo", titulo_R);
+            Peli_Favorita.put("descripcion", descripcion_R);
+            Peli_Favorita.put("fecha_peli", fecha_R);
+            Peli_Favorita.put("estado", estado_R);
+
+            Peli_Favorita.put("id_peli_favorita", identificador_peli_favorita);
+
+            //referencia a la bbdd donde estan almacenados los usuarios
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
+            //hace que la peli favorita se cree dentro del usuario actual y se listan con su id
+            reference.child(firebaseAuth.getUid()).child("Mis peliculas favoritas").child(identificador_peli_favorita)
+                    .setValue(Peli_Favorita)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(Detalle_Peli.this, "Se ha añadido a peliculas favoritas", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Detalle_Peli.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
 
+    }
+
+    private void EliminarPeliFavorita(){
+        if (user == null){
+            Toast.makeText(Detalle_Peli.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
+        } else {
+            Bundle intent = getIntent().getExtras();
+            uid_usuario_R = intent.getString("uid_usuario");
+            titulo_R = intent.getString("titulo");
+
+            String identificador_peli_favorita = uid_usuario_R+titulo_R;
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
+            reference.child(firebaseAuth.getUid()).child("Mis peliculas favoritas").child(identificador_peli_favorita)
+                    .removeValue()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(Detalle_Peli.this, "La peli ya no es favorita", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Detalle_Peli.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+    }
+
+    private void VerificarPeliFavorita(){
+        if (user == null){
+            Toast.makeText(Detalle_Peli.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
+
+        } else {
+            Bundle intent = getIntent().getExtras();
+            uid_usuario_R = intent.getString("uid_usuario");
+            titulo_R = intent.getString("titulo");
+
+            String identificador_peli_favorita = uid_usuario_R+titulo_R;
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
+            reference.child(firebaseAuth.getUid()).child("Mis peliculas favoritas").child(identificador_peli_favorita)
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            ComprobarPeliFavorita = snapshot.exists();
+                            if (ComprobarPeliFavorita){
+                                String favorita = "Favorita";
+                                Boton_Importante.setCompoundDrawablesRelativeWithIntrinsicBounds(0, R.drawable.icono_favorita,0,0);
+                                Boton_Importante.setText(favorita);
+                            } else {
+                                String no_Favorita = "No Favorita";
+                                Boton_Importante.setCompoundDrawablesRelativeWithIntrinsicBounds(0, R.drawable.icono_no_favorita, 0, 0);
+                                Boton_Importante.setText(no_Favorita);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+        }
     }
 
     private void initListener() {

@@ -359,18 +359,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="#2196F3">
+            android:background="@color/rojo">
 
             <Button
                 android:id="@+id/Boton_Importante"
                 android:text="@string/Boton_Importante"
                 android:layout_width="match_parent"
                 android:textSize="20sp"
-                android:drawableTop="@drawable/baseline_favorite_border_24"
+                android:drawableTop="@drawable/icono_no_favorita"
                 android:fontFamily="@font/quicksand"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#2196F3"/>
+                android:background="@android:color/transparent"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
