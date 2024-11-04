@@ -43,7 +43,6 @@
     <Button
         android:id="@+id/cd_actualizar"
         app:icon="@drawable/baseline_update_24"
-
         android:text="@string/Actualizar"
         android:fontFamily="@font/quicksand"
         android:layout_marginTop="10dp"

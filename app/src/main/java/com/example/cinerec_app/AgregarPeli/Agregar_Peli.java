@@ -150,22 +150,27 @@ public class Agregar_Peli extends AppCompatActivity {
         String fecha = Fecha.getText().toString();
         String estado = Estado.getText().toString();
 
+        String id_pelicula = BD_Firebase.push().getKey();
+
         //Validar datos
         if (!uid_usuario.equals("") && !correo_usuario.equals("") && !fecha_hora_Actual.equals("") &&
         !titulo.equals("") && !descripcion.equals("") && !fecha.equals("") && !estado.equals("")){
 
-            Pelicula pelicula = new Pelicula(correo_usuario+"/"+fecha_hora_Actual,uid_usuario,
+            Pelicula pelicula = new Pelicula(id_pelicula,
+                    uid_usuario,
                     correo_usuario,
                     fecha_hora_Actual,
                     titulo,
                     descripcion,
                     fecha,
                     estado);
-            String pelicula_usuario = BD_Firebase.push().getKey();
+
+
+
             //Establecer el nombre de la BD
             String nombre_BD = "Peliculas_Publicadas";
 
-            BD_Firebase.child(nombre_BD).child(pelicula_usuario).setValue(pelicula);
+            BD_Firebase.child(nombre_BD).child(id_pelicula).setValue(pelicula);
             onBackPressed();
 
             Toast.makeText(this, "Pelicula añadida correctamente", Toast.LENGTH_SHORT).show();

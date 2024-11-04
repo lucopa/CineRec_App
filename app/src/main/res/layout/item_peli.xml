@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -21,112 +20,108 @@
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/logopeli"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/pelilista"/>
 
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
-        
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp">
+
+        <TextView
+            android:id="@+id/id_peli_item"
+            android:visibility="gone"
+            android:fontFamily="@font/quicksand"
+            android:text="@string/id_peli_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/Uid_Usuario_item"
+            android:visibility="gone"
+            android:fontFamily="@font/quicksand"
+            android:text="@string/Uid_Usuario_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/Correo_Usuario_item"
+            android:visibility="gone"
+            android:fontFamily="@font/quicksand"
+            android:text="@string/Correo_Usuario_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/fecha_hora_registro_item"
+            android:visibility="gone"
+            android:fontFamily="@font/quicksand"
+            android:text="@string/fecha_hora_registro_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/Titulo_item"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksand"
+            android:text="@string/Titulo_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/Descripcion_item"
+            android:textSize="14sp"
+            android:fontFamily="@font/quicksand"
+            android:text="@string/Descripcion_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/Fecha_item"
+            android:textSize="14sp"
+            android:fontFamily="@font/quicksand"
+            android:text="@string/Fecha_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="7dp">
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/id_peli_item"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_marginTop="5dp"
+                android:id="@+id/peli_vista_item"
+                android:layout_width="15dp"
                 android:visibility="gone"
-                android:fontFamily="@font/quicksand"
-                android:text="@string/id_peli_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:background="#16A085"
+                android:layout_gravity="center"
+                android:layout_height="15dp"/>
 
-            <TextView
-                android:id="@+id/Uid_Usuario_item"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_marginTop="5dp"
+                android:id="@+id/peli_pendiente_item"
+                android:layout_width="15dp"
+                android:layout_gravity="center"
                 android:visibility="gone"
+                android:background="@color/rojo"
+                android:layout_height="15dp"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/Estado_item"
+                android:layout_marginStart="15dp"
                 android:fontFamily="@font/quicksand"
-                android:text="@string/Uid_Usuario_item"
+                android:text="@string/Estado_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/Correo_Usuario_item"
-                android:visibility="gone"
-                android:fontFamily="@font/quicksand"
-                android:text="@string/Correo_Usuario_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/fecha_hora_registro_item"
-                android:visibility="gone"
-                android:fontFamily="@font/quicksand"
-                android:text="@string/fecha_hora_registro_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/Titulo_item"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksand"
-                android:text="@string/Titulo_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/Descripcion_item"
-                android:textSize="14sp"
-                android:fontFamily="@font/quicksand"
-                android:text="@string/Descripcion_item"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"/>
-            <TextView
-                android:id="@+id/Fecha_item"
-                android:textSize="14sp"
-                android:fontFamily="@font/quicksand"
-                android:text="@string/Fecha_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/peli_vista_item"
-                    android:layout_width="15dp"
-                    android:visibility="gone"
-                    android:background="#16A085"
-                    android:layout_gravity="center"
-                    android:layout_height="15dp"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/peli_pendiente_item"
-                    android:layout_width="15dp"
-                    android:layout_gravity="center"
-                    android:visibility="gone"
-                    android:background="@color/rojo"
-                    android:layout_height="15dp"/>
-
-                <TextView
-                    android:id="@+id/Estado_item"
-                   android:layout_marginStart="15dp"
-                    android:fontFamily="@font/quicksand"
-                    android:text="@string/Estado_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-
-</androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>

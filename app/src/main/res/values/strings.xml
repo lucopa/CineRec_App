@@ -58,6 +58,16 @@
     <string name="Fecha_item"> 00/00/0000 </string>
     <string name="Estado_item"> Pendiente </string>
 
+    <!--peli importante-->
+    <string name="id_peli_item_I">Id peli</string>
+    <string name="Uid_Usuario_item_I">Uid del Usuario</string>
+    <string name="Correo_Usuario_item_I">Correo de usuario </string>
+    <string name="fecha_hora_registro_item_I"> Fecha y hora registro </string>
+    <string name="Titulo_item_I"> Titulo </string>
+    <string name="Descripcion_item_I"> Descripcion </string>
+    <string name="Fecha_item_I"> 00/00/0000 </string>
+    <string name="Estado_item_I"> Pendiente </string>
+
     <!--cuadro de dialogo-->
     <string name="EligeOpcion">Elige una opción</string>
     <string name="Eliminar">Eliminar</string>
@@ -66,6 +76,12 @@
     <!--cuadro de dialogo cuenta verificada-->
     <string name="CuentaVerificadaTxt">Cuenta Verificada</string>
     <string name="EntendidoVerificado">Entendido</string>
+
+    <!--cuadro de dialogo - eliminar nota importante-->
+    <string name="EliminarPeliImportanteTxt">¿Estas seguro de eliminar la pelicula favorita de la lista?</string>
+    <string name="EliminarPeliImportante">Eliminar</string>
+    <string name="CancelarPeliImportante">Cancelar</string>
+
 
 
     <!--actualizar nota-->

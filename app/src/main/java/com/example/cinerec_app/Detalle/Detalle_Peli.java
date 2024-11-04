@@ -128,7 +128,7 @@ public class Detalle_Peli extends AppCompatActivity {
             fecha_R = intent.getString("fecha_peli");
             estado_R = intent.getString("estado");
 
-            String identificador_peli_favorita = uid_usuario_R+titulo_R;
+
 
             //hashmap para enviar los datos a la base de datos de firebase (clave, valor)
             HashMap<String, String> Peli_Favorita = new HashMap<>();
@@ -141,12 +141,12 @@ public class Detalle_Peli extends AppCompatActivity {
             Peli_Favorita.put("fecha_peli", fecha_R);
             Peli_Favorita.put("estado", estado_R);
 
-            Peli_Favorita.put("id_peli_favorita", identificador_peli_favorita);
+
 
             //referencia a la bbdd donde estan almacenados los usuarios
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
             //hace que la peli favorita se cree dentro del usuario actual y se listan con su id
-            reference.child(firebaseAuth.getUid()).child("Mis peliculas favoritas").child(identificador_peli_favorita)
+            reference.child(firebaseAuth.getUid()).child("Mis peliculas favoritas").child(id_peli_R)
                     .setValue(Peli_Favorita)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -168,13 +168,12 @@ public class Detalle_Peli extends AppCompatActivity {
             Toast.makeText(Detalle_Peli.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
         } else {
             Bundle intent = getIntent().getExtras();
-            uid_usuario_R = intent.getString("uid_usuario");
-            titulo_R = intent.getString("titulo");
 
-            String identificador_peli_favorita = uid_usuario_R+titulo_R;
+            id_peli_R = intent.getString("id_peli");
+
 
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
-            reference.child(firebaseAuth.getUid()).child("Mis peliculas favoritas").child(identificador_peli_favorita)
+            reference.child(firebaseAuth.getUid()).child("Mis peliculas favoritas").child(id_peli_R)
                     .removeValue()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -196,13 +195,12 @@ public class Detalle_Peli extends AppCompatActivity {
 
         } else {
             Bundle intent = getIntent().getExtras();
-            uid_usuario_R = intent.getString("uid_usuario");
-            titulo_R = intent.getString("titulo");
 
-            String identificador_peli_favorita = uid_usuario_R+titulo_R;
+            id_peli_R = intent.getString("id_peli");
+
 
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
-            reference.child(firebaseAuth.getUid()).child("Mis peliculas favoritas").child(identificador_peli_favorita)
+            reference.child(firebaseAuth.getUid()).child("Mis peliculas favoritas").child(id_peli_R)
                     .addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
