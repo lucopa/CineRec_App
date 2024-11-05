@@ -67,7 +67,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/custom_text"
-                android:drawableStart="@drawable/baseline_person_24"
+                android:drawableStart="@drawable/baseline_person_24_2"
                 android:drawablePadding="18dp"
                 android:hint="Correo electrónico"
                 android:padding="12dp"

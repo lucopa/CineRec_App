@@ -136,6 +136,7 @@ public class Registro extends AppCompatActivity {
         //Confirguramos los datos que vamos a registrar en la base de datos
 
         HashMap<String, String> Datos = new HashMap<>();
+        //Datos del usuario
         Datos.put("uid", uid);
         Datos.put("correo", correoV);
         Datos.put("nombre", nombreV);

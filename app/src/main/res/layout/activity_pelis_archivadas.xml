@@ -16,11 +16,12 @@
         android:text="MIS FAVORITAS"
         android:textStyle="bold"
         android:textColor="@color/rojo"
-        android:fontFamily="@font/quicksand"
-        android:textSize="20sp"
+        android:fontFamily="@font/cheddarsans"
+        android:letterSpacing="0.1"
+        android:textSize="25sp"
         android:layout_marginTop="90dp"
         android:gravity="center"
-        android:layout_marginLeft="130dp"/>
+        android:layout_marginLeft="120dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="130dp"

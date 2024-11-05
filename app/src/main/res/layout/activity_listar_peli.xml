@@ -16,11 +16,12 @@
         android:text="MIS PELÍCULAS"
         android:textStyle="bold"
         android:textColor="@color/rojo"
-        android:fontFamily="@font/quicksand"
-        android:textSize="20sp"
+        android:fontFamily="@font/cheddarsans"
+        android:textSize="30sp"
         android:layout_marginTop="90dp"
+        android:letterSpacing="0.1"
         android:gravity="center"
-        android:layout_marginLeft="130dp"/>
+        android:layout_marginLeft="110dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="130dp"

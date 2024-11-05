@@ -24,6 +24,8 @@ import com.example.cinerec_app.ViewHolder.ViewHolder_Peli;
 import com.example.cinerec_app.ViewHolder.ViewHolder_Peli_Favorita;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -117,6 +119,8 @@ public class Pelis_Favoritas extends AppCompatActivity {
                     @Override
                     public void onItemLongClick(View view, int position) {
 
+                        String id_peli = getItem(position).getId_peli();
+
                         //Declaramos las vistas
                         Button EliminarPeliImportante, CancelarPeliImportante;
 
@@ -131,11 +135,14 @@ public class Pelis_Favoritas extends AppCompatActivity {
                         EliminarPeliImportante.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(Pelis_Favoritas.this, "Pelicula eliminada", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Pelis_Favoritas.this, "Pelicula eliminada", Toast.LENGTH_SHORT).show();
+                                EliminarPeliFavorita(id_peli);
+                                dialog.dismiss();
+
                             }
                         });
 
-                        EliminarPeliImportante.setOnClickListener(new View.OnClickListener() {
+                        CancelarPeliImportante.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 Toast.makeText(Pelis_Favoritas.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
@@ -156,6 +163,28 @@ public class Pelis_Favoritas extends AppCompatActivity {
 
         RecyclerViewPelisFavoritas.setLayoutManager(linearLayoutManager);
         RecyclerViewPelisFavoritas.setAdapter(firebaseRecyclerAdapter);
+    }
+
+    private void EliminarPeliFavorita(String id_peli){
+        if (user == null){
+            Toast.makeText(Pelis_Favoritas.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
+        } else {
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
+            reference.child(firebaseAuth.getUid()).child("Mis peliculas favoritas").child(id_peli)
+                    .removeValue()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(Pelis_Favoritas.this, "La peli ya no es favorita", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Pelis_Favoritas.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
     protected void onStart(){

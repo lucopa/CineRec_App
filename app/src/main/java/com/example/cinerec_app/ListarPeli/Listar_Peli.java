@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -43,7 +46,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Listar_Peli extends AppCompatActivity {
 
-    ImageView btnBack;
+    ImageView btnBack, vaciar_todo;
     RecyclerView recyclerviewPelis;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference BASE_DE_DATOS;
@@ -77,14 +80,15 @@ public class Listar_Peli extends AppCompatActivity {
         initListener();
 
 
-
-
     }
 
     private void initListener() {
         btnBack = findViewById(R.id.btn_back);
+        vaciar_todo = findViewById(R.id.vaciar_todo);
 
         btnBack.setOnClickListener(v -> finish());
+
+        vaciar_todo.setOnClickListener(v -> Vaciar_Registro_Pelis());
 
     }
 
@@ -248,6 +252,62 @@ public class Listar_Peli extends AppCompatActivity {
 
         builder.create().show();
     }
+
+    private void Vaciar_Registro_Pelis() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Peli.this);
+        builder.setTitle("Vaciar todas las peliculas");
+        builder.setMessage("¿Quieres eliminar todas las peliculas?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //Eliminar todas las notas
+                Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()){
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(Listar_Peli.this, "Las peliculas se han eliminado", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(Listar_Peli.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.create().show();
+
+    }
+
+    /* @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_borrar_todo_pelis, menu);
+        return super.onCreateOptionsMenu(menu);
+    }*/
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.Vaciar_Todas_Pelis ){
+            Vaciar_Registro_Pelis();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     @Override
     protected void onStart() {
