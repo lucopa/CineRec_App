@@ -16,7 +16,7 @@
         android:text="MIS FAVORITAS"
         android:textStyle="bold"
         android:textColor="@color/rojo"
-        android:fontFamily="@font/cheddarsans"
+        android:fontFamily="@font/quicksand"
         android:letterSpacing="0.1"
         android:textSize="25sp"
         android:layout_marginTop="90dp"

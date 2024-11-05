@@ -17,6 +17,8 @@
 
     <!--menu activity-->
     <string name="Vaciar_Todas_Pelis">Vaciar todas las notas</string>
+    <string name="Perfil_usuario">Perfil del Usuario</string>
+
 
 
 
@@ -31,7 +33,7 @@
 
     <string name="AgregarPeli"> Añadir </string>
     <string name="Archivados">Favoritas</string>
-    <string name="Perfil">Perfil</string>
+    <string name="Contactos">Contactos</string>
     <string name="AcercaDe">Acerca de</string>
 
 
@@ -130,6 +132,21 @@
     <string name="Estado_Detalle"> Estado </string>
 
     <string name="Boton_Importante"> FAVORITA </string>
+
+
+    <!--perfil usuario-->
+    <string name="Uid_Perfil">Uid</string>
+    <string name="Nombres_Perfil">Nombres</string>
+    <string name="Apellidos_Perfil">Apellidos</string>
+    <string name="Correo_Perfil">Correo</string>
+    <string name="Edad_Perfil">Edad</string>
+    <string name="Telefono_Perfil">Telefono</string>
+    <string name="Direccion_Perfil">Direccion</string>
+    <string name="Estudios_Perfil">Estudios</string>
+    <string name="Profesion_Perfil">Profesion</string>
+    <string name="Guardar_Datos">Guardar Datos</string>
+
+
 
 
 

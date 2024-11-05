@@ -16,7 +16,7 @@
         android:text="MIS PELÍCULAS"
         android:textStyle="bold"
         android:textColor="@color/rojo"
-        android:fontFamily="@font/cheddarsans"
+        android:fontFamily="@font/quicksand"
         android:textSize="30sp"
         android:layout_marginTop="90dp"
         android:letterSpacing="0.1"

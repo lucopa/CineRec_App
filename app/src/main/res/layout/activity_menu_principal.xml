@@ -306,11 +306,11 @@
                             android:src="@drawable/reanudar" />
 
                         <Button
-                            android:id="@+id/Perfil"
+                            android:id="@+id/Contactos"
                             android:backgroundTint="@color/amarillo"
                             android:enabled="false"
                             android:textColor="@color/black"
-                            android:text="@string/Perfil"
+                            android:text="@string/Contactos"
                             android:fontFamily="@font/quicksand"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

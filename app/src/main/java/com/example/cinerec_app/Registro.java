@@ -142,6 +142,14 @@ public class Registro extends AppCompatActivity {
         Datos.put("nombre", nombreV);
         Datos.put("contraseña", password);
 
+        Datos.put("apellidos", "");
+        Datos.put("edad", "");
+        Datos.put("telefono", "");
+        Datos.put("direccion", "");
+        Datos.put("estudios", "");
+        Datos.put("profesion", "");
+        Datos.put("imagen_perfil", "");
+
         //Inicializamos la base de datos y le establecemos el nombre de la base de datos
 
         DatabaseReference dataBaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");

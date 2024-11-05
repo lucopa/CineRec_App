@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,12 +36,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MenuPrincipal extends AppCompatActivity {
 
-    ImageView btnBack;
+    ImageView btnBack, perfil;
     ImageView tvTitleToolbar;
     ImageView menuGallery;
    //BottomNavigationView bottom_nav;
     FirebaseAuth firebaseAuth;
-    Button AgregarPeli, ListarPeli, Archivados, Perfil, cerrar, acercaDe,EstadoCuentaPrincipal;
+    Button AgregarPeli, ListarPeli, Archivados, Contactos, cerrar, acercaDe,EstadoCuentaPrincipal;
 
     LinearLayoutCompat Linear_Verificado,Linear_Nombre,Linear_Correo;
 
@@ -65,7 +66,7 @@ public class MenuPrincipal extends AppCompatActivity {
         AgregarPeli = findViewById(R.id.AgregarPeli);
         ListarPeli = findViewById(R.id.ListarPeli);
         Archivados = findViewById(R.id.Archivados);
-        Perfil = findViewById(R.id.Perfil);
+        Contactos = findViewById(R.id.Contactos);
         cerrar = findViewById(R.id.cerrar);
         acercaDe = findViewById(R.id.acercaDe);
         UidPrincipal = findViewById(R.id.UidPrincipal);
@@ -139,11 +140,10 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
 
-        Perfil.setOnClickListener(new View.OnClickListener() {
+        Contactos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class));
-                Toast.makeText(MenuPrincipal.this, "Perfil", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuPrincipal.this, "Contactos", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -290,7 +290,7 @@ public class MenuPrincipal extends AppCompatActivity {
                     AgregarPeli.setEnabled(true);
                     ListarPeli.setEnabled(true);
                     Archivados.setEnabled(true);
-                    Perfil.setEnabled(true);
+                    Contactos.setEnabled(true);
                     cerrar.setEnabled(true);
                     acercaDe.setEnabled(true);
 
@@ -307,17 +307,20 @@ public class MenuPrincipal extends AppCompatActivity {
     private void initViews() {
         btnBack = findViewById(R.id.btn_back);
         tvTitleToolbar = findViewById(R.id.tv_title_toolbar);
-        menuGallery = findViewById(R.id.menu_gallery_toolbar);
         cerrar = findViewById(R.id.cerrar);
+        perfil = findViewById(R.id.perfil);
     }
 
     private void initListener() {
         btnBack.setOnClickListener(v -> finish());
 
-        menuGallery.setOnClickListener(v -> Snackbar.make(v, "Abriendo el perfil...", Snackbar.LENGTH_SHORT).show());
+        perfil.setOnClickListener(v ->  startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class)));
 
 
     }
+
+
+
     private void SalirAplicacion() {
         firebaseAuth.signOut();
         startActivity(new Intent(MenuPrincipal.this, MainActivity.class));
