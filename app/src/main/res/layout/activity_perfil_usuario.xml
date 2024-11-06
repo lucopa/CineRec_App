@@ -64,11 +64,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Correo_Perfil"/>
+
             <TextView
                 android:id="@+id/Uid_Perfil"
                 android:layout_gravity="center"
-                android:textSize="18sp"
-                android:drawableStart="@drawable/baseline_person_24"
+                android:textSize="12sp"
                 android:drawablePadding="5dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/quicksand"
@@ -105,8 +105,6 @@
                     android:hint="@string/Nombres_Perfil"
                     android:inputType="textPersonName"
                     android:minHeight="48dp" />
-
-
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -266,7 +264,6 @@
                     android:padding="12dp"
                     android:id="@+id/Profesion_Perfil"
                     android:layout_marginStart="10dp"
-
                     android:layout_gravity="center"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -302,6 +299,8 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Telefono_Perfil"
+                    android:layout_marginTop="5dp"
+
                     android:layout_marginLeft="20dp"
                     android:textSize="18sp"
                     android:minHeight="48dp" />
@@ -328,6 +327,7 @@
                     android:id="@+id/Fecha_Nacimiento_Perfil"
                     android:text="@string/Fecha_Nacimiento_Perfil"
                     android:layout_width="150dp"
+                    android:layout_marginTop="5dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/quicksand"
