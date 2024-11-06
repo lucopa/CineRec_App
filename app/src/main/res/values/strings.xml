@@ -148,6 +148,8 @@
     <string name="Direccion_Perfil">Direccion</string>
     <string name="Estudios_Perfil">Estudios</string>
     <string name="Profesion_Perfil">Profesion</string>
+    <string name="Fecha_Nacimiento_Perfil">Fecha de nac.</string>
+
     <string name="Guardar_Datos">Guardar Datos</string>
 
 

@@ -23,7 +23,7 @@
         <EditText
             android:id="@+id/Establecer_Telefono"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand"
             android:gravity="center"
             android:hint="@string/Establecer_Telefono"

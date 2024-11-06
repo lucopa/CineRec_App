@@ -151,6 +151,31 @@
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+            
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/Fecha_Nacimiento_Perfil"
+                    android:text="@string/Fecha_Nacimiento_Perfil"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/Editar_Fecha"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/calendario"/>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
             <Button

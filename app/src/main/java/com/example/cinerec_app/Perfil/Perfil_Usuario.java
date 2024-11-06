@@ -1,10 +1,12 @@
 package com.example.cinerec_app.Perfil;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +20,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
+import com.example.cinerec_app.ActualizarPeli.Actualizar_Peli;
 import com.example.cinerec_app.MenuPrincipal;
 import com.example.cinerec_app.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,13 +32,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 
+import java.util.Calendar;
+
 public class Perfil_Usuario extends AppCompatActivity {
 
     ImageView imagen_perfil;
-    TextView Correo_Perfil,Uid_Perfil,Telefono_Perfil;
+    TextView Correo_Perfil,Uid_Perfil,Telefono_Perfil,Fecha_Nacimiento_Perfil;
     EditText Nombres_Perfil, Apellidos_Perfil, Edad_Perfil, Direccion_Perfil, Estudios_Perfil, Profesion_Perfil;
     Button Guardar_Datos;
-    ImageView EditarTelefono;
+    ImageView EditarTelefono,Editar_Fecha;
 
 
     FirebaseAuth firebaseAuth;
@@ -43,6 +48,8 @@ public class Perfil_Usuario extends AppCompatActivity {
     DatabaseReference Usuarios;
 
     Dialog dialog_establecer_tlf;
+
+    int dia, mes, year;
 
 
     @Override
@@ -59,6 +66,13 @@ public class Perfil_Usuario extends AppCompatActivity {
             }
         });
 
+        Editar_Fecha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AbrirCalendario();
+            }
+        });
+
     }
 
     private void IncializarVariables(){
@@ -72,7 +86,10 @@ public class Perfil_Usuario extends AppCompatActivity {
         Direccion_Perfil = findViewById(R.id.Direccion_Perfil);
         Estudios_Perfil = findViewById(R.id.Estudios_Perfil);
         Profesion_Perfil = findViewById(R.id.Profesion_Perfil);
+        Fecha_Nacimiento_Perfil = findViewById(R.id.Fecha_Nacimiento_Perfil);
+
         EditarTelefono = findViewById(R.id.EditarTelefono);
+        Editar_Fecha = findViewById(R.id.Editar_Fecha);
 
         dialog_establecer_tlf = new Dialog(Perfil_Usuario.this);
         Guardar_Datos = findViewById(R.id.Guardar_Datos);
@@ -173,6 +190,40 @@ public class Perfil_Usuario extends AppCompatActivity {
 
         dialog_establecer_tlf.show();
         dialog_establecer_tlf.setCanceledOnTouchOutside(true);
+    }
+
+    private void AbrirCalendario(){
+        final Calendar calendario = Calendar.getInstance();
+
+        dia = calendario.get(Calendar.DAY_OF_MONTH);
+        mes = calendario.get(Calendar.MONTH);
+        year = calendario.get(Calendar.YEAR);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(Perfil_Usuario.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int YearSeleccionado, int MesSeleccionado, int DiaSeleccionado) {
+                String diaFormateado, mesFormateado;
+                // OBTENER DIA
+                if(DiaSeleccionado < 10){
+                    diaFormateado = "0"+String.valueOf(DiaSeleccionado);
+                } else {
+                    diaFormateado = String.valueOf(DiaSeleccionado);
+                }
+                //OBTENER EL MES
+                int Mes = MesSeleccionado + 1;
+                if (Mes < 10){
+                    mesFormateado = "0" + String.valueOf(Mes);
+
+                } else {
+                    mesFormateado = String.valueOf(Mes);
+                }
+
+                //Seteamos la fecha en TextView
+                Fecha_Nacimiento_Perfil.setText(diaFormateado + "/" + mesFormateado + "/"+ YearSeleccionado);
+            }
+        }
+                ,year,mes,dia);
+        datePickerDialog.show();
     }
 
     private void ComprobarInicioSesion(){
