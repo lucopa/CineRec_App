@@ -1,7 +1,9 @@
 package com.example.cinerec_app.Perfil;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,6 +17,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.Glide;
 import com.example.cinerec_app.MenuPrincipal;
 import com.example.cinerec_app.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,17 +27,22 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hbb20.CountryCodePicker;
 
 public class Perfil_Usuario extends AppCompatActivity {
 
     ImageView imagen_perfil;
-    TextView Correo_Perfil,Uid_Perfil;
-    EditText Nombres_Perfil, Apellidos_Perfil, Edad_Perfil, Telefono_Perfil, Direccion_Perfil, Estudios_Perfil, Profesion_Perfil;
+    TextView Correo_Perfil,Uid_Perfil,Telefono_Perfil;
+    EditText Nombres_Perfil, Apellidos_Perfil, Edad_Perfil, Direccion_Perfil, Estudios_Perfil, Profesion_Perfil;
     Button Guardar_Datos;
+    ImageView EditarTelefono;
+
 
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     DatabaseReference Usuarios;
+
+    Dialog dialog_establecer_tlf;
 
 
     @Override
@@ -44,20 +52,29 @@ public class Perfil_Usuario extends AppCompatActivity {
 
         IncializarVariables();
 
+        EditarTelefono.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Establecer_tfl_usuario();
+            }
+        });
+
     }
 
     private void IncializarVariables(){
         imagen_perfil = findViewById(R.id.imagen_perfil);
         Correo_Perfil = findViewById(R.id.Correo_Perfil);
         Uid_Perfil = findViewById(R.id.Uid_Perfil);
+        Telefono_Perfil = findViewById(R.id.Telefono_Perfil);
         Nombres_Perfil = findViewById(R.id.Nombres_Perfil);
         Apellidos_Perfil = findViewById(R.id.Apellidos_Perfil);
         Edad_Perfil = findViewById(R.id.Edad_Perfil);
-        Telefono_Perfil = findViewById(R.id.Telefono_Perfil);
         Direccion_Perfil = findViewById(R.id.Direccion_Perfil);
         Estudios_Perfil = findViewById(R.id.Estudios_Perfil);
         Profesion_Perfil = findViewById(R.id.Profesion_Perfil);
+        EditarTelefono = findViewById(R.id.EditarTelefono);
 
+        dialog_establecer_tlf = new Dialog(Perfil_Usuario.this);
         Guardar_Datos = findViewById(R.id.Guardar_Datos);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -82,6 +99,7 @@ public class Perfil_Usuario extends AppCompatActivity {
                     String estudios = ""+snapshot.child("estudios").getValue();
                     String profesion = ""+snapshot.child("profesion").getValue();
                     String telefono = ""+snapshot.child("telefono").getValue();
+                    String imagen_perfil = ""+snapshot.child("imagen_perfil").getValue();
 
 
                     //Seteo de datos
@@ -96,6 +114,8 @@ public class Perfil_Usuario extends AppCompatActivity {
                     Estudios_Perfil.setText(estudios);
                     Profesion_Perfil.setText(profesion);
 
+                    Cargar_Imagen(imagen_perfil);
+
 
                 } else {
                     Toast.makeText(Perfil_Usuario.this, "Esperando datos", Toast.LENGTH_SHORT).show();
@@ -109,6 +129,50 @@ public class Perfil_Usuario extends AppCompatActivity {
                 Toast.makeText(Perfil_Usuario.this, ""+error, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void Cargar_Imagen(String imagenPerfil) {
+        try {
+            //Esto se ejecuta cuando la imagen se ejecuta con exito desde Firebase
+            Glide.with(getApplicationContext()).load(imagenPerfil).placeholder(R.drawable.perfilmenu).into(imagen_perfil);
+
+        }catch (Exception e){
+            //Si la imagen no se ejecuta con exito muestra esta imagen
+            Glide.with(getApplicationContext()).load(R.drawable.perfilmenu).into(imagen_perfil);
+
+        }
+    }
+
+    private void Establecer_tfl_usuario(){
+        CountryCodePicker ccp;
+        EditText Establecer_Telefono;
+        Button Btn_Aceptar_tlf;
+
+        dialog_establecer_tlf.setContentView(R.layout.cuadro_dialog_country_code);
+
+        ccp = dialog_establecer_tlf.findViewById(R.id.ccp);
+        Establecer_Telefono = dialog_establecer_tlf.findViewById(R.id.Establecer_Telefono);
+        Btn_Aceptar_tlf = dialog_establecer_tlf.findViewById(R.id.Btn_Aceptar_tlf);
+
+        Btn_Aceptar_tlf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String codigo_pais = ccp.getSelectedCountryCodeWithPlus();
+                String telefono = Establecer_Telefono.getText().toString();
+                String codigo_pais_telefono = codigo_pais+telefono; //+51953456789
+
+                if (!telefono.equals("")){
+                    Telefono_Perfil.setText(codigo_pais_telefono);
+                    dialog_establecer_tlf.dismiss();
+                } else {
+                    Toast.makeText(Perfil_Usuario.this, "Ingresa tu número", Toast.LENGTH_SHORT).show();
+                    dialog_establecer_tlf.dismiss();
+                }
+            }
+        });
+
+        dialog_establecer_tlf.show();
+        dialog_establecer_tlf.setCanceledOnTouchOutside(true);
     }
 
     private void ComprobarInicioSesion(){

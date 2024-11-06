@@ -95,16 +95,6 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/Telefono_Perfil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/quicksand"
-                android:hint="@string/Telefono_Perfil"
-                android:inputType="phone"
-                android:minHeight="48dp" />
-
-            <EditText
                 android:id="@+id/Direccion_Perfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -133,13 +123,42 @@
                 android:hint="@string/Profesion_Perfil"
                 android:inputType="text"
                 android:minHeight="48dp" />
+            
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/Telefono_Perfil"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Telefono_Perfil"
+                    android:textSize="18sp"
+                    android:minHeight="48dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/EditarTelefono"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="21dp"
+                    android:src="@drawable/telefono"/>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
 
             <Button
                 android:backgroundTint="@color/amarillo"
                 android:id="@+id/Guardar_Datos"
                 android:fontFamily="@font/quicksand"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="60dp"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="@string/Guardar_Datos"/>
