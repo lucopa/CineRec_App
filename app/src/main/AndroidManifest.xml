@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CineRec_App"
         tools:targetApi="31">
         <activity
+            android:name=".Perfil.Editar_imagen_perfil"
+            android:exported="false" />
+        <activity
             android:name=".Detalle.Detalle_Peli"
             android:exported="false"
             android:theme="@style/Theme.CineRec_App" />

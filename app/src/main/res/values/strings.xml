@@ -20,15 +20,12 @@
     <string name="Perfil_usuario">Perfil del Usuario</string>
 
 
-
-
     <!--menu principal-->
     <string name="BienvenidoPrincipal">Bienvenido/a, </string>
     <string name="NombresPrincipal"> -- </string>
     <string name="UidPrincipal"> -- </string>
     <string name="CorreoPrincipal"> -- </string>
     <string name="EstadoCuentaPrincipal"> No verificado </string>
-
 
 
     <string name="AgregarPeli"> Añadir </string>
@@ -90,6 +87,10 @@
     <string name="Establecer_Telefono">Escribe tu teléfono</string>
     <string name="Btn_Aceptar_tlf">Aceptar</string>
 
+    <!--cuadro de dialogo - elegir imagen de-->
+    <string name="ElegirImagenTXT">Elegir imagen de:</string>
+    <string name="Btn_Elegir_galeria">Galería</string>
+    <string name="Btn_Elegir_camara">Cámara</string>
 
 
     <!--actualizar nota-->
@@ -152,14 +153,9 @@
 
     <string name="Guardar_Datos">Guardar Datos</string>
 
-
-
-
-
-
-
-
-
+    <!--perfil usuario- editar imagen-->
+    <string name="BtnElegirImagen">Elegir imagen de</string>
+    <string name="BtnActualizarImagen">Actualizar imagen</string>
 
 
 </resources>

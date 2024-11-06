@@ -1,0 +1,5 @@
+<!-- res/drawable/background_boton_redondeado.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/amarillo" /> <!-- Color de fondo -->
+    <corners android:radius="20dp" /> <!-- Radio de esquinas (ajústalo a tus necesidades) -->
+</shape>

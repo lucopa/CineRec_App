@@ -23,6 +23,8 @@ import com.bumptech.glide.Glide;
 import com.example.cinerec_app.ActualizarPeli.Actualizar_Peli;
 import com.example.cinerec_app.MenuPrincipal;
 import com.example.cinerec_app.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,14 +35,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class Perfil_Usuario extends AppCompatActivity {
 
-    ImageView imagen_perfil;
+    ImageView imagen_perfil, btnBack;
     TextView Correo_Perfil,Uid_Perfil,Telefono_Perfil,Fecha_Nacimiento_Perfil;
     EditText Nombres_Perfil, Apellidos_Perfil, Edad_Perfil, Direccion_Perfil, Estudios_Perfil, Profesion_Perfil;
     Button Guardar_Datos;
-    ImageView EditarTelefono,Editar_Fecha;
+    ImageView EditarTelefono,Editar_Fecha, editar_imagen;
 
 
     FirebaseAuth firebaseAuth;
@@ -58,6 +61,8 @@ public class Perfil_Usuario extends AppCompatActivity {
         setContentView(R.layout.activity_perfil_usuario);
 
         IncializarVariables();
+        initListener();
+
 
         EditarTelefono.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,10 +78,25 @@ public class Perfil_Usuario extends AppCompatActivity {
             }
         });
 
+        Guardar_Datos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActualizarDatos();
+            }
+        });
+
+        editar_imagen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Perfil_Usuario.this, Editar_imagen_perfil.class));
+            }
+        });
+
     }
 
     private void IncializarVariables(){
         imagen_perfil = findViewById(R.id.imagen_perfil);
+        btnBack = findViewById(R.id.btn_back);
         Correo_Perfil = findViewById(R.id.Correo_Perfil);
         Uid_Perfil = findViewById(R.id.Uid_Perfil);
         Telefono_Perfil = findViewById(R.id.Telefono_Perfil);
@@ -87,6 +107,7 @@ public class Perfil_Usuario extends AppCompatActivity {
         Estudios_Perfil = findViewById(R.id.Estudios_Perfil);
         Profesion_Perfil = findViewById(R.id.Profesion_Perfil);
         Fecha_Nacimiento_Perfil = findViewById(R.id.Fecha_Nacimiento_Perfil);
+        editar_imagen = findViewById(R.id.editar_imagen);
 
         EditarTelefono = findViewById(R.id.EditarTelefono);
         Editar_Fecha = findViewById(R.id.Editar_Fecha);
@@ -98,6 +119,11 @@ public class Perfil_Usuario extends AppCompatActivity {
         user = firebaseAuth.getCurrentUser();
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
 
+
+    }
+
+    private void initListener() {
+        btnBack.setOnClickListener(v -> finish());
 
     }
 
@@ -116,6 +142,7 @@ public class Perfil_Usuario extends AppCompatActivity {
                     String estudios = ""+snapshot.child("estudios").getValue();
                     String profesion = ""+snapshot.child("profesion").getValue();
                     String telefono = ""+snapshot.child("telefono").getValue();
+                    String fecha_nacimiento = ""+snapshot.child("fecha_nacimiento").getValue();
                     String imagen_perfil = ""+snapshot.child("imagen_perfil").getValue();
 
 
@@ -130,6 +157,7 @@ public class Perfil_Usuario extends AppCompatActivity {
                     Direccion_Perfil.setText(direccion);
                     Estudios_Perfil.setText(estudios);
                     Profesion_Perfil.setText(profesion);
+                    Fecha_Nacimiento_Perfil.setText(fecha_nacimiento);
 
                     Cargar_Imagen(imagen_perfil);
 
@@ -224,6 +252,45 @@ public class Perfil_Usuario extends AppCompatActivity {
         }
                 ,year,mes,dia);
         datePickerDialog.show();
+    }
+
+    private void ActualizarDatos(){
+
+        String A_Nombre = Nombres_Perfil.getText().toString().trim();
+        String A_Apellidos = Apellidos_Perfil.getText().toString().trim();
+        String A_Edad = Edad_Perfil.getText().toString().trim();
+        String A_Telefono = Telefono_Perfil.getText().toString().trim();
+        String A_Direccion = Direccion_Perfil.getText().toString().trim();
+        String A_Estudios = Estudios_Perfil.getText().toString().trim();
+        String A_Profesion = Profesion_Perfil.getText().toString().trim();
+        String A_Fecha_N = Fecha_Nacimiento_Perfil.getText().toString().trim();
+
+        HashMap<String, Object> Datos_Actualizar = new HashMap<>();
+
+        Datos_Actualizar.put("nombre", A_Nombre);
+        Datos_Actualizar.put("apellidos", A_Apellidos);
+        Datos_Actualizar.put("edad", A_Edad);
+        Datos_Actualizar.put("telefono",A_Telefono );
+        Datos_Actualizar.put("direccion", A_Direccion);
+        Datos_Actualizar.put("estudios",A_Estudios );
+        Datos_Actualizar.put("profesion",A_Profesion );
+        Datos_Actualizar.put("fecha_nacimiento",A_Fecha_N);
+
+        Usuarios.child(user.getUid()).updateChildren(Datos_Actualizar)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(Perfil_Usuario.this, "Actualizado", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Perfil_Usuario.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
     }
 
     private void ComprobarInicioSesion(){

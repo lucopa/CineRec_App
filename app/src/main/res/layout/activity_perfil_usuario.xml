@@ -13,6 +13,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <include layout="@layout/custom_toolbar5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <!--Contiene la portada e imagen de perfil-->
 
         <RelativeLayout
@@ -30,10 +34,19 @@
                 android:id="@+id/imagen_perfil"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:background="#EF9A9A"
+                android:background="@drawable/background_rounded_imagen_perfil"
                 android:layout_marginTop="120dp"
                 android:layout_marginLeft="250dp"
                 android:src="@drawable/perfilmenu"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/editar_imagen"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="240dp"
+                android:layout_marginTop="230dp"
+                android:src="@drawable/editar"/>
+
         </RelativeLayout>
 
         <!--Datos del usuario-->
@@ -47,7 +60,6 @@
                 android:id="@+id/Correo_Perfil"
                 android:layout_gravity="center"
                 android:textSize="25sp"
-                android:layout_marginTop="25dp"
                 android:fontFamily="@font/quicksand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,115 +76,262 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Uid_Perfil"/>
 
-            <EditText
-                android:id="@+id/Nombres_Perfil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/quicksand"
-                android:hint="@string/Nombres_Perfil"
-                android:inputType="textPersonName"
-                android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/Apellidos_Perfil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/quicksand"
-                android:hint="@string/Apellidos_Perfil"
-                android:inputType="textPersonName"
-                android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/Edad_Perfil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/quicksand"
-                android:hint="@string/Edad_Perfil"
-                android:inputType="number"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/Direccion_Perfil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/quicksand"
-                android:hint="@string/Direccion_Perfil"
-                android:inputType="text"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/Estudios_Perfil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/quicksand"
-                android:hint="@string/Estudios_Perfil"
-                android:inputType="text"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/Profesion_Perfil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/quicksand"
-                android:hint="@string/Profesion_Perfil"
-                android:inputType="text"
-                android:minHeight="48dp" />
-            
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_text2"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/Nombres_Perfil_Img"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/nombre"/>
+
+                <EditText
+                    android:id="@+id/Nombres_Perfil"
+                    android:padding="12dp"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Nombres_Perfil"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_text2"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/Apellidos_Perfil_Img"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/nombre"/>
+
+                <EditText
+                    android:padding="12dp"
+                    android:id="@+id/Apellidos_Perfil"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Apellidos_Perfil"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_text2"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/Edad_Perfil_Img"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/edad"/>
+
+
+                <EditText
+                    android:padding="12dp"
+                    android:id="@+id/Edad_Perfil"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Edad_Perfil"
+                    android:inputType="number"
+                    android:minHeight="48dp" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_text2"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/Direccion_Perfil_Img"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/direccion"/>
+
+                <EditText
+                    android:padding="12dp"
+                    android:id="@+id/Direccion_Perfil"
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Direccion_Perfil"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_text2"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/Estudios_Perfil_Img"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/estudios"/>
+
+                <EditText
+                    android:padding="12dp"
+                    android:id="@+id/Estudios_Perfil"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Estudios_Perfil"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_text2"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/Profesion_Perfil_Img"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/profesion"/>
+
+                <EditText
+                    android:padding="12dp"
+                    android:id="@+id/Profesion_Perfil"
+                    android:layout_marginStart="10dp"
+
+                    android:layout_gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Profesion_Perfil"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_text2"
+                android:padding="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/EditarTelefono"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/telefono"/>
 
                 <TextView
                     android:id="@+id/Telefono_Perfil"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Telefono_Perfil"
+                    android:layout_marginLeft="20dp"
                     android:textSize="18sp"
                     android:minHeight="48dp" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/EditarTelefono"
-                    android:layout_marginStart="5dp"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="21dp"
-                    android:src="@drawable/telefono"/>
-
 
             </androidx.appcompat.widget.LinearLayoutCompat>
             
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:background="@drawable/custom_text2"
+                android:padding="12dp"
+                android:layout_marginTop="15dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/Editar_Fecha"
+                    android:layout_gravity="center"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/calendario"/>
 
                 <TextView
                     android:id="@+id/Fecha_Nacimiento_Perfil"
                     android:text="@string/Fecha_Nacimiento_Perfil"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
                     android:fontFamily="@font/quicksand"
-                    android:layout_gravity="center"
                     android:textSize="18sp"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/Editar_Fecha"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="5dp"
-                    android:src="@drawable/calendario"/>
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -183,8 +342,8 @@
                 android:id="@+id/Guardar_Datos"
                 android:fontFamily="@font/quicksand"
                 android:layout_gravity="center"
-                android:layout_marginTop="60dp"
-                android:layout_width="250dp"
+                android:layout_marginTop="30dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="@string/Guardar_Datos"/>
 
