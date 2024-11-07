@@ -1,21 +1,39 @@
 package com.example.cinerec_app.Perfil;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
+
 import com.example.cinerec_app.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +41,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.HashMap;
 
 public class Editar_imagen_perfil extends AppCompatActivity {
 
@@ -33,6 +56,10 @@ public class Editar_imagen_perfil extends AppCompatActivity {
     FirebaseUser user;
 
     Dialog dialog_elegir_imagen;
+
+    Uri imagenUri = null;
+
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +87,17 @@ public class Editar_imagen_perfil extends AppCompatActivity {
         BtnActualizarImagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Editar_imagen_perfil.this, "Actualizar imagen", Toast.LENGTH_SHORT).show();
+                if (imagenUri == null){
+                    Toast.makeText(Editar_imagen_perfil.this, "Inserta una nueva imagen", Toast.LENGTH_SHORT).show();
+                } else {
+                    subirImagenStorage();
+                }
             }
         });
+
+        progressDialog = new ProgressDialog(Editar_imagen_perfil.this);
+        progressDialog.setTitle("Espera por favor");
+        progressDialog.setCanceledOnTouchOutside(false);
 
         LecturaDeImagen();
     }
@@ -86,6 +121,57 @@ public class Editar_imagen_perfil extends AppCompatActivity {
         });
     }
 
+    private void subirImagenStorage(){
+        progressDialog.setTitle("Subiendo imagen");
+        progressDialog.show();
+        String carpetaImagenes = "ImagenesPerfil/";
+        String NombreImagen = carpetaImagenes+firebaseAuth.getUid();
+        StorageReference reference = FirebaseStorage.getInstance().getReference(NombreImagen);
+        reference.putFile(imagenUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                        while (!uriTask.isSuccessful());
+                        String uriImagen = ""+uriTask.getResult();
+                        ActualizarImagenesBD(uriImagen);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Editar_imagen_perfil.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+
+
+    private void ActualizarImagenesBD(String uriImagen) {
+        progressDialog.setMessage("Actualizando la imagen");
+        progressDialog.show();
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        if (imagenUri != null){
+            hashMap.put("imagen_perfil", ""+ uriImagen);
+        }
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
+        databaseReference.child(user.getUid())
+                .updateChildren(hashMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        progressDialog.dismiss();
+                        Toast.makeText(Editar_imagen_perfil.this, "La imagen se ha actualizado", Toast.LENGTH_SHORT).show();
+                        onBackPressed();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Editar_imagen_perfil.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
     private void ElegirImagenDe() {
         Button Btn_Elegir_Galeria, Btn_Elegir_Camara;
 
@@ -93,27 +179,115 @@ public class Editar_imagen_perfil extends AppCompatActivity {
 
         Btn_Elegir_Galeria = dialog_elegir_imagen.findViewById(R.id.Btn_Elegir_Galeria);
         Btn_Elegir_Camara = dialog_elegir_imagen.findViewById(R.id.Btn_Elegir_Camara);
-        
+
         Btn_Elegir_Galeria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Editar_imagen_perfil.this, "Elegir galeria", Toast.LENGTH_SHORT).show();
-                dialog_elegir_imagen.dismiss();
+                //Toast.makeText(Editar_imagen_perfil.this, "Elegir galeria", Toast.LENGTH_SHORT).show();
+                    SeleccionarImagenGaleria();
+                    dialog_elegir_imagen.dismiss();
             }
-            
+
         });
-        
+
         Btn_Elegir_Camara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Editar_imagen_perfil.this, "Elegir de cámara", Toast.LENGTH_SHORT).show();
-                dialog_elegir_imagen.dismiss();
+
+                //Toast.makeText(Editar_imagen_perfil.this, "Elegir de cámara", Toast.LENGTH_SHORT).show();
+                //SeleccionarImagenCamara();
+                //dialog_elegir_imagen.dismiss();
+
+                if (ContextCompat.checkSelfPermission(Editar_imagen_perfil.this,
+                        Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
+                    SeleccionarImagenCamara();
+                    dialog_elegir_imagen.dismiss();
+                } else {
+                    SolicitudPermisoCamara.launch(Manifest.permission.CAMERA);
+                    dialog_elegir_imagen.dismiss();
+                }
             }
         });
 
         dialog_elegir_imagen.show();
         dialog_elegir_imagen.setCanceledOnTouchOutside(true);
     }
+
+
+    private void SeleccionarImagenGaleria() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        galeriaActivityResultLauncher.launch(intent);
+    }
+
+    private ActivityResultLauncher<Intent> galeriaActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == AppCompatActivity.RESULT_OK){
+                        //Obtener uri de la imagen
+                        Intent data = result.getData();
+                        imagenUri = data.getData();
+                        //se determina la imagen seleccionada en el iamgeView
+                        ImagenPerfilActualizar.setImageURI(imagenUri);
+                    } else {
+                        Toast.makeText(Editar_imagen_perfil.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+    );
+
+    //PERMISOS PARA ACCEDER A LA GALERIA
+    private ActivityResultLauncher<String> SolicitudPermisoGaleria =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted){
+                    SeleccionarImagenGaleria();
+                } else {
+                    Toast.makeText(this, "Permiso Denegado", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+
+    private void SeleccionarImagenCamara() {
+        ContentValues values = new ContentValues();
+        values.put(MediaStore.Images.Media.TITLE, "Nueva imagen");
+        values.put(MediaStore.Images.Media.DESCRIPTION, "Descripcion de imagen");
+        imagenUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imagenUri);
+        camaraActivityResultLauncher.launch(intent);
+
+
+    }
+
+    private ActivityResultLauncher<Intent> camaraActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK){
+                        ImagenPerfilActualizar.setImageURI(imagenUri);
+                    } else {
+                        Toast.makeText(Editar_imagen_perfil.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+    );
+
+    //PERMISO PARA ACCEDER A LA CAMARA
+
+    private ActivityResultLauncher<String> SolicitudPermisoCamara =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted ->{
+                if (isGranted){
+                    SeleccionarImagenCamara();
+                } else {
+                    Toast.makeText(this, "Permiso Denegado", Toast.LENGTH_SHORT).show();
+                }
+            });
+
 
 
 

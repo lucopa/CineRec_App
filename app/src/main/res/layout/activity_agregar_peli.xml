@@ -132,19 +132,19 @@
                         <androidx.appcompat.widget.AppCompatImageView
                             android:layout_marginTop="5dp"
                             android:id="@+id/Nombre"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
+                            android:layout_width="45dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/nombre"/>
 
                         <EditText
                             android:id="@+id/Titulo"
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
                             android:fontFamily="@font/quicksand"
                             android:hint="@string/Titulo"
-                            android:padding="12dp"
+                            android:padding="10dp"
                             android:textSize="15sp"
+                            android:background="@null"
                             android:textStyle="bold" />
 
 
@@ -176,6 +176,7 @@
                             android:hint="@string/Descripcion"
                             android:fontFamily="@font/quicksand"
                             android:textSize="15sp"
+                            android:background="@null"
                             android:textStyle="bold" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
