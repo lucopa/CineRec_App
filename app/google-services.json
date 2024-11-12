@@ -1,8 +1,9 @@
 {
   "project_info": {
     "project_number": "1070440081372",
+    "firebase_url": "https://cine-app-57985-default-rtdb.firebaseio.com",
     "project_id": "cine-app-57985",
-    "storage_bucket": "cine-app-57985.appspot.com"
+    "storage_bucket": "cine-app-57985.firebasestorage.app"
   },
   "client": [
     {
