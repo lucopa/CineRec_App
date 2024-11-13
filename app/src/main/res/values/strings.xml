@@ -103,6 +103,11 @@
     <string name="Btn_Elegir_galeria">Galería</string>
     <string name="Btn_Elegir_camara">Cámara</string>
 
+    <!--cuadro de dialogo - registro contacto-->
+    <string name="ValidarTXT">Tienes que completar al menos el nombre del contacto</string>
+    <string name="Btn_Validar_Registro_C">OK</string>
+
+
 
     <!--actualizar nota-->
     <string name="Id_peli_A">Id peli</string>
@@ -177,5 +182,6 @@
     <string name="Telefono_Contacto">Telefono </string>
     <string name="Direccion_Contacto">Direccion </string>
     <string name="Btn_Guardar_Contacto">Guardar contacto</string>
+
 
 </resources>

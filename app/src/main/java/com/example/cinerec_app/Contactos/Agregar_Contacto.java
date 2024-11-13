@@ -39,6 +39,8 @@ public class Agregar_Contacto extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
+    Dialog dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,9 @@ public class Agregar_Contacto extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+
+        dialog = new Dialog(Agregar_Contacto.this);
+
 
 
     }
@@ -145,9 +150,27 @@ public class Agregar_Contacto extends AppCompatActivity {
             Toast.makeText(this, "Contacto agregado", Toast.LENGTH_SHORT).show();
             onBackPressed();
         } else {
-            Toast.makeText(this, "Completa un campo del contacto", Toast.LENGTH_SHORT).show();
+            RegistroContacto();
+            //Toast.makeText(this, "Completa un campo del contacto", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    private void RegistroContacto(){
+        Button Btn_Validar_Registro_C;
+        dialog.setContentView(R.layout.cuadro_dialog_registro_contacto);
+
+        Btn_Validar_Registro_C = dialog.findViewById(R.id.Btn_Validar_Registro_C);
+
+        Btn_Validar_Registro_C.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
     }
 
 

@@ -6,7 +6,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Favoritas.Pelis_Favoritas">
+    tools:context=".Favoritas.Pelis_Favoritas"
+    tools:ignore="ExtraText">
 
     <include layout="@layout/custom_toolbar3" />
 
@@ -20,11 +21,10 @@
         android:letterSpacing="0.1"
         android:textSize="25sp"
         android:layout_marginTop="90dp"
-        android:gravity="center"
-        android:layout_marginLeft="90dp"/>
+        android:layout_centerHorizontal="true"/>/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="150dp"
         android:id="@+id/RecyclerViewPelisFavoritas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
