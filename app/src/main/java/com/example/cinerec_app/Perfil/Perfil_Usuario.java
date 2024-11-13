@@ -20,6 +20,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
+import com.example.cinerec_app.ActualizarPass.ActualizarContra;
 import com.example.cinerec_app.ActualizarPeli.Actualizar_Peli;
 import com.example.cinerec_app.MenuPrincipal;
 import com.example.cinerec_app.R;
@@ -39,7 +40,7 @@ import java.util.HashMap;
 
 public class Perfil_Usuario extends AppCompatActivity {
 
-    ImageView imagen_perfil, btnBack;
+    ImageView imagen_perfil, btnBack, cambiarContra;
     TextView Correo_Perfil,Uid_Perfil,Telefono_Perfil,Fecha_Nacimiento_Perfil;
     EditText Nombres_Perfil, Apellidos_Perfil, Edad_Perfil, Direccion_Perfil, Estudios_Perfil, Profesion_Perfil;
     Button Guardar_Datos;
@@ -108,7 +109,7 @@ public class Perfil_Usuario extends AppCompatActivity {
         Profesion_Perfil = findViewById(R.id.Profesion_Perfil);
         Fecha_Nacimiento_Perfil = findViewById(R.id.Fecha_Nacimiento_Perfil);
         editar_imagen = findViewById(R.id.editar_imagen);
-
+        cambiarContra = findViewById(R.id.cambiarContra);
         EditarTelefono = findViewById(R.id.EditarTelefono);
         Editar_Fecha = findViewById(R.id.Editar_Fecha);
 
@@ -124,6 +125,7 @@ public class Perfil_Usuario extends AppCompatActivity {
 
     private void initListener() {
         btnBack.setOnClickListener(v -> finish());
+        cambiarContra.setOnClickListener(v -> startActivity(new Intent(Perfil_Usuario.this, ActualizarContra.class)));
 
     }
 
