@@ -6,7 +6,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListarPeli.Listar_Peli">
+    tools:context=".ListarPeli.Listar_Peli"
+    android:background="#FAFAFA">
 
     <include layout="@layout/custom_toolbar3" />
 

@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.example.cinerec_app.AgregarPeli.Agregar_Peli;
+import com.example.cinerec_app.Contactos.Listar_Contactos;
 import com.example.cinerec_app.Favoritas.Pelis_Favoritas;
 import com.example.cinerec_app.ListarPeli.Listar_Peli;
 import com.example.cinerec_app.Perfil.Perfil_Usuario;
@@ -143,7 +144,13 @@ public class MenuPrincipal extends AppCompatActivity {
         Contactos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MenuPrincipal.this, "Contactos", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(MenuPrincipal.this, "Contactos", Toast.LENGTH_SHORT).show();
+                //Obtenemos el uid del usuario
+                String uid_usuario = UidPrincipal.getText().toString();
+                //Enviamos el uid a la siguiente actividad
+                Intent intent = new Intent(MenuPrincipal.this, Listar_Contactos.class);
+                intent.putExtra("Uid", uid_usuario);
+                startActivity(intent);
             }
         });
 

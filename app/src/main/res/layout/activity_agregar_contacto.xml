@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Contactos.Agregar_Contacto"
+    android:background="#FAFAFA">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/custom_toolbar5" />
+
+
+        <!--Uid del usuario que realizará el registro de contactos-->
+        <TextView
+            android:id="@+id/Uid_UsuarioC"
+            android:text="@string/Uid_UsuarioC"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:fontFamily="@font/quicksand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--Icono-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/libretacontactos"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:elevation="4dp"
+            app:cardBackgroundColor="#FFE0B2"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="4dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <EditText
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/Nombre_Contacto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Nombre_Contacto"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+                <!--Apellidos del contacto-->
+                <EditText
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/Apellidos_Contacto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Apellidos_Contacto"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+                <!--Correo del contacto-->
+                <EditText
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/Correo_Contacto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Correo_Contacto"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp" />
+
+                <!--Teléfono del contactos-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--Teléfono del contactos-->
+                    <TextView
+                        android:id="@+id/Telefono_Contacto"
+                        android:hint="@string/Telefono_Contacto"
+                        android:fontFamily="@font/quicksand"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"/>
+
+                    <!--Código del país-->
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/Editar_Telefono_C"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/telefono"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Edad del contacto-->
+                <EditText
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/Edad_Contacto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Edad_Contacto"
+                    android:inputType="number"
+                    android:minHeight="48dp" />
+
+                <!--Dirección del contacto-->
+                <EditText
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/Direccion_Contacto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:hint="@string/Direccion_Contacto"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+
+                <!--Botón para registrar contacto-->
+                <Button
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/amarillo"
+                    android:id="@+id/Btn_Guardar_Contacto"
+                    android:text="@string/Btn_Guardar_Contacto"
+                    android:fontFamily="@font/quicksand"
+                    android:layout_width="220dp"
+                    android:textSize="18sp"
+                    android:layout_height="60dp"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</ScrollView>

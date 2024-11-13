@@ -69,6 +69,17 @@
     <string name="Fecha_item_I"> 00/00/0000 </string>
     <string name="Estado_item_I"> Pendiente </string>
 
+    <!--item contacto-->
+    <string name="id_contacto_item">Id contacto</string>
+    <string name="Uid_contacto_item">Uid usuario</string>
+    <string name="nombre_contacto_item">Nombre</string>
+    <string name="apellidos_contacto_item">Apellidos</string>
+    <string name="correo_contacto_item">Correo</string>
+    <string name="telefono_contacto_item">Telefono</string>
+    <string name="edad_contacto_item">Edad</string>
+    <string name="direccion_contacto_item">Direccion</string>
+
+
     <!--cuadro de dialogo-->
     <string name="EligeOpcion">Elige una opción</string>
     <string name="Eliminar">Eliminar</string>
@@ -157,5 +168,14 @@
     <string name="BtnElegirImagen">Elegir imagen de</string>
     <string name="BtnActualizarImagen">Actualizar imagen</string>
 
+    <!--agregar contacto-->
+    <string name="Uid_UsuarioC">Mi uid</string>
+    <string name="Nombre_Contacto">Nombre contacto</string>
+    <string name="Apellidos_Contacto">Apellidos contacto</string>
+    <string name="Correo_Contacto">Correo contacto</string>
+    <string name="Edad_Contacto">Edad</string>
+    <string name="Telefono_Contacto">Telefono </string>
+    <string name="Direccion_Contacto">Direccion </string>
+    <string name="Btn_Guardar_Contacto">Guardar contacto</string>
 
 </resources>

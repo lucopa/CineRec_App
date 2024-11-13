@@ -23,6 +23,12 @@
         android:theme="@style/Theme.CineRec_App"
         tools:targetApi="31">
         <activity
+            android:name=".Contactos.Agregar_Contacto"
+            android:exported="false" />
+        <activity
+            android:name=".Contactos.Listar_Contactos"
+            android:exported="false" />
+        <activity
             android:name=".ActualizarPass.ActualizarContra"
             android:exported="false" />
         <activity
