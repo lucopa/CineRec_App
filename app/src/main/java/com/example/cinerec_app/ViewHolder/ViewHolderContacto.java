@@ -75,10 +75,10 @@ public class ViewHolderContacto extends RecyclerView.ViewHolder {
 
         try {
             //Si la imagen del contaxto existe en la base de datos
-            Glide.with(context).load(imagen).placeholder(R.drawable.baseline_person_pin_24).into(Imagen_contacto_Item);
+            Glide.with(context).load(imagen).placeholder(R.drawable.usuario).into(Imagen_contacto_Item);
         } catch (Exception e){
             //Si no existe se pone la que esta por defecto
-            Glide.with(context).load(R.drawable.baseline_person_pin_24).into(Imagen_contacto_Item);
+            Glide.with(context).load(R.drawable.usuario).into(Imagen_contacto_Item);
         }
 
 

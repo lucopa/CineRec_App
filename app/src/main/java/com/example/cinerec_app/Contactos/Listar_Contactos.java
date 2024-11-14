@@ -88,7 +88,31 @@ public class Listar_Contactos extends AppCompatActivity {
                 viewHolderContacto.setOnClickListener(new ViewHolderContacto.ClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(Listar_Contactos.this, "On item click", Toast.LENGTH_SHORT).show();
+                        String id_c = getItem(position).getId_contacto();
+                        String uid_usuario = getItem(position).getUid_contacto();
+                        String nombre_c = getItem(position).getNombre();
+                        String apellidos_c = getItem(position).getApellidos();
+                        String correo_c = getItem(position).getCorreo();
+                        String telefono_c = getItem(position).getTelefono();
+                        String edad_c = getItem(position).getEdad();
+                        String direccion_c = getItem(position).getDireccion();
+                        String imagen_c = getItem(position).getImagen();
+
+                        //Enviar los datos al siguiente activity
+                        Intent intent = new Intent(Listar_Contactos.this, Detalle_contacto.class);
+                        intent.putExtra("id_c", id_c);
+                        intent.putExtra("uid_usuario", uid_usuario);
+                        intent.putExtra("nombre_c", nombre_c);
+                        intent.putExtra("apellidos_c", apellidos_c);
+                        intent.putExtra("correo_c", correo_c);
+                        intent.putExtra("telefono_c", telefono_c);
+                        intent.putExtra("edad_c", edad_c);
+                        intent.putExtra("direccion_c", direccion_c);
+                        intent.putExtra("imagen_c", imagen_c);
+
+
+                        startActivity(intent);
+                        //Toast.makeText(Listar_Contactos.this, "On item click", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

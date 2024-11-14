@@ -108,7 +108,6 @@
     <string name="Btn_Validar_Registro_C">OK</string>
 
 
-
     <!--actualizar nota-->
     <string name="Id_peli_A">Id peli</string>
     <string name="Uid_Usuario_A">Uid del Usuario</string>
@@ -182,6 +181,21 @@
     <string name="Telefono_Contacto">Telefono </string>
     <string name="Direccion_Contacto">Direccion </string>
     <string name="Btn_Guardar_Contacto">Guardar contacto</string>
+
+    <!--detalle contacto-->
+    <string name="Id_Usuario_D">Id</string>
+    <string name="Uid_Usuario_D">Uid usuario</string>
+    <string name="Nombre_Contacto_D">Nombre </string>
+    <string name="Apellidos_Contacto_D">Apellidos </string>
+    <string name="Correo_Contacto_D">Correo</string>
+    <string name="Edad_Contacto_D">Edad</string>
+    <string name="Telefono_Contacto_D">Telefono </string>
+    <string name="Direccion_Contacto_D">Direccion </string>
+    <string name="Btn_Guardar_Contacto_D">Actualizar</string>
+
+    <!-- En res/values/strings.xml -->
+    <string name="texto_con_subrayado"><u>Información del contacto</u></string>
+
 
 
 </resources>

@@ -20,12 +20,12 @@
         <!--Imagen de contacto-->
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/Imagen_contacto_Item"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/baseline_person_pin_24"/>
+            android:src="@drawable/usuario" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -37,6 +37,7 @@
             <TextView
                 android:id="@+id/id_contacto_item"
                 android:text="@string/id_contacto_item"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -46,6 +47,7 @@
             <TextView
                 android:id="@+id/uid_contacto_item"
                 android:text="@string/Uid_contacto_item"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -57,7 +59,9 @@
                 android:text="@string/nombre_contacto_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
                 android:fontFamily="@font/quicksand"/>
 
             <!--Apellidos de contacto-->
@@ -67,6 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:gravity="center"
                 android:fontFamily="@font/quicksand"/>
 
             <!--Correo de contacto-->
@@ -75,13 +80,15 @@
                 android:text="@string/correo_contacto_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="13sp"
+                android:gravity="center"
                 android:fontFamily="@font/quicksand"/>
 
             <!--Teléfono de contacto-->
             <TextView
                 android:id="@+id/telefono_contacto_item"
                 android:text="@string/telefono_contacto_item"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -91,6 +98,7 @@
             <TextView
                 android:id="@+id/edad_contacto_item"
                 android:text="@string/edad_contacto_item"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -100,6 +108,7 @@
             <TextView
                 android:id="@+id/direccion_contacto_item"
                 android:text="@string/direccion_contacto_item"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"

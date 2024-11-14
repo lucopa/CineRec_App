@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Contactos.Detalle_contacto"
+    android:background="#f4f5f9">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/custom_toolbar5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/agendafondo2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/Imagen_C_D"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:background="@drawable/background_rounded_imagen_perfil"
+                android:layout_marginTop="120dp"
+                android:layout_marginStart="15dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hombre" />
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:alpha="0.9"
+            app:cardCornerRadius="30dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:id="@+id/loginText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:text="@string/texto_con_subrayado"
+                    android:textAlignment="center"
+                    android:textColor="#6D4C41"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <!-- Datos de contacto -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="25dp"
+                    >
+
+                    <!-- Agregar datos individuales -->
+                    <TextView
+                        android:id="@+id/Id_Usuario_D"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="@string/Id_Usuario_D"
+                        android:fontFamily="@font/quicksand"
+                        android:textColor="#6D4C41"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/Uid_Usuario_D"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Uid_Usuario_D"
+                        android:visibility="gone"
+                        android:fontFamily="@font/quicksand"
+                        android:textColor="#6D4C41"
+                        android:textSize="18sp"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/Nombre_Contacto_D"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Nombre_Contacto_D"
+                        android:fontFamily="@font/quicksand"
+                        android:textColor="#6D4C41"
+                        android:textSize="18sp"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/Apellidos_Contacto_D"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Apellidos_Contacto_D"
+                        android:fontFamily="@font/quicksand"
+                        android:textColor="#6D4C41"
+                        android:textSize="18sp"
+                        android:layout_marginTop="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/Correo_Contacto_D"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Correo_Contacto_D"
+                        android:fontFamily="@font/quicksand"
+                        android:textColor="#6D4C41"
+                        android:textSize="18sp"
+                        android:layout_marginTop="10dp"
+                     />
+
+                    <TextView
+                        android:id="@+id/Edad_Contacto_D"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Edad_Contacto_D"
+                        android:fontFamily="@font/quicksand"
+                        android:textColor="#6D4C41"
+                        android:textSize="18sp"
+                        android:layout_marginTop="10dp"
+                         />
+
+                    <TextView
+                        android:id="@+id/Telefono_Contacto_D"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Telefono_Contacto_D"
+                        android:fontFamily="@font/quicksand"
+                        android:textColor="#6D4C41"
+                        android:textSize="18sp"
+                        android:layout_marginTop="10dp"  />
+
+                    <TextView
+                        android:id="@+id/Direccion_Contacto_D"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Direccion_Contacto_D"
+                        android:fontFamily="@font/quicksand"
+                        android:textColor="#6D4C41"
+                        android:textSize="18sp"
+                        android:layout_marginTop="10dp"
+                         />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Nombre_Contacto"
-                    android:inputType="textPersonName"
+                    android:inputType="textCapWords|textPersonName"
                     android:minHeight="48dp" />
 
                 <!--Apellidos del contacto-->
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Apellidos_Contacto"
-                    android:inputType="textPersonName"
+                    android:inputType="textCapWords|textPersonName"
                     android:minHeight="48dp" />
 
                 <!--Correo del contacto-->
@@ -130,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Direccion_Contacto"
-                    android:inputType="text"
+                    android:inputType="textCapWords|textPersonName"
                     android:minHeight="48dp" />
 
                 <!--Botón para registrar contacto-->
