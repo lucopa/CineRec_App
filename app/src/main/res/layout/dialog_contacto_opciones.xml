@@ -8,7 +8,7 @@
     android:layout_gravity="center">
 
     <TextView
-        android:text="@string/EligeOpcion"
+        android:text="@string/ElegirOpcionesContactoTXT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -28,7 +28,7 @@
         />
 
     <Button
-        android:id="@+id/cd_eliminar"
+        android:id="@+id/Btn_Eliminar"
         app:icon="@drawable/baseline_delete_forever_24"
         android:text="@string/Eliminar"
         android:fontFamily="@font/quicksand"
@@ -42,7 +42,7 @@
         />
 
     <Button
-        android:id="@+id/cd_actualizar"
+        android:id="@+id/Btn_Actualizar"
         app:icon="@drawable/baseline_update_24"
         android:text="@string/Actualizar"
         android:fontFamily="@font/quicksand"

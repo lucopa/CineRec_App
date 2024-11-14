@@ -107,6 +107,11 @@
     <string name="ValidarTXT">Tienes que completar al menos el nombre del contacto</string>
     <string name="Btn_Validar_Registro_C">OK</string>
 
+    <!--cuadro de dialogo - opciones contacto-->
+    <string name="ElegirOpcionesContactoTXT">Elige una opción para el contacto:</string>
+    <string name="Btn_Eliminar">Eliminar</string>
+    <string name="Btn_Actualizar">Actualizar</string>
+
 
     <!--actualizar nota-->
     <string name="Id_peli_A">Id peli</string>

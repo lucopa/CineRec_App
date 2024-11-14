@@ -1,15 +1,19 @@
 package com.example.cinerec_app.Contactos;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -25,16 +29,19 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Listar_Contactos extends AppCompatActivity {
 
     RecyclerView recyclerViewContactos;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference BD_Usuarios;
-    ImageView btnBack,añadirContacto;
+    ImageView btnBack,añadirContacto,borrarContactos;
 
 
     FirebaseAuth firebaseAuth;
@@ -42,6 +49,8 @@ public class Listar_Contactos extends AppCompatActivity {
 
     FirebaseRecyclerAdapter<Contacto, ViewHolderContacto> firebaseRecyclerAdapter;
     FirebaseRecyclerOptions<Contacto> firebaseRecyclerOptions;
+
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +63,8 @@ public class Listar_Contactos extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         BD_Usuarios = firebaseDatabase.getReference("Usuarios");
+
+        dialog = new Dialog(Listar_Contactos.this);
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
@@ -117,7 +128,35 @@ public class Listar_Contactos extends AppCompatActivity {
 
                     @Override
                     public void onItemLongClick(View view, int position) {
-                        Toast.makeText(Listar_Contactos.this, "On item long click", Toast.LENGTH_SHORT).show();
+                        String id_c = getItem(position).getId_contacto();
+                        Button Btn_Eliminar, Btn_Actualizar;
+                        dialog.setContentView(R.layout.dialog_contacto_opciones);
+
+
+                        Btn_Eliminar = dialog.findViewById(R.id.Btn_Eliminar);
+                        Btn_Actualizar = dialog.findViewById(R.id.Btn_Actualizar);
+
+                        Btn_Eliminar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Toast.makeText(Listar_Contactos.this, "Eliminar contacto", Toast.LENGTH_SHORT).show();
+                                EliminarContacto(id_c);
+                                dialog.dismiss();
+                            }
+                        });
+
+
+
+                        Btn_Actualizar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(Listar_Contactos.this, "Actualizar contacto", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            }
+                        });
+
+                        dialog.show();
+
                     }
                 });
                 return viewHolderContacto;
@@ -126,6 +165,42 @@ public class Listar_Contactos extends AppCompatActivity {
         recyclerViewContactos.setLayoutManager(new GridLayoutManager(Listar_Contactos.this, 2));
         firebaseRecyclerAdapter.startListening();
         recyclerViewContactos.setAdapter(firebaseRecyclerAdapter);
+    }
+
+    private void EliminarContacto(String id_c) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Contactos.this);
+        builder.setTitle("Eliminar");
+        builder.setMessage("¿Estas seguro/a de eliminar este contacto?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Query query = BD_Usuarios.child(user.getUid()).child("Contactos").orderByChild("id_contacto").equalTo(id_c);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()){
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(Listar_Contactos.this, "Contacto eliminado", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(Listar_Contactos.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(Listar_Contactos.this, "Accion cancelada", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.create().show();
     }
 
     @Override
@@ -138,12 +213,16 @@ public class Listar_Contactos extends AppCompatActivity {
 
     private void initListener() {
         btnBack = findViewById(R.id.btn_back);
+        borrarContactos = findViewById(R.id.borrarContactos);
         añadirContacto = findViewById(R.id.añadirContacto);
 
 
         btnBack.setOnClickListener(v -> finish());
 
         añadirContacto.setOnClickListener(v -> itemContacto());
+
+        borrarContactos.setOnClickListener(v -> EliminarTodosContactos());
+
 
 
     }
@@ -156,6 +235,43 @@ public class Listar_Contactos extends AppCompatActivity {
         intent.putExtra("Uid", Uid_Recuperado);
         startActivity(intent);
     }
+
+    private void EliminarTodosContactos(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Contactos.this);
+        builder.setTitle("Eliminar todos los contactos");
+        builder.setMessage("¿Estás seguro/a de eliminar todos los contactos?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Query query = BD_Usuarios.child(user.getUid()).child("Contactos");
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()){
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(Listar_Contactos.this, "Todos han sido eliminados", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(Listar_Contactos.this, "", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(Listar_Contactos.this, "Cancelado", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.create().show();
+    }
+
+
 
 
 }
