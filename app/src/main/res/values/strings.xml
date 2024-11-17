@@ -196,6 +196,11 @@
     <!-- En res/values/strings.xml -->
     <string name="texto_con_subrayado"><u>Información del contacto</u></string>
 
+    <!--cuadro de dialogo - opciones contacto-->
+    <string name="ElegirOpcionesContactoTXT">Elige una opción para el contacto:</string>
+    <string name="Btn_Eliminar">Eliminar</string>
+    <string name="Btn_Actualizar">Actualizar</string>
+
     <!--actualizar contacto-->
     <string name="Id_Contacto_A">**** </string>
     <string name="Uid_Contacto_A">**** </string>
