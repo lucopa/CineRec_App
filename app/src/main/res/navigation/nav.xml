@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/page_inicio">
+
+    <fragment
+        android:id="@+id/page_inicio"
+        android:name="com.example.cinerec_app.Fragments.MenuPrincipalFragment"
+        tools:layout="@layout/fragment_menu_principal" />
+
+    <fragment
+        android:id="@+id/page_info"
+        android:name="com.example.cinerec_app.Fragments.InfoFragment"
+        tools:layout="@layout/fragment_info" />
+
+    <fragment
+        android:id="@+id/page_añadirpeli"
+        android:name="com.example.cinerec_app.Fragments.ContactosFragment"
+        tools:layout="@layout/fragment_contactos" />
+
+    <fragment
+        android:id="@+id/page_peliculasfavs"
+        android:name="com.example.cinerec_app.Fragments.PelisFavoritasFragment"
+        tools:layout="@layout/fragment_pelis_favoritas" />
+
+
+</navigation>

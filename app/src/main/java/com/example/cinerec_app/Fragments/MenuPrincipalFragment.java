@@ -1,0 +1,230 @@
+package com.example.cinerec_app.Fragments;
+
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+
+import com.example.cinerec_app.MainActivity;
+import com.example.cinerec_app.R;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
+
+import com.example.cinerec_app.AgregarPeli.Agregar_Peli;
+import com.example.cinerec_app.Contactos.Listar_Contactos;
+import com.example.cinerec_app.Favoritas.Pelis_Favoritas;
+import com.example.cinerec_app.ListarPeli.Listar_Peli;
+import com.example.cinerec_app.Perfil.Perfil_Usuario;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+public class MenuPrincipalFragment extends Fragment {
+
+    ImageView btnBack, perfil;
+    FirebaseAuth firebaseAuth;
+    Button AgregarPeli, ListarPeli, Archivados, Contactos, cerrar, EstadoCuentaPrincipal;
+
+    LinearLayoutCompat Linear_Verificado, Linear_Nombre, Linear_Correo;
+    TextView UidPrincipal, NombresPrincipal, CorreoPrincipal;
+    ProgressBar progressBar;
+    ProgressDialog progressDialog;
+    DatabaseReference Usuarios;
+    Dialog dialog_cuenta_verificada;
+    FirebaseUser user;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Infla el layout
+        View rootView = inflater.inflate(R.layout.fragment_menu_principal, container, false);
+
+        // Inicializa las vistas desde rootView
+        AgregarPeli = rootView.findViewById(R.id.AgregarPeli);
+        btnBack = rootView.findViewById(R.id.btn_back);
+        perfil = rootView.findViewById(R.id.perfil);
+        ListarPeli = rootView.findViewById(R.id.ListarPeli);
+        Archivados = rootView.findViewById(R.id.Archivados);
+        Contactos = rootView.findViewById(R.id.Contactos);
+        UidPrincipal = rootView.findViewById(R.id.UidPrincipal);
+        NombresPrincipal = rootView.findViewById(R.id.NombresPrincipal);
+        CorreoPrincipal = rootView.findViewById(R.id.CorreoPrincipal);
+        progressBar = rootView.findViewById(R.id.progressBar);
+        Linear_Verificado = rootView.findViewById(R.id.Linear_Verificado);
+        Linear_Nombre = rootView.findViewById(R.id.Linear_Nombre);
+        Linear_Correo = rootView.findViewById(R.id.Linear_Correo);
+        EstadoCuentaPrincipal = rootView.findViewById(R.id.EstadoCuentaPrincipal);
+
+        // Configura las acciones de los botones
+        AgregarPeli.setOnClickListener(view -> {
+            String uid_usuario = UidPrincipal.getText().toString();
+            String correo_usuario = CorreoPrincipal.getText().toString();
+            Intent intent = new Intent(getActivity(), Agregar_Peli.class);
+            intent.putExtra("Uid", uid_usuario);
+            intent.putExtra("Correo", correo_usuario);
+            startActivity(intent);
+        });
+
+        ListarPeli.setOnClickListener(view -> {
+            startActivity(new Intent(getActivity(), Listar_Peli.class));
+            Toast.makeText(getActivity(), "Listar Peliculas", Toast.LENGTH_SHORT).show();
+        });
+
+        Archivados.setOnClickListener(view -> {
+            startActivity(new Intent(getActivity(), Pelis_Favoritas.class));
+            Toast.makeText(getActivity(), "Peliculas archivadas", Toast.LENGTH_SHORT).show();
+        });
+
+        Contactos.setOnClickListener(view -> {
+            String uid_usuario = UidPrincipal.getText().toString();
+            Intent intent = new Intent(getActivity(), Listar_Contactos.class);
+            intent.putExtra("Uid", uid_usuario);
+            startActivity(intent);
+        });
+
+
+        btnBack.setOnClickListener(v -> {
+            if (getActivity() != null) {
+                getActivity().finish();  // Cierra la actividad que aloja este fragmento
+            }
+        });
+        perfil.setOnClickListener(v ->  startActivity(new Intent(getActivity(), Perfil_Usuario.class)));
+
+        // Inicializa Firebase
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+        Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setTitle("Espera un momento...");
+        progressDialog.setCanceledOnTouchOutside(false);
+
+        // Verifica estado de cuenta
+        EstadoCuentaPrincipal.setOnClickListener(view -> {
+            if (user.isEmailVerified()) {
+                Toast.makeText(getActivity(), "Cuenta ya verificada", Toast.LENGTH_SHORT).show();
+                AnimacionCuentaVerificada();
+            } else {
+                VerificarCuentaCorreo();
+            }
+        });
+
+        return rootView;
+    }
+
+
+
+    private void VerificarCuentaCorreo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Verificar Cuenta")
+                .setMessage("¿Confirmas que quieres que las instrucciones de verificación se envíen a tu correo electrónico?" + user.getEmail())
+                .setPositiveButton("Enviar", (dialogInterface, i) -> EnviarCorreoVerificacion())
+                .setNegativeButton("Cancelar", (dialogInterface, i) -> Toast.makeText(getActivity(), "Anulado por el usuario", Toast.LENGTH_SHORT).show())
+                .show();
+    }
+
+    private void EnviarCorreoVerificacion() {
+        progressDialog.setMessage("Enviando las instrucciones de verificación a su correo electrónico" + user.getEmail());
+        progressDialog.show();
+
+        user.sendEmailVerification()
+                .addOnSuccessListener(aVoid -> {
+                    progressDialog.dismiss();
+                    Toast.makeText(getActivity(), "Instrucciones enviadas, revise su bandeja", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> Toast.makeText(getActivity(), "Fallo debido a: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    private void VerificarEstadoCuenta() {
+        String Verificado = "Verificado";
+        String No_Verificado = "No Verificado";
+
+        if (user.isEmailVerified()) {
+            EstadoCuentaPrincipal.setText(Verificado);
+            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(34, 153, 84));
+        } else {
+            EstadoCuentaPrincipal.setText(No_Verificado);
+            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(231, 76, 60));
+        }
+    }
+
+    private void AnimacionCuentaVerificada() {
+        Button EntendidoVerificado;
+        dialog_cuenta_verificada = new Dialog(getActivity());
+        dialog_cuenta_verificada.setContentView(R.layout.dialog_cuenta_verificada);
+        EntendidoVerificado = dialog_cuenta_verificada.findViewById(R.id.EntendidoVerificado);
+        EntendidoVerificado.setOnClickListener(view -> dialog_cuenta_verificada.dismiss());
+        dialog_cuenta_verificada.show();
+        dialog_cuenta_verificada.setCanceledOnTouchOutside(false);
+    }
+
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        ComprobarInicioSesion();
+    }
+
+    private void ComprobarInicioSesion() {
+        if (user != null) {
+            CargarDatos();
+        } else {
+            startActivity(new Intent(getActivity(), MainActivity.class));
+            getActivity().finish();
+        }
+    }
+
+    private void CargarDatos() {
+        VerificarEstadoCuenta();
+        Usuarios.child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    progressBar.setVisibility(View.GONE);
+                    Linear_Nombre.setVisibility(View.VISIBLE);
+                    Linear_Correo.setVisibility(View.VISIBLE);
+                    Linear_Verificado.setVisibility(View.VISIBLE);
+
+                    String uid = "" + snapshot.child("uid").getValue();
+                    String nombre = "" + snapshot.child("nombre").getValue();
+                    String correo = "" + snapshot.child("correo").getValue();
+
+                    UidPrincipal.setText(uid);
+                    NombresPrincipal.setText(nombre);
+                    CorreoPrincipal.setText(correo);
+
+                    AgregarPeli.setEnabled(true);
+                    ListarPeli.setEnabled(true);
+                    Archivados.setEnabled(true);
+                    Contactos.setEnabled(true);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+}

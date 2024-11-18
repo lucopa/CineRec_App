@@ -22,6 +22,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.bumptech.glide.Glide;
 import com.example.cinerec_app.ActualizarPass.ActualizarContra;
 import com.example.cinerec_app.ActualizarPeli.Actualizar_Peli;
+import com.example.cinerec_app.MainActivity;
 import com.example.cinerec_app.MenuPrincipal;
 import com.example.cinerec_app.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -43,7 +44,7 @@ public class Perfil_Usuario extends AppCompatActivity {
     ImageView imagen_perfil, btnBack, cambiarContra;
     TextView Correo_Perfil,Uid_Perfil,Telefono_Perfil,Fecha_Nacimiento_Perfil;
     EditText Nombres_Perfil, Apellidos_Perfil, Edad_Perfil, Direccion_Perfil, Estudios_Perfil, Profesion_Perfil;
-    Button Guardar_Datos;
+    Button Guardar_Datos, CerrarSesion;
     ImageView EditarTelefono,Editar_Fecha, editar_imagen;
 
 
@@ -93,6 +94,13 @@ public class Perfil_Usuario extends AppCompatActivity {
             }
         });
 
+        CerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SalirAplicacion();
+            }
+        });
+
     }
 
     private void IncializarVariables(){
@@ -112,6 +120,7 @@ public class Perfil_Usuario extends AppCompatActivity {
         cambiarContra = findViewById(R.id.cambiarContra);
         EditarTelefono = findViewById(R.id.EditarTelefono);
         Editar_Fecha = findViewById(R.id.Editar_Fecha);
+        CerrarSesion = findViewById(R.id.CerrarSesion);
 
         dialog_establecer_tlf = new Dialog(Perfil_Usuario.this);
         Guardar_Datos = findViewById(R.id.Guardar_Datos);
@@ -308,5 +317,11 @@ public class Perfil_Usuario extends AppCompatActivity {
     protected void onStart() {
         ComprobarInicioSesion();
         super.onStart();
+    }
+
+    private void SalirAplicacion() {
+        firebaseAuth.signOut();
+        startActivity(new Intent(Perfil_Usuario.this, MainActivity.class));
+        Toast.makeText(this, "Cerraste sesión", Toast.LENGTH_SHORT).show();
     }
 }

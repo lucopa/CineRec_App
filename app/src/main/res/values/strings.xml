@@ -211,5 +211,7 @@
     <string name="Correo_Contacto_A">****  </string>
     <string name="Telefono_Contacto_A">**** </string>
     <string name="Guardar_Datos_Contacto">Guardar contacto</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
