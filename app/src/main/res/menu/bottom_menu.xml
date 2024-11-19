@@ -8,19 +8,17 @@
         android:icon="@drawable/baseline_home_24" />
 
     <item
+        android:id="@+id/page_peliculasfavs"
+        android:title="Favoritas"
+        android:icon="@drawable/icono_favorita" />
+
+    <item
         android:id="@+id/page_info"
         android:title="Informacion"
         android:icon="@drawable/outline_info_24" />
 
-    <item
-        android:id="@+id/page_añadirpeli"
-        android:title="Contactos"
-        android:icon="@drawable/baseline_add_24" />
 
-    <item
-        android:id="@+id/page_peliculasfavs"
-        android:title="Cerrar"
-        android:icon="@drawable/icono_favorita" />
+
 
 
 </menu>

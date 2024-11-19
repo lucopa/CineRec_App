@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -18,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -43,6 +45,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MenuPrincipalFragment extends Fragment {
 
+    ViewFlipper v_flipper;
+
     ImageView btnBack, perfil;
     FirebaseAuth firebaseAuth;
     Button AgregarPeli, ListarPeli, Archivados, Contactos, cerrar, EstadoCuentaPrincipal;
@@ -65,7 +69,6 @@ public class MenuPrincipalFragment extends Fragment {
         btnBack = rootView.findViewById(R.id.btn_back);
         perfil = rootView.findViewById(R.id.perfil);
         ListarPeli = rootView.findViewById(R.id.ListarPeli);
-        Archivados = rootView.findViewById(R.id.Archivados);
         Contactos = rootView.findViewById(R.id.Contactos);
         UidPrincipal = rootView.findViewById(R.id.UidPrincipal);
         NombresPrincipal = rootView.findViewById(R.id.NombresPrincipal);
@@ -75,6 +78,14 @@ public class MenuPrincipalFragment extends Fragment {
         Linear_Nombre = rootView.findViewById(R.id.Linear_Nombre);
         Linear_Correo = rootView.findViewById(R.id.Linear_Correo);
         EstadoCuentaPrincipal = rootView.findViewById(R.id.EstadoCuentaPrincipal);
+
+        int images[] = {R.drawable.wicked, R.drawable.gladiator, R.drawable.anora, R.drawable.sustancia};
+
+        v_flipper = rootView.findViewById(R.id.v_flipper);
+
+        for (int image: images){
+            flipperImagenes(image);
+        }
 
         // Configura las acciones de los botones
         AgregarPeli.setOnClickListener(view -> {
@@ -91,10 +102,6 @@ public class MenuPrincipalFragment extends Fragment {
             Toast.makeText(getActivity(), "Listar Peliculas", Toast.LENGTH_SHORT).show();
         });
 
-        Archivados.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), Pelis_Favoritas.class));
-            Toast.makeText(getActivity(), "Peliculas archivadas", Toast.LENGTH_SHORT).show();
-        });
 
         Contactos.setOnClickListener(view -> {
             String uid_usuario = UidPrincipal.getText().toString();
@@ -130,6 +137,20 @@ public class MenuPrincipalFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    public void flipperImagenes(int image){
+        ImageView imageView = new ImageView(getActivity());
+        imageView.setBackgroundResource(image);
+
+        v_flipper.addView(imageView);
+        v_flipper.setFlipInterval(6000);
+        v_flipper.setAutoStart(true);
+
+        v_flipper.setInAnimation(getActivity(), android.R.anim.slide_out_right);
+        v_flipper.setOutAnimation(getActivity(), android.R.anim.slide_in_left);
+
+
     }
 
 
@@ -216,7 +237,6 @@ public class MenuPrincipalFragment extends Fragment {
 
                     AgregarPeli.setEnabled(true);
                     ListarPeli.setEnabled(true);
-                    Archivados.setEnabled(true);
                     Contactos.setEnabled(true);
 
                 }

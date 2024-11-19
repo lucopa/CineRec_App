@@ -8,6 +8,12 @@
     tools:context=".Fragments.MenuPrincipalFragment" >
 
 
+   <!-- <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/palomitasfondo" /> -->
+
 
     <!-- Contenedor principal -->
     <ScrollView
@@ -215,7 +221,7 @@
 
                     <Button
                         android:id="@+id/ListarPeli"
-                        android:text="@string/ListarPeli"
+                        android:text="Peliculas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10dp"
@@ -239,11 +245,12 @@
                         android:layout_width="78dp"
                         android:layout_height="78dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/favoritas" />
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/reanudar" />
 
                     <Button
-                        android:id="@+id/Archivados"
-                        android:text="@string/Archivados"
+                        android:id="@+id/Contactos"
+                        android:text="@string/Contactos"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10dp"
@@ -272,26 +279,19 @@
                     android:background="@drawable/iconos_background"
                     android:gravity="center">
 
-                    <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
-                        android:layout_marginTop="20dp"
-                        android:src="@drawable/reanudar" />
 
-                    <Button
-                        android:id="@+id/Contactos"
-                        android:text="@string/Contactos"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp"
-                        android:textColor="@color/black"
-                        android:backgroundTint="@color/amarillo"
-                        android:fontFamily="@font/quicksand"
-                        android:textStyle="bold" />
                 </LinearLayout>
 
-
             </LinearLayout>
+
+            <ViewFlipper
+                android:id="@+id/v_flipper"
+                android:layout_marginTop="20dp"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:elevation="8dp"
+                android:background="@drawable/viewflipper_border"/>
 
         </LinearLayout>
     </ScrollView>

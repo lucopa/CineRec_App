@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Favoritas.Pelis_Favoritas"
+    tools:context=".Fragments.PelisFavoritasFragment"
     tools:ignore="ExtraText">
 
     <include layout="@layout/custom_toolbar3" />
