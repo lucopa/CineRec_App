@@ -24,11 +24,12 @@
     <!-- BottomNavigationView -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
-        android:layout_width="415dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
         android:background="@drawable/bottom_background"
         app:itemIconSize="30dp"
+        android:layout_marginBottom="20dp"
         app:itemIconTint="@drawable/item_selector"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"

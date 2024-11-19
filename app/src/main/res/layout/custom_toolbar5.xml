@@ -37,10 +37,10 @@
                 android:layout_width="20dp"/>
 
             <ImageView
-                android:id="@+id/perfil"
+                android:id="@+id/buscarContactos"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
-                android:src="@drawable/baseline_add_24"
+                android:src="@drawable/baseline_search_24"
                 android:padding="8dp"/>
 
 

@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.cinerec_app.MainActivity;
 import com.example.cinerec_app.R;
 import android.view.View;
@@ -79,7 +82,7 @@ public class MenuPrincipalFragment extends Fragment {
         Linear_Correo = rootView.findViewById(R.id.Linear_Correo);
         EstadoCuentaPrincipal = rootView.findViewById(R.id.EstadoCuentaPrincipal);
 
-        int images[] = {R.drawable.wicked, R.drawable.gladiator, R.drawable.anora, R.drawable.sustancia};
+        int images[] = {R.drawable.wicked, R.drawable.gladiator, R.drawable.anora, R.drawable.sustancia, R.drawable.blinktwice, R.drawable.robotsalvaje, R.drawable.dune, R.drawable.twisters};
 
         v_flipper = rootView.findViewById(R.id.v_flipper);
 
@@ -141,14 +144,19 @@ public class MenuPrincipalFragment extends Fragment {
 
     public void flipperImagenes(int image){
         ImageView imageView = new ImageView(getActivity());
-        imageView.setBackgroundResource(image);
+
+        Glide.with(getActivity())
+                .load(image)
+                .transform(new CenterCrop(), new RoundedCorners(20))  // 16dp de radio de esquina
+                .into(imageView);
 
         v_flipper.addView(imageView);
-        v_flipper.setFlipInterval(6000);
+        v_flipper.setFlipInterval(4000);
         v_flipper.setAutoStart(true);
 
-        v_flipper.setInAnimation(getActivity(), android.R.anim.slide_out_right);
-        v_flipper.setOutAnimation(getActivity(), android.R.anim.slide_in_left);
+        v_flipper.setInAnimation(getActivity(), android.R.anim.slide_in_left);
+        v_flipper.setOutAnimation(getActivity(), android.R.anim.slide_out_right);
+
 
 
     }

@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.cinerec_app.R;
 
 public class Detalle_contacto extends AppCompatActivity {
@@ -77,7 +79,11 @@ public class Detalle_contacto extends AppCompatActivity {
     private void ObtenerImagen(){
         String imagen = getIntent().getStringExtra("imagen_c");
         try {
-            Glide.with(getApplicationContext()).load(imagen).placeholder(R.drawable.usuario).into(Imagen_C_D);
+            Glide.with(getApplicationContext())
+                    .load(imagen)  // Carga la imagen
+                    .placeholder(R.drawable.usuario)  // Imagen de marcador de posición
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))  // Aplica la transformación de bordes redondeados (ajustar el valor)
+                    .into(Imagen_C_D);
         }catch (Exception e){
             Toast.makeText(this, "Cargando imagen", Toast.LENGTH_SHORT).show();
         }

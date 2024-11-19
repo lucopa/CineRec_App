@@ -32,6 +32,9 @@
             android:name=".Contactos.Agregar_Contacto"
             android:exported="false" />
         <activity
+            android:name=".Contactos.Actualizar_Contacto"
+            android:exported="false" />
+        <activity
             android:name=".Contactos.Listar_Contactos"
             android:exported="false" />
         <activity

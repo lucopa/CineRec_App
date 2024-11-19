@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.MenuPrincipalFragment" >
+    tools:context=".Fragments.MenuPrincipalFragment"
+    android:background="#FFF9F0 ">
 
 
-   <!-- <ImageView
+    <!--<ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
@@ -39,6 +40,8 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
                 android:alpha="0.9"
+                android:elevation="4dp"
+                android:translationZ="4dp"
                 android:padding="10dp">
 
                 <ImageView
@@ -68,7 +71,8 @@
                         android:id="@+id/progressBar"
                         android:layout_width="250dp"
                         android:layout_marginTop="20dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:indeterminateTint="#FFC857"/>
 
                     <!-- UID oculto -->
                     <TextView
@@ -170,9 +174,11 @@
             <!-- Sección de botones de opciones -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="220dp"
                 android:orientation="horizontal"
                 android:layout_margin="10dp"
+
+                android:layout_marginTop="20dp"
                 android:gravity="center_horizontal">
 
                 <!-- Botón 1 -->
@@ -180,6 +186,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:elevation="4dp"
+                    android:translationZ="4dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginHorizontal="5dp"
                     android:orientation="vertical"
                     android:background="@drawable/iconos_background"
@@ -197,8 +206,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10dp"
-                        android:textColor="@color/black"
-                        android:backgroundTint="@color/amarillo"
+                        android:backgroundTint="#FFC857"
+                        android:textColor="#333333"
                         android:fontFamily="@font/quicksand"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -208,8 +217,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:elevation="4dp"
+                    android:translationZ="4dp"
                     android:layout_marginHorizontal="5dp"
                     android:orientation="vertical"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/iconos_background"
                     android:gravity="center">
 
@@ -225,8 +237,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10dp"
-                        android:textColor="@color/black"
-                        android:backgroundTint="@color/amarillo"
+                        android:backgroundTint="#FFC857"
+                        android:textColor="#333333"
                         android:fontFamily="@font/quicksand"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -236,6 +248,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:elevation="4dp"
+                    android:translationZ="4dp"
                     android:layout_marginHorizontal="5dp"
                     android:orientation="vertical"
                     android:background="@drawable/iconos_background"
@@ -254,8 +269,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10dp"
-                        android:textColor="@color/black"
-                        android:backgroundTint="@color/amarillo"
+                        android:backgroundTint="#FFC857"
+                     android:textColor="#333333"
                         android:fontFamily="@font/quicksand"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -269,29 +284,24 @@
                 android:layout_margin="10dp"
                 android:gravity="center_horizontal">
 
-                <!-- Botón 4 -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="5dp"
-                    android:orientation="vertical"
-                    android:background="@drawable/iconos_background"
-                    android:gravity="center">
 
-
-                </LinearLayout>
 
             </LinearLayout>
 
             <ViewFlipper
                 android:id="@+id/v_flipper"
-                android:layout_marginTop="20dp"
                 android:layout_width="350dp"
                 android:layout_height="250dp"
                 android:layout_gravity="center"
                 android:elevation="8dp"
-                android:background="@drawable/viewflipper_border"/>
+
+                android:padding="8dp"
+                android:clipToPadding="false"
+                android:outlineProvider="background"
+                android:translationZ="8dp"
+                />
+
+
 
         </LinearLayout>
     </ScrollView>

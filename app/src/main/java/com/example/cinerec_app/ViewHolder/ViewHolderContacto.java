@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.cinerec_app.R;
 
 public class ViewHolderContacto extends RecyclerView.ViewHolder {
@@ -74,12 +76,20 @@ public class ViewHolderContacto extends RecyclerView.ViewHolder {
         direccion_contacto_item.setText(direccion);
 
         try {
-            //Si la imagen del contaxto existe en la base de datos
-            Glide.with(context).load(imagen).placeholder(R.drawable.usuario).into(Imagen_contacto_Item);
-        } catch (Exception e){
-            //Si no existe se pone la que esta por defecto
-            Glide.with(context).load(R.drawable.usuario).into(Imagen_contacto_Item);
+
+            Glide.with(context)
+                    .load(imagen)
+                    .placeholder(R.drawable.usuario)
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
+                    .into(Imagen_contacto_Item);
+        } catch (Exception e) {
+
+            Glide.with(context)
+                    .load(R.drawable.usuario)
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
+                    .into(Imagen_contacto_Item);
         }
+
 
 
 

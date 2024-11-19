@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Perfil.Perfil_Usuario"
-    tools:ignore="SpeakableTextPresentCheck">
+    tools:ignore="SpeakableTextPresentCheck"
+    android:background="@drawable/fondoagenda">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -24,18 +25,18 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <androidx.appcompat.widget.AppCompatImageView
+         <!--   <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/agendafondo2" />
+                android:src="@drawable/agendafondo2" /> -->
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imagen_perfil_contacto"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:background="@drawable/background_rounded_imagen_perfil"
-                android:layout_marginTop="120dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginLeft="20dp"
                 android:src="@drawable/usuario"/>
 
@@ -44,7 +45,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="140dp"
-                android:layout_marginTop="230dp"
+                android:layout_marginTop="160dp"
                 android:src="@drawable/editar"/>
 
         </RelativeLayout>

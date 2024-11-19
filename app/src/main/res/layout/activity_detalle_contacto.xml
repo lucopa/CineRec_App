@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Contactos.Detalle_contacto"
-    android:background="#f4f5f9">
+    android:background="@drawable/fondoagenda">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -22,11 +22,11 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <androidx.appcompat.widget.AppCompatImageView
+           <!-- <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/agendafondo2" />
+                android:src="@drawable/fondocontacto" /> -->
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/Imagen_C_D"
