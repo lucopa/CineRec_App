@@ -82,7 +82,7 @@ public class MenuPrincipalFragment extends Fragment {
         Linear_Correo = rootView.findViewById(R.id.Linear_Correo);
         EstadoCuentaPrincipal = rootView.findViewById(R.id.EstadoCuentaPrincipal);
 
-        int images[] = {R.drawable.wicked, R.drawable.gladiator, R.drawable.anora, R.drawable.sustancia, R.drawable.blinktwice, R.drawable.robotsalvaje, R.drawable.dune, R.drawable.twisters};
+        int images[] = {R.drawable.wicked, R.drawable.gladiator, R.drawable.anora, R.drawable.substance, R.drawable.suicidesquad, R.drawable.gonegirl, R.drawable.dune, R.drawable.twisters, R.drawable.oppenheimer};
 
         v_flipper = rootView.findViewById(R.id.v_flipper);
 

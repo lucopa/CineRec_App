@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,14 +30,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class PelisFavoritasFragment extends Fragment {
 
-    private RecyclerView RecyclerViewPelisFavoritas;
-    private DatabaseReference Mis_Usuarios;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseUser user;
-    private FirebaseRecyclerAdapter<Pelicula, ViewHolder_Peli_Favorita> firebaseRecyclerAdapter;
-    private FirebaseRecyclerOptions<Pelicula> firebaseRecyclerOptions;
-    private Dialog dialog;
-    private ImageView btnBack;
+     RecyclerView RecyclerViewPelisFavoritas;
+     DatabaseReference Mis_Usuarios;
+     FirebaseAuth firebaseAuth;
+     FirebaseUser user;
+     FirebaseRecyclerAdapter<Pelicula, ViewHolder_Peli_Favorita> firebaseRecyclerAdapter;
+     FirebaseRecyclerOptions<Pelicula> firebaseRecyclerOptions;
+     Dialog dialog;
+     ImageView btnBack;
 
     public PelisFavoritasFragment() {
         // Constructor vacío requerido

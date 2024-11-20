@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/amarillo"
+        android:background="#D4A373"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <LinearLayout
@@ -40,7 +40,7 @@
                 android:id="@+id/buscarContactos"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
-                android:src="@drawable/baseline_search_24"
+                android:src="@drawable/background_rounded_imagen_perfil"
                 android:padding="8dp"/>
 
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.MenuPrincipalFragment"
-    android:background="#FFF9F0 ">
+    android:background="#FFF9F0">
 
 
     <!--<ImageView
@@ -276,25 +276,13 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Nuevo LinearLayout debajo de los tres botones -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="10dp"
-                android:gravity="center_horizontal">
-
-
-
-            </LinearLayout>
 
             <ViewFlipper
                 android:id="@+id/v_flipper"
-                android:layout_width="350dp"
-                android:layout_height="250dp"
+                android:layout_width="390dp"
+                android:layout_height="290dp"
                 android:layout_gravity="center"
                 android:elevation="8dp"
-
                 android:padding="8dp"
                 android:clipToPadding="false"
                 android:outlineProvider="background"

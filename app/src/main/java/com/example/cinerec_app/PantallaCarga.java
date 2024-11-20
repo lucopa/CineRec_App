@@ -23,7 +23,7 @@ public class PantallaCarga extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-       final int TIEMPO = 7000;
+       final int TIEMPO = 4000;
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -34,12 +34,6 @@ public class PantallaCarga extends AppCompatActivity {
             }
         }, TIEMPO);
 
-       /* ImageView imageView = findViewById(R.id.imageGif);
-
-        Glide.with(this)
-                .load(R.drawable.cine)
-                .into(imageView);
-        */
     }
 
     private void verificarUsuario(){

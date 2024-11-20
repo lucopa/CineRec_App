@@ -20,6 +20,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -50,6 +51,7 @@ public class Listar_Peli extends AppCompatActivity {
     RecyclerView recyclerviewPelis;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference BASE_DE_DATOS;
+    SearchView search_view;
 
     LinearLayoutManager linearLayoutManager;
 
@@ -60,6 +62,8 @@ public class Listar_Peli extends AppCompatActivity {
 
     FirebaseAuth auth;
     FirebaseUser user;
+
+
 
 
     @Override
@@ -84,9 +88,12 @@ public class Listar_Peli extends AppCompatActivity {
 
     private void initListener() {
         btnBack = findViewById(R.id.btn_back);
+        search_view = findViewById(R.id.search_view);
         vaciar_todo = findViewById(R.id.vaciar_todo);
 
+
         btnBack.setOnClickListener(v -> finish());
+
 
         vaciar_todo.setOnClickListener(v -> Vaciar_Registro_Pelis());
 
@@ -215,6 +222,11 @@ public class Listar_Peli extends AppCompatActivity {
         recyclerviewPelis.setLayoutManager(linearLayoutManager);
         recyclerviewPelis.setAdapter(firebaseRecyclerAdapter);
     }
+
+
+
+
+
 
     private void EliminarPeli(String idPeli) {
         AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Peli.this);

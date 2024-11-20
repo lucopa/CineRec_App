@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.PelisFavoritasFragment"
-    tools:ignore="ExtraText">
+    tools:ignore="ExtraText"
+    android:background="#FFF9F0" >
 
     <include layout="@layout/custom_toolbar3" />
 
@@ -16,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="MIS FAVORITAS"
         android:textStyle="bold"
-        android:textColor="@color/rojo"
+        android:textColor="#4A4A4A"
         android:fontFamily="@font/quicksand"
         android:letterSpacing="0.1"
         android:textSize="25sp"

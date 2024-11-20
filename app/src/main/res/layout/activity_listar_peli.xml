@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ListarPeli.Listar_Peli"
-    android:background="#FAFAFA"
+    android:background="@drawable/fondoagenda"
     tools:ignore="ExtraText">
 
     <include layout="@layout/custom_toolbar3" />
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="MIS PELÍCULAS"
         android:textStyle="bold"
-        android:textColor="@color/rojo"
+        android:textColor="#4A4A4A"
         android:fontFamily="@font/quicksand"
         android:textSize="30sp"
         android:layout_marginTop="90dp"
