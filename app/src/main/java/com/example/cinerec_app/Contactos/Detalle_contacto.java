@@ -1,12 +1,20 @@
 package com.example.cinerec_app.Contactos;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
@@ -17,9 +25,9 @@ public class Detalle_contacto extends AppCompatActivity {
 
     ImageView btnBack, Imagen_C_D;
     TextView Id_Usuario_D, Uid_Usuario_D, Nombre_Contacto_D, Apellidos_Contacto_D, Correo_Contacto_D, Edad_Contacto_D, Telefono_Contacto_D, Direccion_Contacto_D;
-
+    Button llamada,mensaje;
     //String donde almacenaremos los datos del contacto seleccionado
-    String id_c, uid_usuario, nombre_c, apellidos_c, correo_c, telefono_c, edad_c, direccion_c;
+    String id_c, uid_usuario, nombre_c, apellidos_c, correo_c, telefono_c, edad_c, direccion_c, titulo_pelicula;;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +36,30 @@ public class Detalle_contacto extends AppCompatActivity {
         recuperarDatos();
         DatosContacto();
         ObtenerImagen();
+
+        llamada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               if (ContextCompat.checkSelfPermission(Detalle_contacto.this,
+                       Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
+                   llamar();
+               } else {
+                   PermisoLLamada.launch(Manifest.permission.CALL_PHONE);
+               }
+            }
+        });
+
+        mensaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ContextCompat.checkSelfPermission(Detalle_contacto.this,
+                        Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
+                    mensajear();
+                } else {
+                    PermisoMensaje.launch(Manifest.permission.SEND_SMS);
+                }
+            }
+        });
 
     }
 
@@ -42,6 +74,10 @@ public class Detalle_contacto extends AppCompatActivity {
         Edad_Contacto_D = findViewById(R.id.Edad_Contacto_D);
         Telefono_Contacto_D = findViewById(R.id.Telefono_Contacto_D);
         Direccion_Contacto_D = findViewById(R.id.Direccion_Contacto_D);
+        llamada = findViewById(R.id.llamada);
+        mensaje = findViewById(R.id.mensaje);
+
+
 
 
         btnBack.setOnClickListener(v -> finish());
@@ -60,6 +96,7 @@ public class Detalle_contacto extends AppCompatActivity {
         edad_c = bundle.getString("edad_c");
         direccion_c = bundle.getString("direccion_c");
 
+        titulo_pelicula = bundle.getString("titulo_pelicula");
 
     }
 
@@ -70,8 +107,10 @@ public class Detalle_contacto extends AppCompatActivity {
         Apellidos_Contacto_D.setText("Apellidos: "+apellidos_c);
         Correo_Contacto_D.setText("Correo: "+correo_c);
         Edad_Contacto_D.setText("Edad: "+edad_c);
-        Telefono_Contacto_D.setText("Teléfono: "+telefono_c);
+        Telefono_Contacto_D.setText(telefono_c);
         Direccion_Contacto_D.setText("Dirección: "+direccion_c);
+
+
 
 
     }
@@ -88,4 +127,50 @@ public class Detalle_contacto extends AppCompatActivity {
             Toast.makeText(this, "Cargando imagen", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void llamar(){
+        String telefono = Telefono_Contacto_D.getText().toString();
+        if (!telefono.equals("")){
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse("tel:"+telefono));
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "El contacto no tiene un telefono registrado", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void mensajear(){
+        String telefono = Telefono_Contacto_D.getText().toString();
+        if (!telefono.equals("")){
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("smsto:"+telefono));
+
+            // Incluye el nombre del contacto en el cuerpo del mensaje
+            String mensajePredeterminado = "Hola " + nombre_c + "! Te recomiendo la película \"" + titulo_pelicula + "\", me ha encantado!";
+            intent.putExtra("sms_body", mensajePredeterminado);
+
+            startActivity(intent);
+
+        } else {
+            Toast.makeText(this, "Permiso rechazado", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private ActivityResultLauncher<String> PermisoMensaje =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted ->{
+                if (isGranted){
+                    mensajear();
+                } else {
+                    Toast.makeText(this, "Permiso rechazado", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+    private ActivityResultLauncher<String> PermisoLLamada =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted){
+                    llamar();
+                } else {
+                    Toast.makeText(this, "Permiso rechazado", Toast.LENGTH_SHORT).show();
+                }
+            });
 }

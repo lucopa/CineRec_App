@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AgregarPeli.Agregar_Peli"
-    android:background="@drawable/fondoagenda3">
+    android:background="@drawable/fondoagenda4">
 
     <!-- Imagen de fondo
     <ImageView

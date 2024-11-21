@@ -1,5 +1,6 @@
 package com.example.cinerec_app.Detalle;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cinerec_app.AgregarPeli.Agregar_Peli;
+import com.example.cinerec_app.Contactos.Detalle_contacto;
+import com.example.cinerec_app.Contactos.Listar_Contactos;
+import com.example.cinerec_app.ListarPeli.Listar_Peli;
 import com.example.cinerec_app.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,7 +33,7 @@ public class Detalle_Peli extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
-    Button Boton_Importante;
+    Button Boton_Importante, recomendar;
 
     String id_peli_R, uid_usuario_R, correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, estado_R;
 
@@ -61,6 +66,16 @@ public class Detalle_Peli extends AppCompatActivity {
             }
         });
 
+        recomendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Detalle_Peli.this, Listar_Contactos.class);
+                intent.putExtra("titulo_pelicula", titulo_R);
+                startActivity(intent);
+
+            }
+        });
+
 
     }
 
@@ -75,6 +90,7 @@ public class Detalle_Peli extends AppCompatActivity {
         estado = findViewById(R.id.estado);
         btnBack = findViewById(R.id.btn_back);
         Boton_Importante = findViewById(R.id.Boton_Importante);
+        recomendar = findViewById(R.id.recomendar);
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();

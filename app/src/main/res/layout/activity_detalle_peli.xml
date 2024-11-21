@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Detalle.Detalle_Peli"
-    android:background="@drawable/fondoagenda3">
+    android:background="@drawable/fondoagenda4">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -351,6 +351,17 @@
                         android:src="@drawable/detallesimagen"/>-->
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <Button
+                android:id="@+id/recomendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:textSize="18sp"
+                app:icon="@drawable/baseline_star_24"
+                android:fontFamily="@font/quicksand"
+                android:text="Recomendar a un amigo"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
