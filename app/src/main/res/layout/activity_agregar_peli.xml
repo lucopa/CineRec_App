@@ -5,14 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AgregarPeli.Agregar_Peli">
+    tools:context=".AgregarPeli.Agregar_Peli"
+    android:background="@drawable/fondoagenda3">
 
-    <!-- Imagen de fondo -->
+    <!-- Imagen de fondo
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/palomitasfondo"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop" /> -->
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -29,12 +30,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Añadir película"
-                android:layout_marginTop="90dp"
+                android:text="AÑADIR PELICULA"
+                android:layout_marginTop="40dp"
                 android:layout_gravity="center"
-                android:textSize="20dp"
+                android:textSize="23dp"
                 android:fontFamily="@font/quicksand"
-                android:textColor="@color/rojo"
+                android:textColor="#4A4A4A"
+                android:letterSpacing="0.1"
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -111,7 +113,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:elevation="4dp"
-                app:cardBackgroundColor="#FFE0B2"
+                app:cardBackgroundColor="#78909C"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="4dp">
 
@@ -119,6 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:alpha="0.9"
                     android:padding="16dp">
 
                     <androidx.appcompat.widget.LinearLayoutCompat

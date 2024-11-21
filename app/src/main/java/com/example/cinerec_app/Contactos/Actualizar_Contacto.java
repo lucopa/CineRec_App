@@ -49,7 +49,7 @@ import java.util.HashMap;
 
 public class Actualizar_Contacto extends AppCompatActivity {
 
-    ImageView imagen_perfil_contacto, editar_imagen_contacto, EditarTelefonoContacto;
+    ImageView imagen_perfil_contacto, editar_imagen_contacto, EditarTelefonoContacto, btn_back;
     TextView  Id_Contacto_A, Uid_Contacto_A, Telefono_Contacto_A;
     EditText Nombre_Contacto_A, Apellidos_Contacto_A, Edad_Contacto_A, Direccion_Contacto_A, Correo_Contacto_A;
     Button Guardar_Datos_Contacto;
@@ -117,6 +117,9 @@ public class Actualizar_Contacto extends AppCompatActivity {
         imagen_perfil_contacto = findViewById(R.id.imagen_perfil_contacto);
         editar_imagen_contacto = findViewById(R.id.editar_imagen_contacto);
         EditarTelefonoContacto = findViewById(R.id.EditarTelefonoContacto);
+        btn_back = findViewById(R.id.btn_back);
+
+        btn_back.setOnClickListener(v -> finish());
 
         dialog_establecer_tlf = new Dialog(Actualizar_Contacto.this);
 

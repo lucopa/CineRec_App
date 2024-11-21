@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".Perfil.Perfil_Usuario"
     tools:ignore="SpeakableTextPresentCheck"
-    android:background="@drawable/img_1">
+    android:background="@drawable/fondoagenda3">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/custom_text2"
+                android:background="@drawable/custom_text3"
                 android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/custom_text2"
+                android:background="@drawable/custom_text3"
                 android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -151,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/custom_text2"
+                android:background="@drawable/custom_text3"
                 android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -186,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/custom_text2"
+                android:background="@drawable/custom_text3"
                 android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -220,7 +220,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/custom_text2"
+                android:background="@drawable/custom_text3"
                 android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -253,7 +253,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/custom_text2"
+                android:background="@drawable/custom_text3"
                 android:padding="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView

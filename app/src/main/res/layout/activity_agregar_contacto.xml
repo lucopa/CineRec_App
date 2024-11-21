@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Contactos.Agregar_Contacto"
-    android:background="@drawable/img_1">
+    android:background="@drawable/fondoagenda3">
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -42,7 +42,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:elevation="4dp"
-            app:cardBackgroundColor="#FFE0B2"
+            android:alpha="0.9"
+            app:cardBackgroundColor="#78909C"
             app:cardCornerRadius="30dp"
             app:cardElevation="4dp">
 
@@ -59,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Nombre_Contacto"
+                    android:textColorHint="@color/white"
                     android:inputType="textCapWords|textPersonName"
                     android:minHeight="48dp" />
 

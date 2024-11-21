@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.PelisFavoritasFragment"
     tools:ignore="ExtraText"
-    android:background="#FFF9F0" >
+    android:background="#e8e8e8" >
 
     <include layout="@layout/custom_toolbar3" />
 

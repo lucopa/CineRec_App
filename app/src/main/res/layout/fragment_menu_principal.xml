@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.MenuPrincipalFragment"
-    android:background="#FFF9F0">
+    android:background="#e8e8e8">
 
 
     <!--<ImageView

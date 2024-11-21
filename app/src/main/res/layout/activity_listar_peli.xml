@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ListarPeli.Listar_Peli"
-    android:background="@drawable/fondoagenda"
+    android:background="@drawable/fondoagenda3"
     tools:ignore="ExtraText">
 
     <include layout="@layout/custom_toolbar3" />
