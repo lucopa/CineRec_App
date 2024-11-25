@@ -70,7 +70,6 @@ public class Detalle_Peli extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Detalle_Peli.this, Listar_Contactos.class);
-                intent.putExtra("titulo_pelicula", titulo_R);
                 startActivity(intent);
 
             }

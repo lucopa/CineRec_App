@@ -96,7 +96,6 @@ public class Detalle_contacto extends AppCompatActivity {
         edad_c = bundle.getString("edad_c");
         direccion_c = bundle.getString("direccion_c");
 
-        titulo_pelicula = bundle.getString("titulo_pelicula");
 
     }
 
@@ -146,7 +145,7 @@ public class Detalle_contacto extends AppCompatActivity {
             intent.setData(Uri.parse("smsto:"+telefono));
 
             // Incluye el nombre del contacto en el cuerpo del mensaje
-            String mensajePredeterminado = "Hola " + nombre_c + "! Te recomiendo la película \"" + titulo_pelicula + "\", me ha encantado!";
+            String mensajePredeterminado = "Hola " + nombre_c + "! Te recomiendo la película \"" +  "\", me ha encantado!";
             intent.putExtra("sms_body", mensajePredeterminado);
 
             startActivity(intent);

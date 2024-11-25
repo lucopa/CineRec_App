@@ -47,6 +47,7 @@ public class Listar_Contactos extends AppCompatActivity {
     DatabaseReference BD_Usuarios;
     ImageView btnBack,añadir, borrar, buscar;
     SearchView search_view;
+    String titulo_pelicula;
 
 
     FirebaseAuth firebaseAuth;
@@ -61,6 +62,8 @@ public class Listar_Contactos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_contactos);
+
+
 
         initListener();
         recyclerViewContactos = findViewById(R.id.recyclerViewContactos);

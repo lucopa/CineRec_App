@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">CineRec</string>
+    <string name="openDrawer">Abrir menú</string>
+    <string name="closeDrawer">Cerrar menú</string>
 
     <!--main activity-->
     <string name="Btn_login">Login</string>

@@ -25,8 +25,12 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
@@ -62,15 +66,16 @@ public class MenuPrincipalFragment extends Fragment {
     Dialog dialog_cuenta_verificada;
     FirebaseUser user;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Infla el layout
         View rootView = inflater.inflate(R.layout.fragment_menu_principal, container, false);
 
+
         // Inicializa las vistas desde rootView
         AgregarPeli = rootView.findViewById(R.id.AgregarPeli);
-        btnBack = rootView.findViewById(R.id.btn_back);
-        perfil = rootView.findViewById(R.id.perfil);
         ListarPeli = rootView.findViewById(R.id.ListarPeli);
         Contactos = rootView.findViewById(R.id.Contactos);
         UidPrincipal = rootView.findViewById(R.id.UidPrincipal);
@@ -89,6 +94,10 @@ public class MenuPrincipalFragment extends Fragment {
         for (int image: images){
             flipperImagenes(image);
         }
+
+
+
+
 
         // Configura las acciones de los botones
         AgregarPeli.setOnClickListener(view -> {
@@ -114,12 +123,13 @@ public class MenuPrincipalFragment extends Fragment {
         });
 
 
-        btnBack.setOnClickListener(v -> {
+       /* btnBack.setOnClickListener(v -> {
             if (getActivity() != null) {
                 getActivity().finish();  // Cierra la actividad que aloja este fragmento
             }
         });
         perfil.setOnClickListener(v ->  startActivity(new Intent(getActivity(), Perfil_Usuario.class)));
+         */
 
         // Inicializa Firebase
         firebaseAuth = FirebaseAuth.getInstance();
