@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cinerec_app.ActualizarPeli.Actualizar_Peli;
+import com.example.cinerec_app.AgregarPeli.Agregar_Peli;
 import com.example.cinerec_app.Detalle.Detalle_Peli;
 import com.example.cinerec_app.Objetos.Pelicula;
 import com.example.cinerec_app.ViewHolder.ViewHolder_Peli;
@@ -47,7 +48,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Listar_Peli extends AppCompatActivity {
 
-    ImageView btnBack, vaciar_todo;
+    ImageView btnBack, vaciar_todo, añadir;
     RecyclerView recyclerviewPelis;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference BASE_DE_DATOS;
@@ -91,13 +92,13 @@ public class Listar_Peli extends AppCompatActivity {
         search_view = findViewById(R.id.search_view);
         vaciar_todo = findViewById(R.id.vaciar_todo);
 
-
+        // Configura el evento del botón "volver" (si es necesario)
         btnBack.setOnClickListener(v -> finish());
 
-
+        // Configura el evento para el botón "vaciar todo"
         vaciar_todo.setOnClickListener(v -> Vaciar_Registro_Pelis());
-
     }
+
 
     private void ListarPelisUsuarios(){
         //consulta

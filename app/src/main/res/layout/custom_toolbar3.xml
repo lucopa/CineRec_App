@@ -36,6 +36,7 @@
                 android:src="@drawable/logonuevosinfondo"
                 android:layout_width="20dp"/>
 
+
             <ImageView
                 android:id="@+id/vaciar_todo"
                 android:layout_width="100dp"

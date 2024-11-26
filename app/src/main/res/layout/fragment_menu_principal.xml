@@ -174,10 +174,9 @@
             <!-- Sección de botones de opciones -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="180dp"
                 android:orientation="horizontal"
                 android:layout_margin="10dp"
-
                 android:layout_marginTop="20dp"
                 android:gravity="center_horizontal">
 
@@ -188,31 +187,33 @@
                     android:layout_weight="1"
                     android:elevation="4dp"
                     android:translationZ="4dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginHorizontal="5dp"
                     android:orientation="vertical"
-                    android:background="@drawable/iconos_background"
                     android:gravity="center">
+                    <!--android:background="@drawable/iconos_background"-->
+
 
                     <ImageView
+                        android:id="@+id/AgregarPeli"
                         android:layout_width="78dp"
                         android:layout_height="78dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/video" />
+                        android:src="@drawable/anadir" />
 
-                    <Button
-                        android:id="@+id/AgregarPeli"
-                        android:text="@string/AgregarPeli"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp"
-                        android:backgroundTint="#FFC857"
-                        android:textColor="#333333"
-                        android:fontFamily="@font/quicksand"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    <!--  <Button
+                          android:id="@+id/AgregarPeli"
+                          android:text="@string/AgregarPeli"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginVertical="10dp"
+                          android:backgroundTint="#FFC857"
+                          android:textColor="#333333"
+                          android:fontFamily="@font/quicksand"
+                          android:textStyle="bold" /> -->
+                  </LinearLayout>
 
-                <!-- Botón 2 -->
+                  <!-- Botón 2 -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -221,49 +222,49 @@
                     android:translationZ="4dp"
                     android:layout_marginHorizontal="5dp"
                     android:orientation="vertical"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/iconos_background"
+                    android:layout_marginTop="40dp"
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/ListarPeli"
                         android:layout_width="78dp"
                         android:layout_height="78dp"
                         android:layout_marginTop="20dp"
                         android:src="@drawable/carpeta" />
 
-                    <Button
-                        android:id="@+id/ListarPeli"
-                        android:text="Peliculas"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp"
-                        android:backgroundTint="#FFC857"
-                        android:textColor="#333333"
-                        android:fontFamily="@font/quicksand"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    <!--  <Button
+                          android:id="@+id/ListarPeli"
+                          android:text="Peliculas"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginVertical="10dp"
+                          android:backgroundTint="#FFC857"
+                          android:textColor="#333333"
+                          android:fontFamily="@font/quicksand"
+                          android:textStyle="bold" /> -->
+                  </LinearLayout>
 
-                <!-- Botón 3 -->
+                  <!-- Botón 3 -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="40dp"
                     android:elevation="4dp"
                     android:translationZ="4dp"
                     android:layout_marginHorizontal="5dp"
                     android:orientation="vertical"
-                    android:background="@drawable/iconos_background"
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/Contactos"
                         android:layout_width="78dp"
                         android:layout_height="78dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginLeft="5dp"
                         android:src="@drawable/reanudar" />
 
-                    <Button
+                   <!-- <Button
                         android:id="@+id/Contactos"
                         android:text="@string/Contactos"
                         android:layout_width="match_parent"
@@ -272,7 +273,7 @@
                         android:backgroundTint="#FFC857"
                         android:textColor="#333333"
                         android:fontFamily="@font/quicksand"
-                        android:textStyle="bold" />
+                        android:textStyle="bold" /> -->
                 </LinearLayout>
             </LinearLayout>
 

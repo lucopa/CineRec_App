@@ -58,7 +58,7 @@
         android:id="@+id/reviews_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="232dp"
         android:fontFamily="@font/quicksand"
         android:gravity="center"
         android:text="Opiniones de nuestros usuarios:"
@@ -92,7 +92,7 @@
             android:lineSpacingExtra="4dp"
             android:text="“¡Esta app es increíble! Me encanta lo fácil que es organizar mis películas favoritas.” - Usuario 1"
             android:textColor="#666666"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/review_2"
@@ -113,7 +113,7 @@
             android:lineSpacingExtra="4dp"
             android:text="“Interfaz intuitiva y moderna, se nota que está bien diseñada.” - Usuario 3"
             android:textColor="#666666"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
     <TextView
@@ -121,16 +121,18 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="144dp"
         android:fontFamily="@font/quicksand"
         android:gravity="center"
         android:text="Desarrollado por: Luis Cobler Parrra"
         android:textColor="#333333"
+        android:layout_marginTop="40dp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reviews_container" />
+        app:layout_constraintTop_toBottomOf="@id/app_description"
+        tools:layout_editor_absoluteY="299dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/contact_button"

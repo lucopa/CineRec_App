@@ -54,9 +54,9 @@ public class MenuPrincipalFragment extends Fragment {
 
     ViewFlipper v_flipper;
 
-    ImageView btnBack, perfil;
+    ImageView btnBack, perfil, AgregarPeli, ListarPeli, Contactos;
     FirebaseAuth firebaseAuth;
-    Button AgregarPeli, ListarPeli, Archivados, Contactos, cerrar, EstadoCuentaPrincipal;
+    Button  Archivados, cerrar, EstadoCuentaPrincipal;
 
     LinearLayoutCompat Linear_Verificado, Linear_Nombre, Linear_Correo;
     TextView UidPrincipal, NombresPrincipal, CorreoPrincipal;
@@ -78,6 +78,8 @@ public class MenuPrincipalFragment extends Fragment {
         AgregarPeli = rootView.findViewById(R.id.AgregarPeli);
         ListarPeli = rootView.findViewById(R.id.ListarPeli);
         Contactos = rootView.findViewById(R.id.Contactos);
+        btnBack = rootView.findViewById(R.id.btn_back);
+        perfil = rootView.findViewById(R.id.perfil);
         UidPrincipal = rootView.findViewById(R.id.UidPrincipal);
         NombresPrincipal = rootView.findViewById(R.id.NombresPrincipal);
         CorreoPrincipal = rootView.findViewById(R.id.CorreoPrincipal);
@@ -123,13 +125,13 @@ public class MenuPrincipalFragment extends Fragment {
         });
 
 
-       /* btnBack.setOnClickListener(v -> {
+       btnBack.setOnClickListener(v -> {
             if (getActivity() != null) {
                 getActivity().finish();  // Cierra la actividad que aloja este fragmento
             }
         });
         perfil.setOnClickListener(v ->  startActivity(new Intent(getActivity(), Perfil_Usuario.class)));
-         */
+
 
         // Inicializa Firebase
         firebaseAuth = FirebaseAuth.getInstance();
