@@ -43,9 +43,9 @@
                 android:id="@+id/editar_imagen"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="240dp"
-                android:layout_marginTop="230dp"
-                android:src="@drawable/editar"/>
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="220dp"
+                android:src="@drawable/editar_imagen"/>
 
         </RelativeLayout>
 

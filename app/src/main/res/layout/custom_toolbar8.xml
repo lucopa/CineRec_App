@@ -7,7 +7,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#607D8B"
+        android:background="#e8e8e8"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <LinearLayout
@@ -19,9 +19,9 @@
             <ImageView
                 android:id="@+id/btn_back"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:contentDescription="Flecha para ir atrás"
-                android:src="@drawable/baseline_arrow_back_24_2" />
+                android:src="@drawable/haciatras" />
 
             <ImageView
                 android:id="@+id/tv_title_toolbar"
@@ -37,14 +37,14 @@
                 android:id="@+id/añadir"
                 android:layout_width="45dp"
                 android:layout_height="40dp"
-                android:src="@drawable/outline_add_circle_24"
+                android:src="@drawable/anadir"
                 android:padding="8dp"/>
 
             <ImageView
                 android:id="@+id/borrar"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/baseline_delete_forever_24"
+                android:src="@drawable/borrartodo"
                 android:padding="8dp"/>
 
             <!-- Botón de búsqueda que activará el SearchView -->
@@ -52,7 +52,7 @@
                 android:id="@+id/buscar"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/baseline_search_24"
+                android:src="@drawable/lupa"
                 android:padding="8dp"/>
 
             <!-- SearchView inicialmente oculto -->

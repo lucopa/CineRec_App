@@ -196,10 +196,13 @@
 
                     <ImageView
                         android:id="@+id/AgregarPeli"
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/anadir" />
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="scaleDownUpAnimation"
+                        android:src="@drawable/anadir"
+                        tools:ignore="SpeakableTextPresentCheck" />
 
                     <!--  <Button
                           android:id="@+id/AgregarPeli"
@@ -227,8 +230,8 @@
 
                     <ImageView
                         android:id="@+id/ListarPeli"
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
                         android:layout_marginTop="20dp"
                         android:src="@drawable/carpeta" />
 
@@ -258,8 +261,8 @@
 
                     <ImageView
                         android:id="@+id/Contactos"
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginLeft="5dp"
                         android:src="@drawable/reanudar" />

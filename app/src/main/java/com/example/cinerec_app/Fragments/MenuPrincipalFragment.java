@@ -17,6 +17,8 @@ import com.example.cinerec_app.MainActivity;
 import com.example.cinerec_app.R;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -99,10 +101,9 @@ public class MenuPrincipalFragment extends Fragment {
 
 
 
-
-
         // Configura las acciones de los botones
         AgregarPeli.setOnClickListener(view -> {
+            scaleDownUpAnimation(view);
             String uid_usuario = UidPrincipal.getText().toString();
             String correo_usuario = CorreoPrincipal.getText().toString();
             Intent intent = new Intent(getActivity(), Agregar_Peli.class);
@@ -112,12 +113,14 @@ public class MenuPrincipalFragment extends Fragment {
         });
 
         ListarPeli.setOnClickListener(view -> {
+            scaleDownUpAnimation(view);
             startActivity(new Intent(getActivity(), Listar_Peli.class));
             Toast.makeText(getActivity(), "Listar Peliculas", Toast.LENGTH_SHORT).show();
         });
 
 
         Contactos.setOnClickListener(view -> {
+            scaleDownUpAnimation(view);
             String uid_usuario = UidPrincipal.getText().toString();
             Intent intent = new Intent(getActivity(), Listar_Contactos.class);
             intent.putExtra("Uid", uid_usuario);
@@ -153,6 +156,12 @@ public class MenuPrincipalFragment extends Fragment {
 
         return rootView;
     }
+
+    public void scaleDownUpAnimation(View view) {
+        Animation scaleAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down_up);
+        view.startAnimation(scaleAnimation);
+    }
+
 
     public void flipperImagenes(int image){
         ImageView imageView = new ImageView(getActivity());

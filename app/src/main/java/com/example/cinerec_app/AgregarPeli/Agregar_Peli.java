@@ -3,6 +3,8 @@ package com.example.cinerec_app.AgregarPeli;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -52,6 +54,7 @@ public class Agregar_Peli extends AppCompatActivity {
         btn_añadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                bounceButton(view);
                 AgregarPeli();
             }
         });
@@ -95,6 +98,12 @@ public class Agregar_Peli extends AppCompatActivity {
         });
 
     }
+
+    public void bounceButton(View view) {
+        Animation bounce = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        view.startAnimation(bounce);
+    }
+
 
     //este metodo esta para que no haya tanto codigo en el on create
     private void InicializarVariables(){
