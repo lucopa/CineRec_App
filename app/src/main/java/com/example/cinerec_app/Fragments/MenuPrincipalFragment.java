@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.cinerec_app.MainActivity;
+import com.example.cinerec_app.PeliculasActuales.PelisActualesApi;
 import com.example.cinerec_app.R;
 import android.view.View;
 import android.view.ViewGroup;
@@ -134,6 +135,8 @@ public class MenuPrincipalFragment extends Fragment {
             }
         });
         perfil.setOnClickListener(v ->  startActivity(new Intent(getActivity(), Perfil_Usuario.class)));
+
+        v_flipper.setOnClickListener(v -> startActivity(new Intent(getActivity(), PelisActualesApi.class)));
 
 
         // Inicializa Firebase
