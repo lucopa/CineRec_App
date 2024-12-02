@@ -96,6 +96,13 @@
     <string name="EliminarPeliImportante">Eliminar</string>
     <string name="CancelarPeliImportante">Cancelar</string>
 
+    <!--cuadro de dialogo - filtrar-->
+    <string name="FiltroTXT">Filtrar peliculas: </string>
+    <string name="Todas_Peliculas">Todas</string>
+    <string name="Peliculas_vistas">Vistas</string>
+    <string name="Peliculas_pendientes">Pendientes</string>
+
+
     <!--cuadro de dialogo - country code picker-->
     <string name="Establecer_Telefono">Escribe tu teléfono</string>
     <string name="Btn_Aceptar_tlf">Aceptar</string>

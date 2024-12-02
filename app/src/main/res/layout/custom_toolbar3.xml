@@ -39,9 +39,16 @@
 
             <ImageView
                 android:id="@+id/vaciar_todo"
-                android:layout_width="100dp"
+                android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:src="@drawable/borrartodo"
+                android:padding="8dp"/>
+
+            <ImageView
+                android:id="@+id/filtrar"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/filtrar"
                 android:padding="8dp"/>
 
 
