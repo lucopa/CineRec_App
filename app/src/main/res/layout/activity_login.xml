@@ -53,7 +53,7 @@
                 android:fontFamily="@font/quicksand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="Iniciar sesión"
                 android:textAlignment="center"
                 android:textColor="#6D4C41"
                 android:textSize="36sp"

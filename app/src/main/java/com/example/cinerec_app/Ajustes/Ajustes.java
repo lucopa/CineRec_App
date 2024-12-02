@@ -1,9 +1,11 @@
 package com.example.cinerec_app.Ajustes;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +43,8 @@ public class Ajustes extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+    Dialog dialog_ajustes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,29 @@ public class Ajustes extends AppCompatActivity {
 
     }
 
+    private void InitVariables(){
+        EliminarCuenta = findViewById(R.id.EliminarCuenta);
+        Uid_Eliminar = findViewById(R.id.Uid_Eliminar);
+        btnBack = findViewById(R.id.btn_back);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Usuarios");
+
+        dialog_ajustes = new Dialog(Ajustes.this);
+
+        btnBack.setOnClickListener(v -> finish());
+
+
+    }
+
+    private void ObtenerUid(){
+        String uid = getIntent().getStringExtra("Uid");
+        Uid_Eliminar.setText(uid);
+
+    }
 
 
     private void EliminarUsuarioAutenticacion() {
@@ -86,7 +113,7 @@ public class Ajustes extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Ajustes.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Autenticacion();
                     }
                 });
             }
@@ -120,27 +147,38 @@ public class Ajustes extends AppCompatActivity {
         });
     }
 
-    private void InitVariables(){
-        EliminarCuenta = findViewById(R.id.EliminarCuenta);
-        Uid_Eliminar = findViewById(R.id.Uid_Eliminar);
-        btnBack = findViewById(R.id.btn_back);
+    private void Autenticacion(){
+        Button Btn_Entendido_Aut, Btn_Cerrar_Sesion_Aut;
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        user = firebaseAuth.getCurrentUser();
+        dialog_ajustes.setContentView(R.layout.cuadro_dialog_autenticacion);
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Usuarios");
+        Btn_Entendido_Aut = dialog_ajustes.findViewById(R.id.Btn_Entendido_Aut);
+        Btn_Cerrar_Sesion_Aut = dialog_ajustes.findViewById(R.id.Btn_Cerrar_Sesion_Aut);
 
-        btnBack.setOnClickListener(v -> finish());
+        Btn_Entendido_Aut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog_ajustes.dismiss();
+            }
+        });
 
+        Btn_Cerrar_Sesion_Aut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CerrarSesion();
+                dialog_ajustes.dismiss();
+            }
+        });
 
+        dialog_ajustes.show();
+        dialog_ajustes.setCanceledOnTouchOutside(false);
     }
 
 
 
-    private void ObtenerUid(){
-        String uid = getIntent().getStringExtra("Uid");
-        Uid_Eliminar.setText(uid);
-
+    private void CerrarSesion() {
+        firebaseAuth.signOut();
+        startActivity(new Intent(Ajustes.this, MainActivity.class));
+        finish();
     }
 }

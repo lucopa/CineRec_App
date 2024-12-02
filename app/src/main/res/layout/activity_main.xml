@@ -58,7 +58,7 @@
                 android:layout_marginTop="20dp"
                 android:backgroundTint="#FF9800"
                 android:elevation="5dp"
-                android:text="Login"
+                android:text="Iniciar sesión"
                 android:textColor="#403f3f"
                 android:textSize="20sp"
                 app:cornerRadius="20dp" />

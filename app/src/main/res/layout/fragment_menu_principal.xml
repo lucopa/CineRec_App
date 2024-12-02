@@ -201,7 +201,7 @@
                         android:layout_marginTop="20dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:onClick="scaleDownUpAnimation"
-                        android:src="@drawable/anadir"
+                        android:src="@drawable/anadir2"
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <!--  <Button
