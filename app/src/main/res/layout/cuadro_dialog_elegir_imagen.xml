@@ -5,7 +5,8 @@
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="#e8e8e8">
 
     <TextView
         android:text="@string/ElegirImagenTXT"

@@ -137,7 +137,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:elevation="4dp"
-            app:cardBackgroundColor="#78909C"
+            app:cardBackgroundColor="#CFD8DC"
             app:cardCornerRadius="30dp"
             app:cardElevation="4dp">
 
@@ -147,34 +147,70 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <EditText
-                    android:id="@+id/Titulo_A"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/custom_text2"
-                    android:drawableStart="@drawable/baseline_title_24"
-                    android:drawablePadding="18dp"
-                    android:fontFamily="@font/quicksand"
-                    android:hint="@string/Titulo_A"
-                    android:padding="12dp"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/Descripcion_A"
-                    android:layout_marginTop="10dp"
-                    android:minHeight="150dp"
-                    android:background="@drawable/custom_text2"
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_gravity="center"
+                    android:layout_width="330dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/Descripcion_A"
-                    android:fontFamily="@font/quicksand"
-                    android:drawableStart="@drawable/baseline_description_24"
-                    android:drawablePadding="18dp"
-                    android:padding="12dp"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:background="@drawable/custom_text2"
+                    android:padding="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/Nombre"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/nombre"/>
+
+                    <EditText
+                        android:id="@+id/Titulo_A"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:fontFamily="@font/quicksand"
+                        android:hint="@string/Titulo_A"
+                        android:padding="10dp"
+                        android:textSize="15sp"
+                        android:background="@null"
+                        android:textStyle="bold" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_gravity="center"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/custom_text2"
+                    android:padding="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_marginTop="45dp"
+                        android:id="@+id/Descripcion_img"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/descripcion"/>
+
+
+                    <EditText
+                        android:id="@+id/Descripcion_A"
+                        android:minHeight="150dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/Descripcion_A"
+                        android:fontFamily="@font/quicksand"
+                        android:background="@null"
+                        android:drawablePadding="18dp"
+                        android:padding="12dp"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -188,8 +224,8 @@
                         android:id="@+id/Btn_Calendario_A"
                         android:text="@string/btn_calendario_A"
                         android:fontFamily="@font/quicksand"
-                        android:backgroundTint="@color/amarillo"
                         app:icon="@drawable/baseline_calendar_today_24"
+                        android:backgroundTint="@drawable/button_selector"
                         android:layout_width="150dp"
                         android:layout_marginEnd="15dp"
                         android:textColor="@color/black"

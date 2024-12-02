@@ -36,7 +36,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:background="@drawable/background_rounded_imagen_perfil"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginLeft="20dp"
                 android:src="@drawable/usuario"/>
 
@@ -45,8 +45,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="140dp"
-                android:layout_marginTop="160dp"
-                android:src="@drawable/editar"/>
+                android:layout_marginTop="130dp"
+                android:src="@drawable/editar_imagen"/>
 
         </RelativeLayout>
 
@@ -58,6 +58,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/Id_Contacto_A"
                 android:layout_gravity="center"
                 android:textSize="25sp"
@@ -67,6 +68,7 @@
                 android:text="@string/Id_Contacto_A"/>
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/Uid_Contacto_A"
                 android:layout_gravity="center"
                 android:textSize="12sp"

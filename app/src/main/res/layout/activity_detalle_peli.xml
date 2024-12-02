@@ -21,343 +21,264 @@
             <include layout="@layout/custom_toolbar3" />
 
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:id="@+id/cardViewId"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <!--1.ICONO Y TXT (ID NOTA)-->
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!-- 1. ID Película -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginLeft="30dp">
-
-                        <androidx.appcompat.widget.AppCompatImageView
+                        android:orientation="horizontal">
+                        <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/baseline_note_24"
-                            android:layout_gravity="center"/>
-
+                            android:layout_gravity="center" />
                         <TextView
-                            android:textColor="#000000"
-                            android:text="@string/Id_peli_detalle_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/quicksand"
-                            android:textSize="20sp"
-                            android:layout_marginStart="20dp"/>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <!--1.DATO (ID NOTA)-->
+                            android:layout_marginStart="20dp"
+                            android:text="@string/Id_peli_detalle_txt"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                     <TextView
-                        android:textColor="#000000"
                         android:id="@+id/Id_Peli_Detalle"
-                        android:text="@string/Id_peli_detalle"
                         android:layout_width="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand"
-                        android:textStyle="bold"
-                        android:textSize="17sp"/>
+                        android:layout_marginTop="10dp"
+                        android:text="@string/Id_peli_detalle"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                    <!--2.ICONO Y TXT(Uid_usuario)-->
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!-- 2. UID Usuario -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:layout_marginLeft="30dp"
                         android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:layout_width="30dp"
-                            android:src="@drawable/baseline_person_24"
                             android:layout_height="30dp"
-                            android:layout_gravity="center"/>
-
+                            android:src="@drawable/baseline_person_24"
+                            android:layout_gravity="center" />
                         <TextView
-                            android:textColor="#000000"
-                            android:text="@string/Uid_usuario_detalle_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/quicksand"
-                            android:textSize="20sp"
-                            android:layout_marginStart="20dp"/>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <!--2.DATO(Uid_usuario)-->
+                            android:layout_marginStart="20dp"
+                            android:text="@string/Uid_usuario_detalle_txt"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                     <TextView
-                        android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/Uid_usuario_detalle"
                         android:id="@+id/Uid_usuario_detalle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:textSize="17sp"/>
+                        android:layout_marginTop="10dp"
+                        android:text="@string/Uid_usuario_detalle"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                    <!--3.ICONO Y TXT(correo)-->
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!-- 3. Correo Electrónico -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:layout_marginLeft="30dp"
                         android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/baseline_email_24"
-                            android:layout_gravity="center"/>
-
+                            android:layout_gravity="center" />
                         <TextView
-                            android:textColor="#000000"
-                            android:text="@string/Correo_usuario_detalle_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/quicksand"
-                            android:textSize="20sp"
-                            android:layout_marginStart="20dp"/>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <!--3.DATO(correo)-->
+                            android:layout_marginStart="20dp"
+                            android:text="@string/Correo_usuario_detalle_txt"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                     <TextView
-                        android:textColor="#000000"
                         android:id="@+id/Correo_usuario_detalle"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/Correo_usuario_detalle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:textSize="17sp"/>
+                        android:layout_marginTop="10dp"
+                        android:text="@string/Correo_usuario_detalle"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                    <!--4.ICONO Y TXT(titulo)-->
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!-- 4. Título -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:layout_marginLeft="30dp"
                         android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/baseline_title_24"
-                            android:layout_gravity="center"/>
-
+                            android:layout_gravity="center" />
                         <TextView
-                            android:textColor="#000000"
-                            android:text="@string/Titulo_Detalle_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/quicksand"
-                            android:textSize="20sp"
-                            android:layout_marginStart="20dp"/>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <!--4.DATO(titulo)-->
+                            android:layout_marginStart="20dp"
+                            android:text="@string/Titulo_Detalle_txt"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                     <TextView
-                        android:textColor="#000000"
                         android:id="@+id/Titulo_Detalle"
-                        android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:text="@string/Titulo_Detalle"
-                        android:fontFamily="@font/quicksand"
-                        android:textStyle="bold"
-                        android:textSize="17sp"/>
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                    <!--5.ICONO Y TXT(descripcion)-->
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!-- Descripcion -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:layout_marginLeft="30dp"
                         android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/baseline_description_24"
-                            android:layout_gravity="center"/>
-
+                            android:layout_gravity="center" />
                         <TextView
-                            android:textColor="#000000"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
                             android:text="@string/Descripcion_Detalle_txt"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/quicksand"
-                            android:textSize="20sp"
-                            android:layout_marginStart="20dp"/>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <!--5.DATO(descripcion)-->
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                     <TextView
-                        android:textColor="#000000"
                         android:id="@+id/Descripcion_Detalle"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_height="70dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:fontFamily="@font/quicksand"
-                        android:layout_gravity="center"
                         android:text="@string/Descripcion_Detalle"
-                        android:textStyle="bold"
-                        android:textSize="17sp"/>
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                    <!--6.ICONO Y TXT(Fecha_registro_Detalle)-->
-                    <androidx.appcompat.widget.LinearLayoutCompat
+
+                    <!-- 5. Descripción -->
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="30dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/baseline_access_time_filled_24"
-                            android:layout_gravity="center"/>
-
+                            android:src="@drawable/baseline_access_time_filled_24"                            android:layout_gravity="center" />
                         <TextView
-                            android:textColor="#000000"
-                            android:text="@string/Fecha_registro_Detalle_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/quicksand"
-                            android:textSize="20sp"
-                            android:layout_marginStart="20dp"/>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <!--6.DATO(Fecha_registro)-->
+                            android:layout_marginStart="20dp"
+                            android:text="@string/Fecha_registro_Detalle"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                     <TextView
-                        android:textColor="#000000"
                         android:id="@+id/Fecha_registro_Detalle"
-                        android:text="@string/Fecha_registro_Detalle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/quicksand"
-                        android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:textSize="17sp"/>
+                        android:text="@string/Fecha_registro_Detalle_txt"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                    <!--7.ICONO Y TXT(fecha_peli)-->
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:layout_marginLeft="30dp"
                         android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/baseline_calendar_today_24"/>
-
+                            android:src="@drawable/baseline_calendar_today_24"
+                            android:layout_gravity="center" />
                         <TextView
-                            android:textColor="#000000"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
                             android:text="@string/Fecha_peli_Detalle_txt"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/quicksand"
-                            android:textSize="20sp"
-                            android:layout_marginStart="20dp"/>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <!--7.DATO(fecha_peli)-->
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                     <TextView
-                        android:textColor="#000000"
-
                         android:id="@+id/Fecha_peli_Detalle"
-                        android:layout_gravity="center"
-                        android:text="@string/Fecha_peli_Detalle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand"
-                        android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:textSize="17sp"/>
+                        android:text="@string/Fecha_peli_Detalle"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:ignore="DuplicateIds" />
 
-                    <!--8.ICONO Y TXT(estado)-->
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:layout_marginLeft="30dp"
                         android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/baseline_brightness_1_24"/>
-
+                            android:src="@drawable/baseline_brightness_1_24"
+                            android:layout_gravity="center" />
                         <TextView
-                            android:textColor="#000000"
-                            android:text="@string/Estado_Detalle_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/quicksand"
-                            android:textSize="20sp"
-                            android:layout_marginStart="20dp"/>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <!--8.DATO(estado)-->
+                            android:layout_marginStart="20dp"
+                            android:text="@string/Estado_Detalle_txt"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                     <TextView
-                        android:textColor="#000000"
-                        android:layout_marginTop="10dp"
                         android:id="@+id/estado"
-                        android:layout_gravity="center"
-                        android:text="@string/Estado_Detalle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand"
-                        android:textStyle="bold"
-                        android:textSize="17sp"/>
-
-                  <!--  <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_gravity="right"
-                        android:layout_marginRight="50dp"
-                        android:src="@drawable/detallesimagen"/>-->
+                        android:text="@string/Estado_Detalle"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:ignore="DuplicateIds" />
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
 
             <Button
                 android:id="@+id/recomendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
                 android:textSize="18sp"
                 app:icon="@drawable/baseline_star_24"
                 android:fontFamily="@font/quicksand"

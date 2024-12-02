@@ -5,14 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F2"
+    android:background="#e8e8e8"
     tools:context=".ActualizarPass.ActualizarContra">
 
-    <ImageView
+    <include layout="@layout/custom_toolbar5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--<ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/fondopalomitas"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"/> -->
 
      <ImageView
          android:id="@+id/imageView"
@@ -66,6 +70,7 @@
                  android:gravity="center_vertical">
 
                  <TextView
+                     android:visibility="gone"
                      android:id="@+id/actualContraTXT"
                      android:fontFamily="@font/quicksand"
                      android:layout_width="wrap_content"
@@ -76,6 +81,8 @@
                      android:textStyle="bold" />
 
                  <TextView
+                     android:visibility="gone"
+
                      android:id="@+id/actualContra"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"

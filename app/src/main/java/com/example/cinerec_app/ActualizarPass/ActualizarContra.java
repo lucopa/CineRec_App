@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class ActualizarContra extends AppCompatActivity {
     TextView actualContraTXT, actualContra;
     EditText contraseñaActual, contraseñaNueva, contraseñaRepetida;
     Button actualizarButton;
+    ImageView btnBack;
 
     DatabaseReference BD_Usuarios;
     FirebaseAuth firebaseAuth;
@@ -144,9 +146,12 @@ public class ActualizarContra extends AppCompatActivity {
         contraseñaNueva = findViewById(R.id.contraseñaNueva);
         contraseñaRepetida = findViewById(R.id.contraseñaRepetida);
         actualizarButton = findViewById(R.id.actualizarButton);
+        btnBack = findViewById(R.id.btn_back);
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+
+        btnBack.setOnClickListener(v -> finish());
 
         progressDialog = new ProgressDialog(ActualizarContra.this);
 

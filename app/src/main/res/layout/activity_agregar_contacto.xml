@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Contactos.Agregar_Contacto"
-    android:background="@drawable/fondoagenda3">
+    android:background="#e8e8e8">
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -43,7 +43,7 @@
             android:layout_marginRight="20dp"
             android:elevation="4dp"
             android:alpha="0.9"
-            app:cardBackgroundColor="#78909C"
+            app:cardBackgroundColor="#CFD8DC"
             app:cardCornerRadius="30dp"
             app:cardElevation="4dp">
 
@@ -60,7 +60,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Nombre_Contacto"
-                    android:textColorHint="@color/white"
                     android:inputType="textCapWords|textPersonName"
                     android:minHeight="48dp" />
 
@@ -139,7 +138,7 @@
                 <Button
                     android:layout_marginTop="30dp"
                     android:layout_gravity="center"
-                    android:backgroundTint="@color/amarillo"
+                    android:backgroundTint="@drawable/button_selector"
                     android:id="@+id/Btn_Guardar_Contacto"
                     android:text="@string/Btn_Guardar_Contacto"
                     android:fontFamily="@font/quicksand"

@@ -16,6 +16,7 @@
         <include layout="@layout/custom_toolbar5" />
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/Uid_Eliminar"
             android:text="Uid del usuario"
             android:layout_width="wrap_content"

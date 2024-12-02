@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.cinerec_app.Ajustes.Ajustes;
 import com.example.cinerec_app.MainActivity;
 import com.example.cinerec_app.PeliculasActuales.PelisActualesApi;
@@ -48,7 +49,7 @@ public class MenuPrincipalFragment extends Fragment {
 
     ViewFlipper v_flipper;
 
-    ImageView btnBack, perfil, AgregarPeli, ListarPeli, Contactos, ajustes;
+    ImageView btnBack, perfil, AgregarPeli, ListarPeli, Contactos, ajustes, perfilusuario;
     FirebaseAuth firebaseAuth;
     Button  Archivados, cerrar, EstadoCuentaPrincipal;
 
@@ -83,7 +84,7 @@ public class MenuPrincipalFragment extends Fragment {
         Linear_Correo = rootView.findViewById(R.id.Linear_Correo);
         EstadoCuentaPrincipal = rootView.findViewById(R.id.EstadoCuentaPrincipal);
         ajustes = rootView.findViewById(R.id.ajustes);
-
+        perfilusuario = rootView.findViewById(R.id.perfilusuario);
 
         int images[] = {R.drawable.wicked, R.drawable.gladiator, R.drawable.anora, R.drawable.substance, R.drawable.suicidesquad, R.drawable.gonegirl, R.drawable.dune, R.drawable.twisters, R.drawable.oppenheimer};
 
@@ -266,6 +267,7 @@ public class MenuPrincipalFragment extends Fragment {
                     String uid = "" + snapshot.child("uid").getValue();
                     String nombre = "" + snapshot.child("nombre").getValue();
                     String correo = "" + snapshot.child("correo").getValue();
+                    String imagen = "" + snapshot.child("imagen_perfil").getValue();
 
                     UidPrincipal.setText(uid);
                     NombresPrincipal.setText(nombre);
@@ -275,6 +277,8 @@ public class MenuPrincipalFragment extends Fragment {
                     ListarPeli.setEnabled(true);
                     Contactos.setEnabled(true);
 
+                    ObtenerImagenPerfil(imagen);
+
                 }
             }
 
@@ -283,4 +287,22 @@ public class MenuPrincipalFragment extends Fragment {
             }
         });
     }
+
+    private void ObtenerImagenPerfil(String imagen) {
+        try {
+            // Si la imagen ha cargado exitosamente
+            Glide.with(getActivity())
+                    .load(imagen)  // Carga la imagen desde la URL obtenida
+                    .placeholder(R.drawable.perfilmenu)  // Muestra una imagen de marcador de posición mientras carga
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
+                    .into(perfilusuario);  // Carga la imagen en el ImageView
+        } catch (Exception e) {
+            // Si la imagen no se ha cargado correctamente (en caso de error)
+            Glide.with(getActivity())
+                    .load(R.drawable.perfilmenu)  // Muestra una imagen predeterminada en caso de error
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
+                    .into(perfilusuario);
+        }
+    }
+
 }

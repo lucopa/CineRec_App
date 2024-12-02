@@ -36,22 +36,22 @@
             <ImageView
                 android:id="@+id/añadir"
                 android:layout_width="45dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:src="@drawable/anadir"
                 android:padding="8dp"/>
 
             <ImageView
                 android:id="@+id/borrar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
                 android:src="@drawable/borrartodo"
                 android:padding="8dp"/>
 
             <!-- Botón de búsqueda que activará el SearchView -->
             <ImageView
                 android:id="@+id/buscar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
                 android:src="@drawable/lupa"
                 android:padding="8dp"/>
 
