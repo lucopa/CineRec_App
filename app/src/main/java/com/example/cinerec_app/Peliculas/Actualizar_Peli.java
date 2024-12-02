@@ -1,4 +1,4 @@
-package com.example.cinerec_app.ActualizarPeli;
+package com.example.cinerec_app.Peliculas;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -16,9 +16,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cinerec_app.AgregarPeli.Agregar_Peli;
 import com.example.cinerec_app.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +27,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
-import java.util.Set;
 
 public class Actualizar_Peli extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -42,6 +41,9 @@ public class Actualizar_Peli extends AppCompatActivity implements AdapterView.On
     Spinner spinner_estado;
 
     int dia, mes, year;
+
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +85,8 @@ public class Actualizar_Peli extends AppCompatActivity implements AdapterView.On
         spinner_estado = findViewById(R.id.spinner_estado);
         estado_nuevo = findViewById(R.id.estado_nuevo);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
 
     }
 
@@ -181,10 +185,10 @@ public class Actualizar_Peli extends AppCompatActivity implements AdapterView.On
         String estadoAtualizar = estado_nuevo.getText().toString();
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference("Peliculas_Publicadas");
+        DatabaseReference databaseReference = firebaseDatabase.getReference("Usuarios");
 
         //Consulta
-        Query query = databaseReference.orderByChild("id_peli").equalTo(id_peli_R);
+        Query query = databaseReference.child(user.getUid()).child("Peliculas_Publicadas").orderByChild("id_peli").equalTo(id_peli_R);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -1,14 +1,11 @@
-package com.example.cinerec_app.ListarPeli;
+package com.example.cinerec_app.Peliculas;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,27 +13,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.SearchView;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cinerec_app.ActualizarPeli.Actualizar_Peli;
-import com.example.cinerec_app.AgregarPeli.Agregar_Peli;
-import com.example.cinerec_app.Detalle.Detalle_Peli;
 import com.example.cinerec_app.Objetos.Pelicula;
 import com.example.cinerec_app.ViewHolder.ViewHolder_Peli;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import com.example.cinerec_app.R;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -51,7 +39,7 @@ public class Listar_Peli extends AppCompatActivity {
     ImageView btnBack, vaciar_todo, añadir;
     RecyclerView recyclerviewPelis;
     FirebaseDatabase firebaseDatabase;
-    DatabaseReference BASE_DE_DATOS;
+    DatabaseReference BD_Usuarios;
     SearchView search_view;
 
     LinearLayoutManager linearLayoutManager;
@@ -79,7 +67,7 @@ public class Listar_Peli extends AppCompatActivity {
         user = auth.getCurrentUser();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        BASE_DE_DATOS = firebaseDatabase.getReference("Peliculas_Publicadas");
+        BD_Usuarios = firebaseDatabase.getReference("Usuarios");
         dialog = new Dialog(Listar_Peli.this);
         ListarPelisUsuarios();
         initListener();
@@ -102,7 +90,7 @@ public class Listar_Peli extends AppCompatActivity {
 
     private void ListarPelisUsuarios(){
         //consulta
-        Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
+        Query query = BD_Usuarios.child(user.getUid()).child("Peliculas_Publicadas").orderByChild("fecha_peli");
 
         options = new FirebaseRecyclerOptions.Builder<Pelicula>().setQuery(query, Pelicula.class).build();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Pelicula, ViewHolder_Peli>(options) {
@@ -237,7 +225,7 @@ public class Listar_Peli extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 //Eliminar nota en bd
-                Query query = BASE_DE_DATOS.orderByChild("id_peli").equalTo(idPeli);
+                Query query = BD_Usuarios.child(user.getUid()).child("Peliculas_Publicadas").orderByChild("id_peli").equalTo(idPeli);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -275,7 +263,7 @@ public class Listar_Peli extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 //Eliminar todas las notas
-                Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
+                Query query = BD_Usuarios.child(user.getUid()).child("Peliculas_Publicadas");
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

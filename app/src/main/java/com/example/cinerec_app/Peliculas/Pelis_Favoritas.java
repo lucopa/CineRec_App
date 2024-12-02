@@ -1,7 +1,6 @@
-package com.example.cinerec_app.Favoritas;
+package com.example.cinerec_app.Peliculas;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cinerec_app.ActualizarPeli.Actualizar_Peli;
-import com.example.cinerec_app.Detalle.Detalle_Peli;
-import com.example.cinerec_app.ListarPeli.Listar_Peli;
 import com.example.cinerec_app.Objetos.Pelicula;
 import com.example.cinerec_app.R;
-import com.example.cinerec_app.ViewHolder.ViewHolder_Peli;
 import com.example.cinerec_app.ViewHolder.ViewHolder_Peli_Favorita;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -30,7 +25,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
 public class Pelis_Favoritas extends AppCompatActivity {
 
@@ -159,7 +153,8 @@ public class Pelis_Favoritas extends AppCompatActivity {
         };
 
         linearLayoutManager = new LinearLayoutManager(Pelis_Favoritas.this,LinearLayoutManager.VERTICAL,false);
-
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
 
         RecyclerViewPelisFavoritas.setLayoutManager(linearLayoutManager);
         RecyclerViewPelisFavoritas.setAdapter(firebaseRecyclerAdapter);

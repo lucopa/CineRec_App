@@ -50,23 +50,23 @@
             android:name=".Perfil.Editar_imagen_perfil"
             android:exported="false" />
         <activity
-            android:name=".Detalle.Detalle_Peli"
+            android:name=".Peliculas.Detalle_Peli"
             android:exported="false"
             android:theme="@style/Theme.CineRec_App" />
         <activity
-            android:name=".ActualizarPeli.Actualizar_Peli"
+            android:name=".Peliculas.Actualizar_Peli"
             android:exported="false" />
         <activity
             android:name=".Perfil.Perfil_Usuario"
             android:exported="false" />
         <activity
-            android:name=".Favoritas.Pelis_Favoritas"
+            android:name=".Peliculas.Pelis_Favoritas"
             android:exported="false" />
         <activity
-            android:name=".ListarPeli.Listar_Peli"
+            android:name=".Peliculas.Listar_Peli"
             android:exported="false" />
         <activity
-            android:name=".AgregarPeli.Agregar_Peli"
+            android:name=".Peliculas.Agregar_Peli"
             android:exported="false" />
         <activity
             android:name=".MenuPrincipal"

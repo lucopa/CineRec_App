@@ -1,4 +1,4 @@
-package com.example.cinerec_app.AgregarPeli;
+package com.example.cinerec_app.Peliculas;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -12,16 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.cinerec_app.Objetos.Pelicula;
 import com.example.cinerec_app.R;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -37,6 +33,9 @@ public class Agregar_Peli extends AppCompatActivity {
     ImageView btnBack, add_film;
 
     int dia,mes,year;
+
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
 
     DatabaseReference BD_Firebase;
 
@@ -119,7 +118,10 @@ public class Agregar_Peli extends AppCompatActivity {
         btn_añadir = findViewById(R.id.btn_añadir);
         add_film = findViewById(R.id.add_film);
 
-        BD_Firebase = FirebaseDatabase.getInstance().getReference();
+        BD_Firebase = FirebaseDatabase.getInstance().getReference("Usuarios");
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
 
     }
 
@@ -179,7 +181,7 @@ public class Agregar_Peli extends AppCompatActivity {
             //Establecer el nombre de la BD
             String nombre_BD = "Peliculas_Publicadas";
 
-            BD_Firebase.child(nombre_BD).child(id_pelicula).setValue(pelicula);
+            BD_Firebase.child(user.getUid()).child(nombre_BD).child(id_pelicula).setValue(pelicula);
             onBackPressed();
 
             Toast.makeText(this, "Pelicula añadida correctamente", Toast.LENGTH_SHORT).show();

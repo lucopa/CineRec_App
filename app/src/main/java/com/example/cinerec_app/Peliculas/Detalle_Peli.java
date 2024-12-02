@@ -1,4 +1,4 @@
-package com.example.cinerec_app.Detalle;
+package com.example.cinerec_app.Peliculas;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cinerec_app.AgregarPeli.Agregar_Peli;
-import com.example.cinerec_app.Contactos.Detalle_contacto;
 import com.example.cinerec_app.Contactos.Listar_Contactos;
-import com.example.cinerec_app.ListarPeli.Listar_Peli;
 import com.example.cinerec_app.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
