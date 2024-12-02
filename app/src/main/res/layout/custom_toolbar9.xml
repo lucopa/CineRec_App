@@ -1,34 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#e8e8e8 "
+        android:background="#e8e8e8"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical|start">
 
             <ImageView
                 android:id="@+id/btn_back"
-                android:layout_width="40dp"
-                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
                 android:contentDescription="Flecha para ir atrás"
-                />
+                android:src="@drawable/haciatras" />
 
             <ImageView
                 android:id="@+id/tv_title_toolbar"
                 android:layout_marginTop="8dp"
-                android:layout_height="360dp"
+                android:layout_height="300dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Logo"
@@ -36,17 +34,13 @@
                 android:layout_width="20dp"/>
 
             <ImageView
-                android:id="@+id/perfil"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:src="@drawable/perfilusuario"
-                android:padding="8dp"/>
-            <ImageView
-                android:id="@+id/ajustes"
-                android:layout_width="70dp"
+                android:id="@+id/añadir"
+                android:layout_width="105dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ajustes"
                 android:padding="8dp"/>
+
+
 
 
 

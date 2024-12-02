@@ -10,9 +10,12 @@ import android.view.LayoutInflater;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.example.cinerec_app.Ajustes.Ajustes;
 import com.example.cinerec_app.MainActivity;
 import com.example.cinerec_app.PeliculasActuales.PelisActualesApi;
 import com.example.cinerec_app.R;
+
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -45,7 +48,7 @@ public class MenuPrincipalFragment extends Fragment {
 
     ViewFlipper v_flipper;
 
-    ImageView btnBack, perfil, AgregarPeli, ListarPeli, Contactos;
+    ImageView btnBack, perfil, AgregarPeli, ListarPeli, Contactos, ajustes;
     FirebaseAuth firebaseAuth;
     Button  Archivados, cerrar, EstadoCuentaPrincipal;
 
@@ -79,6 +82,8 @@ public class MenuPrincipalFragment extends Fragment {
         Linear_Nombre = rootView.findViewById(R.id.Linear_Nombre);
         Linear_Correo = rootView.findViewById(R.id.Linear_Correo);
         EstadoCuentaPrincipal = rootView.findViewById(R.id.EstadoCuentaPrincipal);
+        ajustes = rootView.findViewById(R.id.ajustes);
+
 
         int images[] = {R.drawable.wicked, R.drawable.gladiator, R.drawable.anora, R.drawable.substance, R.drawable.suicidesquad, R.drawable.gonegirl, R.drawable.dune, R.drawable.twisters, R.drawable.oppenheimer};
 
@@ -122,9 +127,18 @@ public class MenuPrincipalFragment extends Fragment {
                 getActivity().finish();  // Cierra la actividad que aloja este fragmento
             }
         });
-        perfil.setOnClickListener(v ->  startActivity(new Intent(getActivity(), Perfil_Usuario.class)));
+
+       perfil.setOnClickListener(v ->  startActivity(new Intent(getActivity(), Perfil_Usuario.class)));
 
         v_flipper.setOnClickListener(v -> startActivity(new Intent(getActivity(), PelisActualesApi.class)));
+
+        ajustes.setOnClickListener(v -> {
+            String uid_usuario = UidPrincipal.getText().toString();
+            Intent intent = new Intent(getActivity(), Ajustes.class);
+            intent.putExtra("Uid", uid_usuario);
+            startActivity(intent);
+        });
+
 
 
         // Inicializa Firebase
@@ -152,6 +166,8 @@ public class MenuPrincipalFragment extends Fragment {
         Animation scaleAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down_up);
         view.startAnimation(scaleAnimation);
     }
+
+
 
 
     public void flipperImagenes(int image){

@@ -26,6 +26,9 @@
         android:theme="@style/Theme.CineRec_App"
         tools:targetApi="31">
         <activity
+            android:name=".Ajustes.Ajustes"
+            android:exported="false" />
+        <activity
             android:name=".PeliculasActuales.PelisActualesApi"
             android:exported="false" />
         <activity
