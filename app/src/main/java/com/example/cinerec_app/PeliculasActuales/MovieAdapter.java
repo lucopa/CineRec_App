@@ -1,6 +1,7 @@
 package com.example.cinerec_app.PeliculasActuales;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.cinerec_app.PeliculasActuales.Detalles.MovieDetalle;
 import com.example.cinerec_app.R;
 
 import java.util.List;
@@ -40,6 +42,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         // Mostrar la nota de la película
         holder.voteAverage.setText(String.format("%.1f", movie.getVoteAverage()));  // Formatear la nota a un decimal
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, MovieDetalle.class);
+            intent.putExtra("movie_id", movie.getId()); // Pasa el ID de la película
+            context.startActivity(intent);
+        });
     }
 
     @Override

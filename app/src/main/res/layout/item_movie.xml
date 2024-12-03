@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_margin="8dp"
     android:padding="8dp"
-    android:background="@android:color/white"
+    android:background="@drawable/rounded_border"
     android:elevation="4dp">
 
     <!-- Imagen del póster de la película -->
@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:scaleType="fitCenter"
-
         android:adjustViewBounds="true" />
 
     <!-- Contenedor horizontal para el título y la nota -->
