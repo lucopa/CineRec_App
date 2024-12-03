@@ -1,11 +1,11 @@
 package com.example.cinerec_app.PeliculasActuales;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cinerec_app.R;
@@ -18,6 +18,7 @@ import retrofit2.Response;
 
 public class PelisActualesApi extends AppCompatActivity {
 
+    ImageView btnBack;
     private RecyclerView recyclerView;
     private MovieAdapter adapter;
 
@@ -26,9 +27,15 @@ public class PelisActualesApi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pelis_actuales_api);
 
+        btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(v -> finish());
+        // Configurar RecyclerView
         recyclerView = findViewById(R.id.recycler_peliculas);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // Cambiar a GridLayoutManager para 2 columnas
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
+        // Llamar al método para obtener las películas
         fetchMovies();
     }
 
@@ -39,6 +46,7 @@ public class PelisActualesApi extends AppCompatActivity {
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Movie> movies = response.body().getMovies();
+                    // Configurar adaptador con las películas obtenidas
                     adapter = new MovieAdapter(PelisActualesApi.this, movies);
                     recyclerView.setAdapter(adapter);
                 }
