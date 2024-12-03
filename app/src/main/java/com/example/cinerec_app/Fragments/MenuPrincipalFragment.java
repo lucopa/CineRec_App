@@ -13,10 +13,9 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.cinerec_app.Ajustes.Ajustes;
 import com.example.cinerec_app.MainActivity;
-import com.example.cinerec_app.PeliculasActuales.PelisActualesApi;
+import com.example.cinerec_app.PeliculasActuales.PelisApi;
 import com.example.cinerec_app.R;
 
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -131,7 +130,7 @@ public class MenuPrincipalFragment extends Fragment {
 
        perfil.setOnClickListener(v ->  startActivity(new Intent(getActivity(), Perfil_Usuario.class)));
 
-        v_flipper.setOnClickListener(v -> startActivity(new Intent(getActivity(), PelisActualesApi.class)));
+        v_flipper.setOnClickListener(v -> startActivity(new Intent(getActivity(), PelisApi.class)));
 
         ajustes.setOnClickListener(v -> {
             String uid_usuario = UidPrincipal.getText().toString();

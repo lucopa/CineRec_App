@@ -25,7 +25,6 @@ public class MenuPrincipal extends AppCompatActivity  {
         setUpNavigation();
 
 
-
     }
 
 

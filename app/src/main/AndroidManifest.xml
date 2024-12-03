@@ -29,7 +29,7 @@
             android:name=".Ajustes.Ajustes"
             android:exported="false" />
         <activity
-            android:name=".PeliculasActuales.PelisActualesApi"
+            android:name=".PeliculasActuales.PelisApi"
             android:exported="false" />
         <activity
             android:name=".Informacion"
