@@ -285,7 +285,7 @@
             <ViewFlipper
                 android:id="@+id/v_flipper"
                 android:layout_width="390dp"
-                android:layout_height="290dp"
+                android:layout_height="300dp"
                 android:layout_gravity="center"
                 android:elevation="8dp"
                 android:padding="8dp"

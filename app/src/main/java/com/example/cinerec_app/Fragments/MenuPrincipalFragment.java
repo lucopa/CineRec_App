@@ -13,6 +13,10 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.cinerec_app.Ajustes.Ajustes;
 import com.example.cinerec_app.MainActivity;
+import com.example.cinerec_app.PeliculasActuales.ApiClient;
+import com.example.cinerec_app.PeliculasActuales.ApiService;
+import com.example.cinerec_app.PeliculasActuales.Movie;
+import com.example.cinerec_app.PeliculasActuales.MovieResponse;
 import com.example.cinerec_app.PeliculasActuales.PelisApi;
 import com.example.cinerec_app.R;
 
@@ -44,6 +48,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MenuPrincipalFragment extends Fragment {
 
     ViewFlipper v_flipper;
@@ -59,6 +69,7 @@ public class MenuPrincipalFragment extends Fragment {
     DatabaseReference Usuarios;
     Dialog dialog_cuenta_verificada;
     FirebaseUser user;
+    String apiKey = "4a270cdd9146af7951a9a33ce4af681b";
 
 
 
@@ -84,14 +95,42 @@ public class MenuPrincipalFragment extends Fragment {
         EstadoCuentaPrincipal = rootView.findViewById(R.id.EstadoCuentaPrincipal);
         ajustes = rootView.findViewById(R.id.ajustes);
         perfilusuario = rootView.findViewById(R.id.perfilusuario);
-
-        int images[] = {R.drawable.wicked, R.drawable.gladiator, R.drawable.anora, R.drawable.substance, R.drawable.suicidesquad, R.drawable.gonegirl, R.drawable.dune, R.drawable.twisters, R.drawable.oppenheimer};
-
         v_flipper = rootView.findViewById(R.id.v_flipper);
 
-        for (int image: images){
-            flipperImagenes(image);
-        }
+        v_flipper.setFlipInterval(4000);
+        v_flipper.setAutoStart(true);
+
+        v_flipper.setInAnimation(getActivity(), android.R.anim.slide_in_left);
+        v_flipper.setOutAnimation(getActivity(), android.R.anim.slide_out_right);
+
+
+
+        // Realiza la solicitud a TMDb
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+        apiService.getPopularMovies(apiKey) // Llamada correcta al método
+                .enqueue(new Callback<MovieResponse>() {
+                    @Override
+                    public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            List<Movie> movies = response.body().getMovies();
+                            if (movies.size() > 1) {
+                                for (Movie movie : movies) {
+                                    String imageUrl = movie.getPosterPath();
+                                    flipperImagenes(imageUrl);
+                                }
+                            } else {
+                                Toast.makeText(getActivity(), "No hay suficientes imágenes para el deslizamiento", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+
+                    @Override
+                    public void onFailure(Call<MovieResponse> call, Throwable t) {
+                        Toast.makeText(getActivity(), "Error al obtener las películas: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
 
 
 
@@ -170,20 +209,18 @@ public class MenuPrincipalFragment extends Fragment {
 
 
 
-    public void flipperImagenes(int image){
+    public void flipperImagenes(String image){
         ImageView imageView = new ImageView(getActivity());
+
+       imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
         Glide.with(getActivity())
                 .load(image)
-                .transform(new CenterCrop(), new RoundedCorners(20))  // 16dp de radio de esquina
+                .transform(new RoundedCorners(20))
                 .into(imageView);
 
         v_flipper.addView(imageView);
-        v_flipper.setFlipInterval(4000);
-        v_flipper.setAutoStart(true);
 
-        v_flipper.setInAnimation(getActivity(), android.R.anim.slide_in_left);
-        v_flipper.setOutAnimation(getActivity(), android.R.anim.slide_out_right);
 
 
 

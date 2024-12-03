@@ -1,6 +1,7 @@
 package com.example.cinerec_app.PeliculasActuales;
 
 import com.example.cinerec_app.PeliculasActuales.Detalles.MovieDetailResponse;
+import com.example.cinerec_app.PeliculasActuales.Detalles.Trailer.MovieVideoResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -20,4 +21,8 @@ public interface ApiService {
             @Query("language") String language,
             @Query("api_key") String apiKey
     );
+
+    @GET("movie/{movie_id}/videos")
+    Call<MovieVideoResponse> getMovieVideos(@Path("movie_id") int movieId,
+                                            @Query("api_key") String apiKey);
 }

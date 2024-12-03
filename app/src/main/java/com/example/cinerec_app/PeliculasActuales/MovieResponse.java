@@ -10,6 +10,7 @@ public class MovieResponse {
     public List<Movie> getMovies() {
         return movies;
     }
+
 }
 
 
