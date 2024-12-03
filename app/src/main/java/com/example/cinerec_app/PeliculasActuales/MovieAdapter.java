@@ -1,7 +1,6 @@
 package com.example.cinerec_app.PeliculasActuales;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,8 +38,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         holder.title.setText(movie.getTitle());
         Glide.with(context).load(movie.getPosterPath()).into(holder.poster);
 
+        // Mostrar la nota de la película
+        holder.voteAverage.setText(String.format("%.1f", movie.getVoteAverage()));  // Formatear la nota a un decimal
     }
-
 
     @Override
     public int getItemCount() {
@@ -49,11 +49,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     static class MovieViewHolder extends RecyclerView.ViewHolder {
         TextView title;
+        TextView voteAverage;  // Para la nota de la película
         ImageView poster;
 
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.movie_title);
+            voteAverage = itemView.findViewById(R.id.movie_rating);  // Inicializar el TextView para la nota
             poster = itemView.findViewById(R.id.movie_poster);
         }
     }
