@@ -97,39 +97,12 @@ public class MenuPrincipalFragment extends Fragment {
         perfilusuario = rootView.findViewById(R.id.perfilusuario);
         v_flipper = rootView.findViewById(R.id.v_flipper);
 
-        v_flipper.setFlipInterval(4000);
-        v_flipper.setAutoStart(true);
-
-        v_flipper.setInAnimation(getActivity(), android.R.anim.slide_in_left);
-        v_flipper.setOutAnimation(getActivity(), android.R.anim.slide_out_right);
+        int images[] = {R.drawable.wicked, R.drawable.gladiator, R.drawable.anora, R.drawable.substance, R.drawable.suicidesquad, R.drawable.gonegirl, R.drawable.dune, R.drawable.twisters, R.drawable.oppenheimer};
 
 
-
-        // Realiza la solicitud a TMDb
-        ApiService apiService = ApiClient.getClient().create(ApiService.class);
-        apiService.getPopularMovies(apiKey) // Llamada correcta al método
-                .enqueue(new Callback<MovieResponse>() {
-                    @Override
-                    public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
-                        if (response.isSuccessful() && response.body() != null) {
-                            List<Movie> movies = response.body().getMovies();
-                            if (movies.size() > 1) {
-                                for (Movie movie : movies) {
-                                    String imageUrl = movie.getPosterPath();
-                                    flipperImagenes(imageUrl);
-                                }
-                            } else {
-                                Toast.makeText(getActivity(), "No hay suficientes imágenes para el deslizamiento", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-
-
-                    @Override
-                    public void onFailure(Call<MovieResponse> call, Throwable t) {
-                        Toast.makeText(getActivity(), "Error al obtener las películas: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+        for (int image: images){
+            flipperImagenes(image);
+        }
 
 
 
@@ -209,20 +182,20 @@ public class MenuPrincipalFragment extends Fragment {
 
 
 
-    public void flipperImagenes(String image){
+    public void flipperImagenes(int image){
         ImageView imageView = new ImageView(getActivity());
-
-       imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
         Glide.with(getActivity())
                 .load(image)
-                .transform(new RoundedCorners(20))
+                .transform(new CenterCrop(), new RoundedCorners(20))  // 16dp de radio de esquina
                 .into(imageView);
 
         v_flipper.addView(imageView);
+        v_flipper.setFlipInterval(4000);
+        v_flipper.setAutoStart(true);
 
-
-
+        v_flipper.setInAnimation(getActivity(), android.R.anim.slide_in_left);
+        v_flipper.setOutAnimation(getActivity(), android.R.anim.slide_out_right);
 
     }
 

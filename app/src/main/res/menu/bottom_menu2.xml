@@ -4,10 +4,12 @@
 
     <item
         android:id="@+id/page_populares"
+        android:icon="@drawable/baseline_star_24"
         android:title="Populares" />
 
     <item
         android:id="@+id/page_cartelera"
+        android:icon="@drawable/cartelera"
         android:title="En cartelera" />
 
 
