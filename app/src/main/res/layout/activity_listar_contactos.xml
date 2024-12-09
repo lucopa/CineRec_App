@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Contactos.Listar_Contactos"
+    tools:context=".view.contactos.Listar_Contactos"
     android:background="#e8e8e8">
 
     <include layout="@layout/custom_toolbar8" />

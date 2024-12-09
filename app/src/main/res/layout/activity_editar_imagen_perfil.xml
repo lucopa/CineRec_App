@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Perfil.Editar_imagen_perfil">
+    tools:context=".view.perfil.Editar_imagen_perfil">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

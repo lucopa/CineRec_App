@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Contactos.Agregar_Contacto"
+    tools:context=".view.contactos.Agregar_Contacto"
     android:background="#e8e8e8">
 
 
@@ -60,6 +60,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Nombre_Contacto"
+                    android:drawableStart="@drawable/baseline_person_pin_24"
+                    android:drawablePadding="8dp"
                     android:inputType="textCapWords|textPersonName"
                     android:minHeight="48dp" />
 
@@ -71,6 +73,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Apellidos_Contacto"
+                    android:drawableStart="@drawable/baseline_person_pin_24"
+                    android:drawablePadding="8dp"
                     android:inputType="textCapWords|textPersonName"
                     android:minHeight="48dp" />
 
@@ -81,6 +85,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand"
+                    android:drawableStart="@drawable/baseline_email_24_grey"
+                    android:drawablePadding="8dp"
                     android:hint="@string/Correo_Contacto"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp" />
@@ -92,23 +98,25 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
+                    <!--Código del país-->
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/Editar_Telefono_C"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/telefono"/>
+
                     <!--Teléfono del contactos-->
                     <TextView
                         android:id="@+id/Telefono_Contacto"
                         android:hint="@string/Telefono_Contacto"
                         android:fontFamily="@font/quicksand"
                         android:textSize="20sp"
+                        android:layout_marginLeft="20dp"
                         android:layout_gravity="center"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"/>
 
-                    <!--Código del país-->
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/Editar_Telefono_C"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/telefono"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -120,6 +128,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Edad_Contacto"
+                    android:drawableStart="@drawable/baseline_18_up_rating_24_grey"
+                    android:drawablePadding="8dp"
                     android:inputType="number"
                     android:minHeight="48dp" />
 
@@ -131,6 +141,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand"
                     android:hint="@string/Direccion_Contacto"
+                    android:drawableStart="@drawable/baseline_house_24_grey"
+                    android:drawablePadding="8dp"
                     android:inputType="textCapWords|textPersonName"
                     android:minHeight="48dp" />
 

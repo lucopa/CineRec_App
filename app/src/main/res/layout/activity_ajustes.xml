@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ajustes.Ajustes"
+    tools:context=".view.ajustes.Ajustes"
     android:background="#e8e8e8">
 
     <androidx.appcompat.widget.LinearLayoutCompat

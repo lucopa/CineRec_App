@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/page_populares"
-        android:name="com.example.cinerec_app.PeliculasActuales.Fragments.PelisActualesFragment"
+        android:name="com.example.cinerec_app.view.peliculas.PelisActualesFragment"
         tools:layout="@layout/fragment_pelis_actuales" />
 
     <fragment
         android:id="@+id/page_cartelera"
-        android:name="com.example.cinerec_app.PeliculasActuales.Fragments.PelisCarteleraFragment"
+        android:name="com.example.cinerec_app.view.peliculas.PelisCarteleraFragment"
         tools:layout="@layout/fragment_pelis_cartelera" />
 
 

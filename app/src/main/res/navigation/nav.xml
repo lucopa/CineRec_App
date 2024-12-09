@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/page_inicio"
-        android:name="com.example.cinerec_app.Fragments.MenuPrincipalFragment"
+        android:name="com.example.cinerec_app.view.main.MenuPrincipalFragment"
         tools:layout="@layout/fragment_menu_principal" />
 
     <fragment
         android:id="@+id/page_peliculasfavs"
-        android:name="com.example.cinerec_app.Fragments.PelisFavoritasFragment"
+        android:name="com.example.cinerec_app.view.peliculas.PelisFavoritasFragment"
         tools:layout="@layout/fragment_pelis_favoritas" />
 
     <fragment
         android:id="@+id/page_info"
-        android:name="com.example.cinerec_app.Fragments.InfoFragment"
+        android:name="com.example.cinerec_app.view.ajustes.InfoFragment"
         tools:layout="@layout/fragment_info" />
 
 

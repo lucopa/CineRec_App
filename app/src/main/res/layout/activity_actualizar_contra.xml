@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e8e8e8"
-    tools:context=".ActualizarPass.ActualizarContra">
+    tools:context=".view.ajustes.ActualizarContra">
 
     <include layout="@layout/custom_toolbar5"
         android:layout_width="match_parent"

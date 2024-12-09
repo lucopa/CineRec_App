@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Peliculas.Listar_Peli"
+    tools:context=".view.peliculas.Listar_Peli"
     android:background="#e8e8e8"
     tools:ignore="ExtraText">
 

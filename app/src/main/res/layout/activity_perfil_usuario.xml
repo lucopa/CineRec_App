@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Perfil.Perfil_Usuario"
+    tools:context=".view.perfil.Perfil_Usuario"
     tools:ignore="SpeakableTextPresentCheck"
     android:background="#e8e8e8">
 

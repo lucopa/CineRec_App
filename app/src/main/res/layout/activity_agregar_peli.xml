@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Peliculas.Agregar_Peli"
+    tools:context=".view.peliculas.Agregar_Peli"
     android:background="#e8e8e8">
 
     <!-- Imagen de fondo
