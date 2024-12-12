@@ -10,7 +10,7 @@
     tools:ignore="ExtraText"
     android:background="#e8e8e8" >
 
-    <include layout="@layout/custom_toolbar3" />
+    <include layout="@layout/custom_toolbar5" />
 
     <TextView
         android:layout_width="wrap_content"

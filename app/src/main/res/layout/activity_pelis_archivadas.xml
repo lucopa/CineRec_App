@@ -9,7 +9,7 @@
     tools:context=".view.peliculas.PelisFavoritasFragment"
     tools:ignore="ExtraText">
 
-    <include layout="@layout/custom_toolbar3" />
+    <include layout="@layout/custom_toolbar5" />
 
     <TextView
         android:layout_width="wrap_content"
